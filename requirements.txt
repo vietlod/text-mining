@@ -1,3 +1,4 @@
+# Core dependencies
 streamlit
 pandas
 numpy
@@ -14,3 +15,25 @@ altair
 python-docx
 google-generativeai
 wordcloud
+
+# Authentication & User Management
+firebase-admin>=6.3.0
+streamlit-authenticator>=0.2.3
+
+# Google Cloud Integration
+google-auth>=2.25.2
+google-auth-oauthlib>=1.2.0
+google-api-python-client>=2.110.0
+
+# Microsoft Azure Integration
+msal>=1.26.0
+msgraph-core>=1.0.0
+
+# Security & Encryption
+cryptography>=41.0.7
+
+# Theme & UI Enhancement
+darkdetect>=0.8.0
+
+# Additional utilities
+python-dotenv>=1.0.0

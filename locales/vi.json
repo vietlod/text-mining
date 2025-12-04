@@ -1,0 +1,118 @@
+{
+  "app_title": "Công cụ phân tích văn bản nghiên cứu",
+  "app_subtitle": "Phân tích văn bản tiếng Việt nâng cao",
+
+  "auth": {
+    "welcome": "Chào mừng! Vui lòng đăng nhập để tiếp tục",
+    "sign_in": "Đăng nhập với Google",
+    "sign_out": "Đăng xuất",
+    "required": "Ứng dụng này yêu cầu đăng nhập bằng tài khoản Google",
+    "user_profile": "Hồ sơ người dùng"
+  },
+
+  "sidebar": {
+    "settings": "Cài đặt",
+    "theme": "Giao diện",
+    "language": "Ngôn ngữ",
+    "upload_files": "Tải tệp lên",
+    "file_source": "Nguồn tệp",
+    "extraction_mode": "Chế độ trích xuất",
+    "keywords": "Từ khóa",
+    "process": "Xử lý tài liệu",
+    "user_menu": "Menu người dùng"
+  },
+
+  "settings": {
+    "title": "Cài đặt",
+    "api_key_title": "Cấu hình Google Gemini API",
+    "api_key_placeholder": "Nhập khóa API Google Gemini của bạn",
+    "api_key_help": "Chưa có khóa API?",
+    "api_key_link_text": "Tạo khóa API miễn phí tại đây",
+    "api_key_save": "Lưu khóa API",
+    "api_key_success": "Đã lưu khóa API thành công",
+    "api_key_error": "Khóa API không hợp lệ. Vui lòng kiểm tra và thử lại",
+    "api_key_configured": "Đã cấu hình khóa API",
+    "api_key_show": "Hiển thị khóa API"
+  },
+
+  "cloud": {
+    "title": "Tích hợp lưu trữ đám mây",
+    "google_drive": "Google Drive",
+    "onedrive": "OneDrive",
+    "local_upload": "Tải lên từ máy",
+    "connected": "Đã kết nối",
+    "not_connected": "Chưa kết nối",
+    "connect": "Kết nối",
+    "disconnect": "Ngắt kết nối",
+    "select_folder": "Chọn thư mục",
+    "change_folder": "Thay đổi thư mục",
+    "linked_folder": "Thư mục đã liên kết",
+    "guide_text": "Hướng dẫn bật",
+    "guide_link_drive": "https://developers.google.com/drive/api/quickstart/python",
+    "guide_link_onedrive": "https://learn.microsoft.com/en-us/graph/auth-v2-user",
+    "connect_first": "Vui lòng kết nối lưu trữ đám mây trong cài đặt trước",
+    "download_files": "Tải các tệp đã chọn",
+    "select_files": "Chọn tệp để xử lý"
+  },
+
+  "theme": {
+    "light": "Sáng",
+    "dark": "Tối",
+    "system": "Hệ thống"
+  },
+
+  "language": {
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
+  },
+
+  "processing": {
+    "uploading": "Đang tải tệp lên",
+    "extracting": "Đang trích xuất văn bản",
+    "analyzing": "Đang phân tích từ khóa",
+    "generating_report": "Đang tạo báo cáo",
+    "complete": "Hoàn tất xử lý",
+    "error": "Đã xảy ra lỗi",
+    "in_progress": "Đang xử lý",
+    "please_wait": "Vui lòng đợi"
+  },
+
+  "results": {
+    "title": "Kết quả phân tích",
+    "total_files": "Tổng số tệp",
+    "total_keywords": "Tổng số từ khóa tìm thấy",
+    "download_report": "Tải báo cáo",
+    "view_details": "Xem chi tiết",
+    "no_results": "Chưa có kết quả"
+  },
+
+  "extraction_modes": {
+    "local_ocr": "OCR cục bộ",
+    "ocr_ai": "OCR AI",
+    "all_ai": "Toàn bộ AI",
+    "local_ocr_desc": "Nhanh, miễn phí, sử dụng EasyOCR và regex",
+    "ocr_ai_desc": "Độ chính xác cao sử dụng Gemini Vision làm OCR",
+    "all_ai_desc": "Hiểu ngữ nghĩa đầy đủ với Gemini Vision"
+  },
+
+  "messages": {
+    "success": "Thành công",
+    "error": "Lỗi",
+    "warning": "Cảnh báo",
+    "info": "Thông tin",
+    "loading": "Đang tải..."
+  },
+
+  "buttons": {
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "close": "Đóng",
+    "upload": "Tải lên",
+    "download": "Tải xuống",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "back": "Quay lại",
+    "next": "Tiếp theo"
+  }
+}

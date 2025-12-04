@@ -1,0 +1,118 @@
+{
+  "app_title": "Text-mining research tool",
+  "app_subtitle": "Advanced Vietnamese document analysis",
+
+  "auth": {
+    "welcome": "Welcome! Please sign in to continue",
+    "sign_in": "Sign in with Google",
+    "sign_out": "Sign out",
+    "required": "This application requires Google Sign-in for access",
+    "user_profile": "User profile"
+  },
+
+  "sidebar": {
+    "settings": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "upload_files": "Upload files",
+    "file_source": "File source",
+    "extraction_mode": "Extraction mode",
+    "keywords": "Keywords",
+    "process": "Process documents",
+    "user_menu": "User menu"
+  },
+
+  "settings": {
+    "title": "Settings",
+    "api_key_title": "Google Gemini API configuration",
+    "api_key_placeholder": "Enter your Google Gemini API key",
+    "api_key_help": "Don't have an API key?",
+    "api_key_link_text": "Get your free API key here",
+    "api_key_save": "Save API key",
+    "api_key_success": "API key saved successfully",
+    "api_key_error": "Invalid API key. Please check and try again",
+    "api_key_configured": "API key configured",
+    "api_key_show": "Show API key"
+  },
+
+  "cloud": {
+    "title": "Cloud storage integration",
+    "google_drive": "Google Drive",
+    "onedrive": "OneDrive",
+    "local_upload": "Local upload",
+    "connected": "Connected",
+    "not_connected": "Not connected",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "select_folder": "Select folder",
+    "change_folder": "Change folder",
+    "linked_folder": "Linked folder",
+    "guide_text": "How to enable",
+    "guide_link_drive": "https://developers.google.com/drive/api/quickstart/python",
+    "guide_link_onedrive": "https://learn.microsoft.com/en-us/graph/auth-v2-user",
+    "connect_first": "Please connect cloud storage in Settings first",
+    "download_files": "Download selected files",
+    "select_files": "Select files to process"
+  },
+
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+
+  "language": {
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
+  },
+
+  "processing": {
+    "uploading": "Uploading files",
+    "extracting": "Extracting text",
+    "analyzing": "Analyzing keywords",
+    "generating_report": "Generating report",
+    "complete": "Processing complete",
+    "error": "An error occurred",
+    "in_progress": "Processing in progress",
+    "please_wait": "Please wait"
+  },
+
+  "results": {
+    "title": "Analysis results",
+    "total_files": "Total files",
+    "total_keywords": "Total keywords found",
+    "download_report": "Download report",
+    "view_details": "View details",
+    "no_results": "No results yet"
+  },
+
+  "extraction_modes": {
+    "local_ocr": "Local OCR",
+    "ocr_ai": "OCR AI",
+    "all_ai": "ALL AI",
+    "local_ocr_desc": "Fast, free, uses EasyOCR and regex",
+    "ocr_ai_desc": "High accuracy using Gemini Vision as OCR",
+    "all_ai_desc": "Full semantic understanding with Gemini Vision"
+  },
+
+  "messages": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Information",
+    "loading": "Loading..."
+  },
+
+  "buttons": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "upload": "Upload",
+    "download": "Download",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next"
+  }
+}

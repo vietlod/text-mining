@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Sensitive Configuration Files
+config/firebase_config.json
+config/google_oauth_credentials.json
+config/azure_config.json
+config/.env
+.env
+
+# Logs
+*.log
+data/app.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (optional - uncomment if needed)
+# data/input/*
+# data/output/*
+# !data/input/.gitkeep
+# !data/output/.gitkeep
+
+# Temporary files
+*.tmp
+*.bak
+temp/
+tmp/
+
+# API Keys and Secrets
+*_secret.json
+*_credentials.json
+!config/*.example
