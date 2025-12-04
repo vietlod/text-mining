@@ -22,8 +22,17 @@
     "user_menu": "User menu"
   },
 
+  "keywords": {
+    "title": "Keyword Management",
+    "loaded": "Loaded",
+    "keywords_count": "keywords",
+    "upload_tab": "Upload File",
+    "manual_tab": "Manual Input"
+  },
+
   "settings": {
     "title": "Settings",
+    "configuration_input": "Configuration & Input",
     "api_key_title": "Google Gemini API configuration",
     "api_key_placeholder": "Enter your Google Gemini API key",
     "api_key_help": "Don't have an API key?",
@@ -32,7 +41,18 @@
     "api_key_success": "API key saved successfully",
     "api_key_error": "Invalid API key. Please check and try again",
     "api_key_configured": "API key configured",
-    "api_key_show": "Show API key"
+    "api_key_show": "Show API key",
+    "api_key_warning": "Please configure your Gemini API key to use AI features.",
+    "language": {
+      "title": "Language",
+      "subtitle": "Choose your preferred language",
+      "language": "Language",
+      "current": "Selected",
+      "select_this": "Click to select",
+      "apply_success": "Language changed successfully!",
+      "preview_title": "Preview",
+      "preview_desc": "Sample UI elements in selected language"
+    }
   },
 
   "cloud": {
@@ -93,6 +113,14 @@
     "local_ocr_desc": "Fast, free, uses EasyOCR and regex",
     "ocr_ai_desc": "High accuracy using Gemini Vision as OCR",
     "all_ai_desc": "Full semantic understanding with Gemini Vision"
+  },
+
+  "common": {
+    "welcome": "Welcome!",
+    "success": "Success!",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Information"
   },
 
   "messages": {

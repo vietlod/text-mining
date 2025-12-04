@@ -22,8 +22,17 @@
     "user_menu": "Menu người dùng"
   },
 
+  "keywords": {
+    "title": "Quản lý từ khóa",
+    "loaded": "Đã tải",
+    "keywords_count": "từ khóa",
+    "upload_tab": "Tải tệp lên",
+    "manual_tab": "Nhập thủ công"
+  },
+
   "settings": {
     "title": "Cài đặt",
+    "configuration_input": "Cấu hình & đầu vào",
     "api_key_title": "Cấu hình Google Gemini API",
     "api_key_placeholder": "Nhập khóa API Google Gemini của bạn",
     "api_key_help": "Chưa có khóa API?",
@@ -32,7 +41,18 @@
     "api_key_success": "Đã lưu khóa API thành công",
     "api_key_error": "Khóa API không hợp lệ. Vui lòng kiểm tra và thử lại",
     "api_key_configured": "Đã cấu hình khóa API",
-    "api_key_show": "Hiển thị khóa API"
+    "api_key_show": "Hiển thị khóa API",
+    "api_key_warning": "Vui lòng cấu hình khóa Gemini API để sử dụng tính năng AI.",
+    "language": {
+      "title": "Ngôn ngữ",
+      "subtitle": "Chọn ngôn ngữ ưa thích",
+      "language": "Ngôn ngữ",
+      "current": "Đã chọn",
+      "select_this": "Nhấn để chọn",
+      "apply_success": "Đã thay đổi ngôn ngữ thành công!",
+      "preview_title": "Xem trước",
+      "preview_desc": "Các thành phần giao diện mẫu với ngôn ngữ đã chọn"
+    }
   },
 
   "cloud": {
@@ -93,6 +113,14 @@
     "local_ocr_desc": "Nhanh, miễn phí, sử dụng EasyOCR và regex",
     "ocr_ai_desc": "Độ chính xác cao sử dụng Gemini Vision làm OCR",
     "all_ai_desc": "Hiểu ngữ nghĩa đầy đủ với Gemini Vision"
+  },
+
+  "common": {
+    "welcome": "Chào mừng!",
+    "success": "Thành công!",
+    "error": "Lỗi",
+    "warning": "Cảnh báo",
+    "info": "Thông tin"
   },
 
   "messages": {

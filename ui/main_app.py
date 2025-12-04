@@ -30,9 +30,11 @@ from app.auth.firebase_manager import firebase_manager
 from app.auth.session_manager import SessionManager
 from app.database.settings_manager import SettingsManager
 from app.ui.theme_manager import ThemeManager
+from app.i18n.translator import Translator
 from ui.components.api_key_input import render_api_key_input
 from ui.components.cloud_storage import render_cloud_storage_settings, render_file_source_selector
 from ui.components.theme_selector import render_compact_theme_selector
+from ui.components.language_selector import render_compact_language_selector
 
 logger = setup_logger("UI")
 
@@ -92,6 +94,14 @@ def render_main_app():
     # Initialize settings manager
     settings_manager = SettingsManager(firebase_manager.get_firestore_client())
 
+    # Initialize language
+    user_language = settings_manager.get_language_preference(user_id) if user_id else 'en'
+    if 'language' not in st.session_state:
+        st.session_state['language'] = user_language
+
+    # Initialize translator
+    translator = Translator(st.session_state.get('language', 'en'))
+
     # Initialize theme manager and apply theme
     theme_manager = ThemeManager(settings_manager, user_id)
     theme_manager.apply_theme()
@@ -103,27 +113,36 @@ def render_main_app():
     left_col, right_col = st.columns([1, 2], gap="large")
 
     with left_col:
-        st.markdown("### ⚙️ Configuration & Input")
+        st.markdown(f"### ⚙️ {translator.t('settings.configuration_input')}")
 
         # --- Settings Section ---
-        with st.expander("⚙️ Settings", expanded=not user_api_key):
+        with st.expander(f"⚙️ {translator.t('settings.title')}", expanded=not user_api_key):
             # API Key Configuration
             has_api_key = render_api_key_input(
                 settings_manager,
                 user_id,
-                language=SessionManager.get_language()
+                language=st.session_state.get('language', 'en')
             )
 
             # Warning if no API key
             if not has_api_key:
-                st.warning("⚠️ Please configure your Gemini API key to use AI features.")
+                st.warning(f"⚠️ {translator.t('settings.api_key_warning')}")
+
+            st.markdown("---")
+
+            # Language Configuration
+            render_compact_language_selector(
+                settings_manager,
+                user_id,
+                translator
+            )
 
             st.markdown("---")
 
             # Theme Configuration
             render_compact_theme_selector(
                 theme_manager,
-                language=SessionManager.get_language()
+                language=st.session_state.get('language', 'en')
             )
 
             st.markdown("---")
@@ -132,14 +151,14 @@ def render_main_app():
             render_cloud_storage_settings(
                 settings_manager,
                 user_id,
-                language=SessionManager.get_language()
+                language=st.session_state.get('language', 'en')
             )
 
         # --- Keyword Section ---
-        with st.expander("🔑 Keyword Management", expanded=True):
-            st.info(f"Loaded: **{len(st.session_state.keywords_map)}** keywords")
-        
-            kw_tab1, kw_tab2 = st.tabs(["📤 Upload File", "✍️ Manual Input"])
+        with st.expander(f"🔑 {translator.t('keywords.title')}", expanded=True):
+            st.info(f"{translator.t('keywords.loaded')}: **{len(st.session_state.keywords_map)}** {translator.t('keywords.keywords_count')}")
+
+            kw_tab1, kw_tab2 = st.tabs([f"📤 {translator.t('keywords.upload_tab')}", f"✍️ {translator.t('keywords.manual_tab')}"])
         
             with kw_tab1:
                 uploaded_kw = st.file_uploader("Upload Keywords (CSV/XLSX/TXT)", type=['csv', 'xlsx', 'txt', 'md'])
