@@ -1,0 +1,804 @@
+# -*- coding: utf-8 -*-
+"""
+FINTECH KEYWORD ANALYSIS - ENHANCED VERSION WITH AGGRESSIVE OCR
+Version 3.0 - Giải quyết triệt để vấn đề Extraction_Quality thấp
+
+Ngày: 2025-09-18
+Mục tiêu: OCR tất cả files có quality ≤ medium và keywords = 0
+"""
+
+import os
+import re
+import time
+import json
+import unicodedata
+from datetime import datetime
+from typing import Dict, Tuple, List, Optional
+import pandas as pd
+import numpy as np
+
+# -------------------------
+# AGGRESSIVE OCR CONFIG
+# -------------------------
+PROJECT_DIR = os.getcwd()
+KEYWORD_XLSX = "fintech_keywords.xlsx"
+LONG_CSV = "fintech_keywords_long.csv"
+SUMMARY_CSV = "fintech_summary.csv"
+PROGRESS_LOG = "processing_log.json"
+
+# AGGRESSIVE OCR SETTINGS
+AGGRESSIVE_OCR_ENABLED = True
+OCR_IF_TEXT_LENGTH_BELOW = 200000  # OCR nếu < 200K chars
+OCR_IF_KEYWORDS_FOUND = 0          # OCR nếu 0 keywords
+OCR_QUALITY_THRESHOLD = ["empty", "very_poor", "poor", "medium"]  # OCR cho quality ≤ medium
+
+# -------------------------
+# Libraries Import
+# -------------------------
+try:
+    import fitz  # PyMuPDF
+    PYMUPDF_AVAILABLE = True
+except ImportError:
+    PYMUPDF_AVAILABLE = False
+    print("⚠️ PyMuPDF not available - install with: pip install PyMuPDF")
+
+try:
+    import PyPDF2
+    PYPDF2_AVAILABLE = True
+except ImportError:
+    PYPDF2_AVAILABLE = False
+    print("⚠️ PyPDF2 not available - install with: pip install PyPDF2")
+
+try:
+    import cv2
+    CV2_AVAILABLE = True
+except ImportError:
+    CV2_AVAILABLE = False
+    print("⚠️ OpenCV not available - install with: pip install opencv-python")
+
+# EasyOCR - lazy loading
+EASYOCR_AVAILABLE = False
+_easyocr_reader = None
+
+def get_easyocr_reader():
+    """Lazy loading EasyOCR với error handling"""
+    global _easyocr_reader, EASYOCR_AVAILABLE
+    if _easyocr_reader is None:
+        try:
+            import easyocr
+            print("🔄 Initializing EasyOCR reader (này có thể mất vài phút lần đầu)...")
+            _easyocr_reader = easyocr.Reader(['vi', 'en'], gpu=False, verbose=False)
+            EASYOCR_AVAILABLE = True
+            print("✅ EasyOCR ready for Vietnamese and English")
+        except ImportError:
+            print("❌ EasyOCR not available. Install with: pip install easyocr")
+            EASYOCR_AVAILABLE = False
+            return None
+        except Exception as e:
+            print(f"❌ EasyOCR initialization error: {e}")
+            EASYOCR_AVAILABLE = False
+            return None
+    return _easyocr_reader
+
+# -------------------------
+# Enhanced Text Processing
+# -------------------------
+def normalize_text(text: str) -> str:
+    """Chuẩn hóa text với xử lý tốt hơn cho tiếng Việt"""
+    if not text:
+        return ""
+    
+    text = str(text).lower()
+    # Normalize Unicode để tách dấu
+    text = unicodedata.normalize('NFD', text)
+    text = ''.join(ch for ch in text if unicodedata.category(ch) != 'Mn')
+    # Xử lý ký tự đặc biệt VN
+    text = text.replace('đ', 'd').replace('Đ', 'd')
+    # Clean whitespace và ký tự lạ
+    text = re.sub(r'[\n\r\t]+', ' ', text)
+    text = re.sub(r'[^\w\s\-/]', ' ', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    
+    return text
+
+def enhanced_normalize_for_matching(text: str, keyword: str) -> Tuple[str, List[str]]:
+    """Tạo nhiều biến thể keyword để matching linh hoạt hơn"""
+    text_norm = normalize_text(text)
+    kw_norm = normalize_text(keyword)
+    
+    # Tạo các biến thể matching
+    variants = [kw_norm]
+    
+    # 1. Biến thể không space: "viet qr" → "vietqr"
+    kw_no_space = re.sub(r'\s+', '', kw_norm)
+    if kw_no_space != kw_norm and len(kw_no_space) > 2:
+        variants.append(kw_no_space)
+    
+    # 2. Biến thể tách ký tự: "vietqr" → "v i e t q r"
+    kw_spaced = re.sub(r'(\w)', r'\1 ', kw_norm).strip()
+    if kw_spaced != kw_norm:
+        variants.append(kw_spaced)
+    
+    # 3. Biến thể với dấu gạch: "viet qr" → "viet-qr"
+    kw_hyphen = re.sub(r'\s+', '-', kw_norm)
+    if kw_hyphen != kw_norm:
+        variants.append(kw_hyphen)
+    
+    # 4. Biến thể với dot: "viet qr" → "viet.qr"
+    kw_dot = re.sub(r'\s+', '.', kw_norm)
+    if kw_dot != kw_norm:
+        variants.append(kw_dot)
+    
+    # Remove duplicates và empty
+    variants = list(set([v for v in variants if v and len(v.strip()) > 1]))
+    
+    return text_norm, variants
+
+def create_flexible_regex(keyword_variants: List[str]) -> re.Pattern:
+    """Tạo regex linh hoạt với word boundaries thông minh"""
+    patterns = []
+    for kw in keyword_variants:
+        if kw and len(kw.strip()) > 1:
+            escaped = re.escape(kw.strip())
+            # Word boundary cho single word, flexible cho multi-word
+            if re.match(r'^[\w\-]+$', kw.strip()):
+                patterns.append(f'(?<![a-zA-Z])({escaped})(?![a-zA-Z])')
+            else:
+                patterns.append(f'({escaped})')
+    
+    if not patterns:
+        return re.compile(r'(?!.*)')  # Never match
+    
+    return re.compile('|'.join(patterns), re.IGNORECASE)
+
+# -------------------------
+# Enhanced Quality Assessment
+# -------------------------
+def detect_text_quality_aggressive(text: str, keywords_found: int = 0) -> Dict[str, any]:
+    """
+    AGGRESSIVE quality assessment - OCR cho nhiều trường hợp hơn
+    """
+    if not text:
+        return {"length": 0, "words": 0, "vietnamese_ratio": 0.0, "quality": "empty", "should_ocr": True, "ocr_reason": "no_text"}
+    
+    normalized = normalize_text(text)
+    words = normalized.split()
+    text_len = len(normalized)
+    
+    # Extended Vietnamese financial vocabulary
+    vn_financial_vocab = [
+        'ngan', 'hang', 'tai', 'chinh', 'dich', 'vu', 'khach', 'hang',
+        'tien', 'vay', 'lai', 'suat', 'dau', 'tu', 'bao', 'cao', 'nam',
+        'thong', 'tin', 'cong', 'nghe', 'so', 'blockchain', 'fintech',
+        'quy', 'mo', 'von', 'loi', 'nhuan', 'rui', 'ro', 'quan', 'ly',
+        'hoi', 'dong', 'quan', 'tri', 'cong', 'ty', 'co', 'phan',
+        'bieu', 'vote', 'dong', 'hop', 'quoc', 'te', 'uy', 'ban',
+        'kiem', 'soat', 'thu', 'chi', 'doanh', 'nghiep', 'san', 'pham'
+    ]
+    
+    vn_count = sum(1 for w in words if any(v in w for v in vn_financial_vocab))
+    vn_ratio = vn_count / len(words) if words else 0.0
+    
+    # AGGRESSIVE DECISION LOGIC
+    should_ocr = False
+    ocr_reason = ""
+    
+    if text_len == 0:
+        quality = "empty"
+        should_ocr = True
+        ocr_reason = "no_text"
+    elif text_len < 100:
+        quality = "very_poor"
+        should_ocr = True
+        ocr_reason = "text_too_short"
+    elif text_len < 1000 or vn_ratio < 0.01:
+        quality = "poor"
+        should_ocr = True
+        ocr_reason = "low_vn_content"
+    elif keywords_found == 0:  # AGGRESSIVE: OCR nếu 0 keywords
+        quality = "medium" if text_len >= 1000 else "poor"
+        should_ocr = True
+        ocr_reason = "no_keywords_found"
+    elif text_len < OCR_IF_TEXT_LENGTH_BELOW:  # AGGRESSIVE: OCR nếu < 200K
+        quality = "medium"
+        should_ocr = True
+        ocr_reason = f"text_below_{OCR_IF_TEXT_LENGTH_BELOW//1000}k"
+    elif vn_ratio < 0.05:
+        quality = "medium"
+        should_ocr = True
+        ocr_reason = "low_vietnamese_ratio"
+    else:
+        quality = "good"
+        should_ocr = False
+        ocr_reason = "quality_sufficient"
+    
+    return {
+        "length": text_len,
+        "words": len(words),
+        "vietnamese_ratio": vn_ratio,
+        "quality": quality,
+        "should_ocr": should_ocr,
+        "ocr_reason": ocr_reason
+    }
+
+# -------------------------
+# Keywords Loading
+# -------------------------
+def load_keywords_from_excel(excel_path: str) -> Tuple[Dict[str, int], int]:
+    """Load keywords từ Excel"""
+    if not os.path.exists(excel_path):
+        raise FileNotFoundError(f"Keywords file not found: {excel_path}")
+    
+    df = pd.read_excel(excel_path)
+    print(f"📊 Loading keywords from {excel_path}")
+    print(f"   Columns: {df.columns.tolist()}")
+    print(f"   Rows: {len(df)}")
+    
+    # Assume first column is Group, second is Keywords
+    group_col = df.columns[0]
+    keyword_col = df.columns[1]
+    
+    kw_to_group: Dict[str, int] = {}
+    max_group = 0
+    
+    for _, row in df.iterrows():
+        if pd.isna(row[group_col]):
+            continue
+            
+        try:
+            group_num = int(float(str(row[group_col]).strip()))
+        except:
+            # Extract number from string
+            match = re.search(r'\d+', str(row[group_col]))
+            group_num = int(match.group()) if match else 0
+        
+        max_group = max(max_group, group_num)
+        
+        keywords_str = str(row[keyword_col])
+        if pd.isna(row[keyword_col]) or keywords_str.lower() in ['nan', 'none', '']:
+            continue
+            
+        keywords_list = [kw.strip() for kw in keywords_str.split(',') if kw.strip()]
+        
+        for keyword in keywords_list:
+            kw_normalized = normalize_text(keyword)
+            if kw_normalized and len(kw_normalized) > 1:
+                kw_to_group[kw_normalized] = group_num
+    
+    print(f"✅ Loaded {len(kw_to_group)} keywords in {max_group} groups")
+    return kw_to_group, max_group
+
+# -------------------------
+# PDF Text Extraction
+# -------------------------
+def extract_text_pymupdf(pdf_path: str) -> str:
+    """Extract text using PyMuPDF"""
+    if not PYMUPDF_AVAILABLE:
+        return ""
+    
+    try:
+        doc = fitz.open(pdf_path)
+        text_parts = []
+        for page in doc:
+            text = page.get_text("text") or ""
+            text_parts.append(text)
+        doc.close()
+        return "\n".join(text_parts)
+    except Exception as e:
+        print(f"    ⚠️ PyMuPDF error: {e}")
+        return ""
+
+def extract_text_pypdf2(pdf_path: str) -> str:
+    """Extract text using PyPDF2"""
+    if not PYPDF2_AVAILABLE:
+        return ""
+    
+    try:
+        with open(pdf_path, "rb") as file:
+            reader = PyPDF2.PdfReader(file)
+            text_parts = []
+            for page in reader.pages:
+                try:
+                    text_parts.append(page.extract_text() or "")
+                except Exception:
+                    text_parts.append("")
+            return "\n".join(text_parts)
+    except Exception as e:
+        print(f"    ⚠️ PyPDF2 error: {e}")
+        return ""
+
+def advanced_image_preprocessing(img_bgr):
+    """
+    Advanced image preprocessing để OCR tốt hơn
+    """
+    # Convert to grayscale
+    gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
+    
+    # 1. Bilateral filter để giảm noise nhưng giữ edges
+    denoised = cv2.bilateralFilter(gray, 9, 75, 75)
+    
+    # 2. CLAHE để enhance contrast
+    clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
+    enhanced = clahe.apply(denoised)
+    
+    # 3. Unsharp masking để sharpen
+    gaussian = cv2.GaussianBlur(enhanced, (0, 0), 2.0)
+    sharpened = cv2.addWeighted(enhanced, 1.5, gaussian, -0.5, 0)
+    
+    # 4. Adaptive thresholding
+    binary = cv2.adaptiveThreshold(
+        sharpened, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+        cv2.THRESH_BINARY, 11, 2
+    )
+    
+    # 5. Morphological operations để clean up
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 1))
+    cleaned = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
+    
+    return cleaned
+
+def extract_text_ocr_multi_dpi(pdf_path: str, dpi_list: List[int] = [300, 400, 250]) -> str:
+    """
+    OCR with multiple DPI attempts và chọn kết quả tốt nhất
+    """
+    if not (PYMUPDF_AVAILABLE and CV2_AVAILABLE):
+        print("    ❌ Missing PyMuPDF or OpenCV for OCR")
+        return ""
+    
+    reader = get_easyocr_reader()
+    if reader is None:
+        return ""
+    
+    print(f"    🔍 Multi-DPI OCR với {dpi_list}")
+    
+    best_text = ""
+    best_score = 0
+    
+    for dpi in dpi_list:
+        print(f"      🎯 Testing DPI {dpi}...")
+        try:
+            text_result = perform_ocr_with_dpi(pdf_path, reader, dpi)
+            
+            if text_result:
+                # Scoring: length + Vietnamese content + keyword density
+                vn_score = len(re.findall(r'\b(ngan|hang|tai|chinh|dich|vu|bao|cao)\b', text_result.lower()))
+                total_score = len(text_result) + (vn_score * 50)
+                
+                print(f"        📊 DPI {dpi}: {len(text_result)} chars, VN words: {vn_score}, score: {total_score}")
+                
+                if total_score > best_score:
+                    best_score = total_score
+                    best_text = text_result
+                    print(f"        ✅ New best with DPI {dpi}")
+        
+        except Exception as e:
+            print(f"        ❌ DPI {dpi} failed: {str(e)[:50]}")
+            continue
+    
+    print(f"    📋 Best OCR result: {len(best_text)} chars")
+    return best_text
+
+def perform_ocr_with_dpi(pdf_path: str, reader, dpi: int, max_pages: int = 30) -> str:
+    """OCR với DPI specific và limit pages để tránh timeout"""
+    text_parts = []
+    
+    try:
+        doc = fitz.open(pdf_path)
+        total_pages = min(max_pages, len(doc))  # Limit pages
+        
+        for page_num in range(total_pages):
+            try:
+                page = doc[page_num]
+                
+                # Render page thành image
+                zoom_factor = dpi / 72.0
+                matrix = fitz.Matrix(zoom_factor, zoom_factor)
+                pix = page.get_pixmap(matrix=matrix, alpha=False)
+                
+                # Convert to numpy array
+                img_data = np.frombuffer(pix.samples, dtype=np.uint8)
+                img = img_data.reshape(pix.height, pix.width, 3)
+                img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+                
+                # Advanced preprocessing
+                processed_img = advanced_image_preprocessing(img_bgr)
+                
+                # OCR với EasyOCR
+                results = reader.readtext(processed_img, detail=0, paragraph=True, width_ths=0.7)
+                page_text = " ".join(results).strip()
+                
+                if page_text:
+                    text_parts.append(page_text)
+                
+                # Progress update
+                if (page_num + 1) % 10 == 0:
+                    print(f"          📄 {page_num + 1}/{total_pages}")
+                    
+            except Exception as e:
+                print(f"          ⚠️ Page {page_num + 1} error: {str(e)[:30]}")
+                continue
+        
+        doc.close()
+        
+    except Exception as e:
+        print(f"        ❌ OCR error: {e}")
+        return ""
+    
+    return "\n".join(text_parts)
+
+# -------------------------
+# Enhanced 3-Step Pipeline
+# -------------------------
+def extract_with_aggressive_pipeline(pdf_path: str, kw_to_group: Dict[str, int]) -> Tuple[str, str, str, Dict[str, any]]:
+    """
+    ENHANCED 3-step pipeline with aggressive OCR
+    """
+    filename = os.path.basename(pdf_path)
+    print(f"  📖 Step 1: PyMuPDF...")
+    text_sources = []
+    methods_used = []
+    
+    # Step 1: PyMuPDF
+    text1 = extract_text_pymupdf(pdf_path)
+    if text1 and len(normalize_text(text1)) > 50:
+        text_sources.append(text1)
+        methods_used.append("pymupdf")
+        print(f"    ✓ PyMuPDF: {len(text1):,} chars")
+    
+    # Step 2: PyPDF2
+    print(f"  📚 Step 2: PyPDF2...")
+    text2 = extract_text_pypdf2(pdf_path)
+    if text2 and len(normalize_text(text2)) > 50:
+        text_sources.append(text2)
+        methods_used.append("pypdf2")
+        print(f"    ✓ PyPDF2: {len(text2):,} chars")
+    
+    # Initial text combination
+    initial_text = "\n".join(text_sources)
+    
+    # Quick keyword check để inform OCR decision
+    initial_keyword_count = 0
+    if initial_text:
+        initial_keywords, _ = count_keywords_enhanced(initial_text, kw_to_group)
+        initial_keyword_count = sum(initial_keywords.values())
+    
+    # Enhanced quality assessment
+    quality_info = detect_text_quality_aggressive(initial_text, initial_keyword_count)
+    
+    print(f"  📊 Initial: {quality_info['length']:,} chars, {initial_keyword_count} keywords, quality={quality_info['quality']}")
+    
+    # Step 3: AGGRESSIVE OCR decision
+    if quality_info['should_ocr']:
+        print(f"  🔍 Step 3: AGGRESSIVE OCR (reason: {quality_info['ocr_reason']})")
+        
+        ocr_text = extract_text_ocr_multi_dpi(pdf_path)
+        
+        if ocr_text and len(normalize_text(ocr_text)) > 100:
+            text_sources.append(ocr_text)
+            methods_used.append("ocr")
+            print(f"    ✅ OCR success: {len(ocr_text):,} chars added")
+        else:
+            print(f"    ⚠️ OCR failed or insufficient text")
+    else:
+        print(f"  ✅ Skip OCR: {quality_info['ocr_reason']}")
+    
+    # Final combination
+    final_text = "\n".join(text_sources)
+    final_quality = detect_text_quality_aggressive(final_text)
+    extraction_method = "+".join(methods_used) if methods_used else "none"
+    
+    print(f"  📈 Final: {len(final_text):,} chars, quality={final_quality['quality']}")
+    
+    return final_text, extraction_method, final_quality["quality"], final_quality
+
+# -------------------------
+# Enhanced Keyword Counting
+# -------------------------
+def count_keywords_enhanced(text: str, kw_to_group: Dict[str, int]) -> Tuple[Dict[str, int], Dict[int, int]]:
+    """Enhanced keyword counting với flexible matching"""
+    if not text:
+        return {}, {}
+    
+    text_normalized, _ = enhanced_normalize_for_matching(text, "")
+    keyword_counts: Dict[str, int] = {}
+    group_counts: Dict[int, int] = {}
+    
+    for keyword, group_id in kw_to_group.items():
+        # Generate keyword variants
+        _, keyword_variants = enhanced_normalize_for_matching(text, keyword)
+        
+        # Create flexible regex
+        pattern = create_flexible_regex(keyword_variants)
+        
+        # Count matches
+        matches = pattern.findall(text_normalized)
+        count = len(matches)
+        
+        if count > 0:
+            keyword_counts[keyword] = count
+            group_counts[group_id] = group_counts.get(group_id, 0) + count
+    
+    return keyword_counts, group_counts
+
+# -------------------------
+# Progress Management
+# -------------------------
+def load_progress_log(log_path: str) -> Dict:
+    """Load processing progress log"""
+    if os.path.exists(log_path):
+        try:
+            with open(log_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"⚠️ Error loading progress: {e}")
+            return {}
+    return {}
+
+def save_progress_log(log_path: str, progress_data: Dict):
+    """Save processing progress"""
+    try:
+        with open(log_path, 'w', encoding='utf-8') as f:
+            json.dump(progress_data, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"⚠️ Error saving progress: {e}")
+
+# -------------------------
+# Single PDF Processing
+# -------------------------
+def process_single_pdf_enhanced(pdf_path: str, kw_to_group: Dict[str, int]) -> Dict:
+    """Process single PDF with enhanced pipeline"""
+    start_time = time.time()
+    filename = os.path.basename(pdf_path)
+    
+    # Parse ticker and year from filename
+    name_parts = filename.replace('.pdf', '').split('_')
+    ticker = name_parts[0].upper() if len(name_parts) > 0 else "UNKNOWN"
+    year = name_parts[1] if len(name_parts) > 1 else "UNKNOWN"
+    
+    result = {
+        "filename": filename,
+        "ticker": ticker,
+        "year": year,
+        "status": "failed",
+        "processing_time": 0.0,
+        "processing_datetime": datetime.now().isoformat(),
+        "extraction_method": "none",
+        "extraction_quality": "empty",
+        "text_length": 0,
+        "keyword_counts": {},
+        "group_counts": {},
+        "total_keywords": 0,
+        "error": ""
+    }
+    
+    try:
+        # Enhanced extraction pipeline
+        full_text, method, quality, quality_metrics = extract_with_aggressive_pipeline(pdf_path, kw_to_group)
+        
+        result["extraction_method"] = method
+        result["extraction_quality"] = quality
+        result["text_length"] = quality_metrics["length"]
+        
+        # Enhanced keyword counting
+        if full_text and len(full_text.strip()) > 0:
+            keyword_counts, group_counts = count_keywords_enhanced(full_text, kw_to_group)
+        else:
+            keyword_counts, group_counts = {}, {}
+        
+        result["keyword_counts"] = keyword_counts
+        result["group_counts"] = group_counts
+        result["total_keywords"] = sum(keyword_counts.values())
+        result["status"] = "success"
+        
+        print(f"  🎯 Final result: {result['total_keywords']} keywords found ({len(keyword_counts)} unique)")
+        
+        # Show top keywords found
+        if keyword_counts:
+            top_keywords = sorted(keyword_counts.items(), key=lambda x: -x[1])[:5]
+            print(f"    Top keywords: {', '.join([f'{k}({v})' for k, v in top_keywords])}")
+        
+    except Exception as e:
+        result["error"] = str(e)
+        result["status"] = f"error: {e}"
+        print(f"  ❌ Processing error: {e}")
+    
+    result["processing_time"] = round(time.time() - start_time, 2)
+    return result
+
+# -------------------------
+# Export Functions
+# -------------------------
+def export_results(results: List[Dict], kw_to_group: Dict[str, int], max_group: int, output_dir: str):
+    """Export results to CSV files"""
+    
+    # Long format (per keyword)
+    long_rows = []
+    summary_rows = []
+    
+    for result in results:
+        # Base row info
+        base_row = {
+            "File Name": result["filename"],
+            "Ticker": result["ticker"],
+            "Year": result["year"],
+            "Status": result["status"],
+            "Processing_Time": result["processing_time"],
+            "Total_Keywords_Found": result["total_keywords"],
+            "Text_Length": result["text_length"],
+            "Processing_DateTime": result["processing_datetime"],
+            "Extraction_Method": result["extraction_method"],
+            "Extraction_Quality": result["extraction_quality"]
+        }
+        
+        # Add group columns
+        for g in range(1, max_group + 1):
+            base_row[f"Group_{g}"] = result["group_counts"].get(g, 0)
+        
+        # Summary row (one per file)
+        summary_rows.append(base_row.copy())
+        
+        # Long rows (one per keyword found)
+        if result["keyword_counts"]:
+            for keyword, count in sorted(result["keyword_counts"].items(), key=lambda x: (-x[1], x[0])):
+                row = base_row.copy()
+                row["Keyword"] = keyword
+                row["Count"] = count
+                long_rows.append(row)
+        else:
+            # No keywords found
+            row = base_row.copy()
+            row["Keyword"] = "No keywords found"
+            row["Count"] = 0
+            long_rows.append(row)
+    
+    # Export files
+    long_path = os.path.join(output_dir, LONG_CSV)
+    summary_path = os.path.join(output_dir, SUMMARY_CSV)
+    
+    # Long table
+    if long_rows:
+        long_df = pd.DataFrame(long_rows)
+        long_df.to_csv(long_path, index=False, encoding="utf-8")
+        print(f"📊 Exported long format: {long_path} ({len(long_df)} rows)")
+    
+    # Summary table
+    if summary_rows:
+        summary_df = pd.DataFrame(summary_rows)
+        summary_df.to_csv(summary_path, index=False, encoding="utf-8")
+        print(f"📋 Exported summary: {summary_path} ({len(summary_df)} rows)")
+    
+    return long_path, summary_path
+
+# -------------------------
+# Main Batch Processing
+# -------------------------
+def process_pdfs_enhanced_batch(
+    project_dir: str = PROJECT_DIR,
+    keyword_xlsx: str = KEYWORD_XLSX,
+    progress_log: str = PROGRESS_LOG
+):
+    """Main batch processing với enhanced OCR"""
+    
+    print("🚀 FINTECH KEYWORD ANALYSIS - ENHANCED AGGRESSIVE OCR")
+    print("=" * 80)
+    print(f"🎯 AGGRESSIVE SETTINGS:")
+    print(f"   - OCR if text < {OCR_IF_TEXT_LENGTH_BELOW:,} chars")
+    print(f"   - OCR if keywords found = {OCR_IF_KEYWORDS_FOUND}")
+    print(f"   - OCR for quality ≤ {OCR_QUALITY_THRESHOLD}")
+    
+    # Load keywords
+    keywords_path = os.path.join(project_dir, keyword_xlsx)
+    if not os.path.exists(keywords_path):
+        print(f"❌ Keywords file not found: {keywords_path}")
+        return
+    
+    kw_to_group, max_group = load_keywords_from_excel(keywords_path)
+    
+    # Find PDF files
+    pdf_files = []
+    for file in os.listdir(project_dir):
+        if file.lower().endswith('.pdf'):
+            pdf_files.append(os.path.join(project_dir, file))
+    
+    pdf_files.sort()
+    
+    if not pdf_files:
+        print(f"❌ No PDF files found in: {project_dir}")
+        return
+    
+    print(f"📁 Found {len(pdf_files)} PDF files")
+    
+    # Load progress
+    log_path = os.path.join(project_dir, progress_log)
+    progress_data = load_progress_log(log_path)
+    processed_files = set(progress_data.get('completed_files', []))
+    
+    if processed_files:
+        print(f"📋 Resume: {len(processed_files)} files already processed")
+    
+    # Filter remaining files
+    remaining_files = [f for f in pdf_files if os.path.basename(f) not in processed_files]
+    
+    if not remaining_files:
+        print("✅ All files already processed!")
+        return
+    
+    print(f"🔄 Processing {len(remaining_files)} remaining files...")
+    
+    # Process files
+    all_results = []
+    
+    for i, pdf_path in enumerate(remaining_files, 1):
+        filename = os.path.basename(pdf_path)
+        print(f"\n📄 [{i}/{len(remaining_files)}] Processing: {filename}")
+        print(f"⏰ Time: {datetime.now().strftime('%H:%M:%S')}")
+        
+        # Process single PDF
+        result = process_single_pdf_enhanced(pdf_path, kw_to_group)
+        all_results.append(result)
+        
+        # Update progress
+        processed_files.add(filename)
+        progress_data['completed_files'] = list(processed_files)
+        progress_data['last_updated'] = datetime.now().isoformat()
+        progress_data['total_processed'] = len(processed_files)
+        save_progress_log(log_path, progress_data)
+        
+        print(f"  ⏱️ Time: {result['processing_time']}s | Remaining: {len(remaining_files) - i}")
+    
+    # Export combined results
+    print(f"\n📊 Exporting combined results...")
+    export_results(all_results, kw_to_group, max_group, project_dir)
+    
+    # Final summary
+    total_keywords = sum(r['total_keywords'] for r in all_results)
+    files_with_keywords = len([r for r in all_results if r['total_keywords'] > 0])
+    
+    print(f"\n🎉 PROCESSING COMPLETE!")
+    print(f"📈 Summary:")
+    print(f"   - Files processed: {len(all_results)}")
+    print(f"   - Files with keywords: {files_with_keywords}/{len(all_results)}")
+    print(f"   - Total keywords found: {total_keywords}")
+    print(f"   - Average per file: {total_keywords/len(all_results):.1f}")
+    
+    # Show files that benefited from OCR
+    ocr_files = [r for r in all_results if 'ocr' in r['extraction_method']]
+    if ocr_files:
+        print(f"\n🔍 Files processed with OCR: {len(ocr_files)}")
+        for r in ocr_files:
+            print(f"   - {r['filename']}: {r['total_keywords']} keywords found")
+
+# -------------------------
+# Main Function
+# -------------------------
+def main():
+    """Main entry point"""
+    print("🔧 SYSTEM CHECK...")
+    
+    # Check required libraries
+    missing = []
+    if not PYMUPDF_AVAILABLE:
+        missing.append("PyMuPDF (pip install PyMuPDF)")
+    if not PYPDF2_AVAILABLE:
+        missing.append("PyPDF2 (pip install PyPDF2)")
+    
+    if missing:
+        print(f"❌ Missing required libraries:")
+        for lib in missing:
+            print(f"   - {lib}")
+        return
+    
+    print(f"✅ Core libraries ready")
+    print(f"🔧 OpenCV: {'✅' if CV2_AVAILABLE else '❌ (pip install opencv-python)'}")
+    print(f"🤖 EasyOCR: Will load when needed (pip install easyocr)")
+    
+    # Run processing
+    try:
+        process_pdfs_enhanced_batch()
+    except KeyboardInterrupt:
+        print(f"\n⏸️ Processing interrupted by user")
+    except Exception as e:
+        print(f"\n❌ Unexpected error: {e}")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,16 @@
+streamlit
+pandas
+numpy
+openpyxl
+pymupdf
+pypdf2
+opencv-python-headless
+easyocr
+watchdog
+beautifulsoup4
+requests
+plotly
+altair
+python-docx
+google-generativeai
+wordcloud

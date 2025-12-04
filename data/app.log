@@ -1,0 +1,1510 @@
+2025-12-04 10:31:26,093 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 10:31:28,257 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 10:31:28,260 - Extractor - INFO - Extracting text from D:\TEXT-MINING\text_mining_app\data\input\VAB_2020.pdf (.pdf)
+2025-12-04 10:54:52,901 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 10:54:54,903 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 10:54:54,905 - Extractor - INFO - Extracting text from D:\TEXT-MINING\text_mining_app\data\input\VAB_2020.pdf (.pdf)
+2025-12-04 10:57:31,998 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 10:57:33,983 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 10:57:33,988 - Extractor - INFO - Extracting text from D:\TEXT-MINING\text_mining_app\data\input\VAB_2020.pdf (.pdf)
+2025-12-04 11:12:15,155 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 11:12:17,195 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 11:12:17,198 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf)
+2025-12-04 11:12:20,202 - Extractor - INFO - Triggering OCR: No keywords found
+2025-12-04 11:47:33,924 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 11:47:33,925 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 11:47:36,116 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 11:47:36,119 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf)
+2025-12-04 12:00:05,162 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:00:05,163 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 12:00:07,159 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 12:00:07,162 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 12:00:07,162 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 12:00:07,761 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:00:07,911 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:00:08,076 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:00:08,280 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:00:08,477 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:00:33,760 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:00:33,760 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 12:00:35,784 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 12:00:35,786 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: False]
+2025-12-04 12:22:00,799 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:22:00,799 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 12:22:02,804 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 12:22:02,805 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:22:02,807 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 12:22:02,807 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 12:22:03,367 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:03,521 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:03,684 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:03,867 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:04,060 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:13,840 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:22:13,841 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 12:22:15,807 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 12:22:15,808 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:22:16,291 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:16,413 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:16,580 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:16,759 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:16,944 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:22:24,278 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:22:24,279 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 12:22:26,246 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 12:22:26,247 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:22:26,250 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: False]
+2025-12-04 12:24:16,307 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:24:16,575 - AIService - ERROR - Insights generation failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:24:21,423 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:24:21,674 - AIService - ERROR - Insights generation failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:24:37,957 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:24:38,192 - AIService - ERROR - Insights generation failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:24:39,469 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:24:39,698 - AIService - ERROR - Insights generation failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:24:55,240 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:24:55,240 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 12:24:57,259 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 12:24:57,259 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:24:57,262 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: False]
+2025-12-04 12:25:04,787 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:25:05,029 - AIService - ERROR - Insights generation failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:25:57,814 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:25:57,815 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 12:25:59,960 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 12:25:59,960 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:25:59,962 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 12:25:59,962 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 12:26:00,508 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:26:00,641 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:26:00,797 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:26:00,980 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:26:01,184 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:28:54,483 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:28:54,484 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 12:28:56,534 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 12:28:56,534 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:28:56,539 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 12:28:56,539 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 12:28:57,125 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:28:57,265 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:28:57,429 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:28:57,616 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:28:57,818 - AIService - ERROR - Gemini Vision extraction failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:29:04,628 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:29:04,628 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 12:29:06,594 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 12:29:06,594 - AIService - INFO - Gemini AI Service initialized successfully.
+2025-12-04 12:29:07,115 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:29:07,251 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:29:07,394 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:29:07,591 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 12:29:07,782 - AIService - ERROR - AI keyword search failed: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 13:01:55,445 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:01:55,445 - AIService - INFO - API Key present: True
+2025-12-04 13:01:55,446 - AIService - INFO - API Key length: 39
+2025-12-04 13:01:55,446 - AIService - INFO - Testing Gemini connection...
+2025-12-04 13:01:55,751 - AIService - ERROR - Gemini init FAILED: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 13:01:55,764 - AIService - ERROR - Traceback (most recent call last):
+  File "D:\TEXT-MINING\app\core\ai_service.py", line 35, in __init__
+    test_response = self.model.generate_content("Say 'OK'")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-12-04 13:01:55,766 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:01:57,904 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:01:57,904 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:01:57,904 - AIService - INFO - API Key present: True
+2025-12-04 13:01:57,904 - AIService - INFO - API Key length: 39
+2025-12-04 13:01:57,904 - AIService - INFO - Testing Gemini connection...
+2025-12-04 13:01:58,144 - AIService - ERROR - Gemini init FAILED: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-12-04 13:01:58,145 - AIService - ERROR - Traceback (most recent call last):
+  File "D:\TEXT-MINING\app\core\ai_service.py", line 35, in __init__
+    test_response = self.model.generate_content("Say 'OK'")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\anaconda3\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-12-04 13:01:58,149 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 13:11:42,141 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:11:42,142 - AIService - INFO - API Key present: True
+2025-12-04 13:11:42,142 - AIService - INFO - API Key length: 39
+2025-12-04 13:11:42,143 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:11:42,143 - AIService - INFO - Trying model: gemini-2.0-flash-exp
+2025-12-04 13:11:44,352 - AIService - INFO - ✅ Successfully connected to: gemini-2.0-flash-exp
+2025-12-04 13:11:44,353 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:11:46,278 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:11:46,278 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:11:46,278 - AIService - INFO - API Key present: True
+2025-12-04 13:11:46,278 - AIService - INFO - API Key length: 39
+2025-12-04 13:11:46,279 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:11:46,279 - AIService - INFO - Trying model: gemini-2.0-flash-exp
+2025-12-04 13:11:47,489 - AIService - INFO - ✅ Successfully connected to: gemini-2.0-flash-exp
+2025-12-04 13:11:47,491 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 13:11:47,491 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 13:11:47,576 - AIService - INFO - extract_text_from_image called, image size: 422776 bytes
+2025-12-04 13:11:47,576 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:11:49,914 - AIService - INFO - Gemini returned: 80 chars, 1870 tokens
+2025-12-04 13:11:49,938 - AIService - INFO - extract_text_from_image called, image size: 84411 bytes
+2025-12-04 13:11:49,941 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:11:53,527 - AIService - INFO - Gemini returned: 695 chars, 2136 tokens
+2025-12-04 13:11:53,565 - AIService - INFO - extract_text_from_image called, image size: 149119 bytes
+2025-12-04 13:11:53,565 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:11:59,534 - AIService - INFO - Gemini returned: 2021 chars, 2506 tokens
+2025-12-04 13:11:59,578 - AIService - INFO - extract_text_from_image called, image size: 335569 bytes
+2025-12-04 13:11:59,579 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:12:03,456 - AIService - INFO - Gemini returned: 738 chars, 2205 tokens
+2025-12-04 13:12:03,527 - AIService - INFO - extract_text_from_image called, image size: 169018 bytes
+2025-12-04 13:12:03,528 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:12:10,635 - AIService - INFO - Gemini returned: 2192 chars, 2721 tokens
+2025-12-04 13:13:18,887 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:13:18,887 - AIService - INFO - API Key present: True
+2025-12-04 13:13:18,887 - AIService - INFO - API Key length: 39
+2025-12-04 13:13:18,888 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:13:18,888 - AIService - INFO - Trying model: gemini-2.0-flash-exp
+2025-12-04 13:13:20,817 - AIService - INFO - ✅ Successfully connected to: gemini-2.0-flash-exp
+2025-12-04 13:13:20,817 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:13:22,823 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:13:22,823 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:13:22,823 - AIService - INFO - API Key present: True
+2025-12-04 13:13:22,823 - AIService - INFO - API Key length: 39
+2025-12-04 13:13:22,823 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:13:22,824 - AIService - INFO - Trying model: gemini-2.0-flash-exp
+2025-12-04 13:13:25,057 - AIService - INFO - ✅ Successfully connected to: gemini-2.0-flash-exp
+2025-12-04 13:13:25,124 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 422776 bytes
+2025-12-04 13:13:25,125 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:13:26,646 - AIService - INFO - Gemini keyword response: ```json
+{}
+```
+2025-12-04 13:13:26,647 - AIService - INFO - Parsed keywords: {}
+2025-12-04 13:13:26,671 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 84411 bytes
+2025-12-04 13:13:26,672 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:13:28,061 - AIService - INFO - Gemini keyword response: ```json
+{"quản lý rủi ro": 1}
+```
+2025-12-04 13:13:28,061 - AIService - INFO - Parsed keywords: {'quản lý rủi ro': 1}
+2025-12-04 13:13:28,094 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 149119 bytes
+2025-12-04 13:13:28,095 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:13:29,592 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 13:13:29,593 - AIService - INFO - Parsed keywords: {}
+2025-12-04 13:13:29,641 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 335569 bytes
+2025-12-04 13:13:29,641 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:13:30,892 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 13:13:30,893 - AIService - INFO - Parsed keywords: {}
+2025-12-04 13:13:30,978 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 169018 bytes
+2025-12-04 13:13:30,979 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:13:32,281 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 13:13:32,282 - AIService - INFO - Parsed keywords: {}
+2025-12-04 13:13:44,325 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:13:44,326 - AIService - INFO - API Key present: True
+2025-12-04 13:13:44,326 - AIService - INFO - API Key length: 39
+2025-12-04 13:13:44,326 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:13:44,327 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:13:49,213 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:13:49,215 - AIService - INFO - generate_insights called: 1 keywords
+2025-12-04 13:13:49,215 - AIService - INFO - Generating insights...
+2025-12-04 13:13:56,680 - AIService - INFO - Insights generated: 880 chars, 1494 tokens
+2025-12-04 13:15:49,630 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:15:49,631 - AIService - INFO - API Key present: True
+2025-12-04 13:15:49,631 - AIService - INFO - API Key length: 39
+2025-12-04 13:15:49,631 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:15:49,632 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:15:50,955 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:15:50,955 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:15:52,881 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:15:52,881 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:15:52,881 - AIService - INFO - API Key present: True
+2025-12-04 13:15:52,881 - AIService - INFO - API Key length: 39
+2025-12-04 13:15:52,881 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:15:52,886 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:15:55,801 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:15:55,815 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 13:15:55,816 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 13:15:55,883 - AIService - INFO - extract_text_from_image called, image size: 422776 bytes
+2025-12-04 13:15:55,883 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:16:00,622 - AIService - INFO - Gemini returned: 80 chars, 516 tokens
+2025-12-04 13:16:00,649 - AIService - INFO - extract_text_from_image called, image size: 84411 bytes
+2025-12-04 13:16:00,649 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:16:06,421 - AIService - INFO - Gemini returned: 700 chars, 624 tokens
+2025-12-04 13:16:06,458 - AIService - INFO - extract_text_from_image called, image size: 149119 bytes
+2025-12-04 13:16:06,458 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:16:12,565 - AIService - INFO - Gemini returned: 2027 chars, 1024 tokens
+2025-12-04 13:16:12,606 - AIService - INFO - extract_text_from_image called, image size: 335569 bytes
+2025-12-04 13:16:12,606 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:16:19,806 - AIService - INFO - Gemini returned: 747 chars, 1134 tokens
+2025-12-04 13:16:19,876 - AIService - INFO - extract_text_from_image called, image size: 169018 bytes
+2025-12-04 13:16:19,876 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:16:31,400 - AIService - INFO - Gemini returned: 2207 chars, 2577 tokens
+2025-12-04 13:24:37,761 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:24:37,762 - AIService - INFO - API Key present: True
+2025-12-04 13:24:37,762 - AIService - INFO - API Key length: 39
+2025-12-04 13:24:37,763 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:24:37,763 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:24:42,907 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:24:42,907 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:24:44,886 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:24:44,886 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:24:44,886 - AIService - INFO - API Key present: True
+2025-12-04 13:24:44,886 - AIService - INFO - API Key length: 39
+2025-12-04 13:24:44,886 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:24:44,886 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:24:47,058 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:24:47,062 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 13:24:47,062 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 13:24:47,127 - AIService - INFO - extract_text_from_image called, image size: 422776 bytes
+2025-12-04 13:24:47,127 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:24:49,318 - AIService - INFO - Gemini returned: 80 chars, 436 tokens
+2025-12-04 13:24:49,345 - AIService - INFO - extract_text_from_image called, image size: 84411 bytes
+2025-12-04 13:24:49,346 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:24:55,159 - AIService - INFO - Gemini returned: 700 chars, 710 tokens
+2025-12-04 13:24:55,198 - AIService - INFO - extract_text_from_image called, image size: 149119 bytes
+2025-12-04 13:24:55,199 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:25:00,627 - AIService - INFO - Gemini returned: 2027 chars, 999 tokens
+2025-12-04 13:25:00,670 - AIService - INFO - extract_text_from_image called, image size: 335569 bytes
+2025-12-04 13:25:00,670 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:25:04,852 - AIService - INFO - Gemini returned: 743 chars, 764 tokens
+2025-12-04 13:25:04,927 - AIService - INFO - extract_text_from_image called, image size: 169018 bytes
+2025-12-04 13:25:04,928 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:25:13,953 - AIService - INFO - Gemini returned: 2210 chars, 2229 tokens
+2025-12-04 13:25:13,953 - Extractor - INFO - Force AI extracted: 5765 chars, 5138 tokens
+2025-12-04 13:25:13,953 - Extractor - INFO - Text sample: VIETABANK
+ĐỒNG HÀNH CÙNG KHÁT VỌNG
+HÀNH ĐỘNG
+ĐỂ BỨT PHÁ
+Báo cáo
+thường niên
+2020
+MỤC LỤC
+THÔNG ĐIỆP CỦA TỔNG GIÁM ĐỐC
+VỀ CHÚNG TÔI
+7 • Giới thiệu VietABank
+8 • Tầm nhìn, Sứ mệnh & Giá trị cốt lõi
+9 • ...
+2025-12-04 13:25:13,953 - Extractor - INFO - Normalized sample: vietabank dong hanh cung khat vong hanh dong de but pha boo coo thuong nien 2020 muc luc thong diep cua tong giam doc ve chung toi 7 gioi thieu vietabank 8 tam nhin su menh gio tri cot loi 9...
+2025-12-04 13:25:13,953 - TextProcessor - INFO - Analyzing 5765 chars of text against 74 keywords
+2025-12-04 13:25:13,953 - TextProcessor - INFO - Normalized text length: 5574
+2025-12-04 13:25:13,953 - TextProcessor - INFO - Normalized text sample: vietabank dong hanh cung khat vong hanh dong de but pha boo coo thuong nien 2020 muc luc thong diep ...
+2025-12-04 13:25:14,111 - TextProcessor - INFO - Analysis complete: 0 unique keywords found, 0 total matches
+2025-12-04 13:25:14,112 - TextProcessor - WARNING - NO KEYWORDS MATCHED! Checking first 5 keywords...
+2025-12-04 13:25:14,112 - TextProcessor - WARNING -   Test keyword: 'Phân tích dữ liệu' -> normalized: 'phon tich du lieu'
+2025-12-04 13:25:14,112 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:25:14,112 - TextProcessor - WARNING -   Test keyword: 'dữ liệu lớn' -> normalized: 'du lieu lon'
+2025-12-04 13:25:14,113 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:25:14,113 - TextProcessor - WARNING -   Test keyword: 'chấm điểm tín dụng' -> normalized: 'cham diem tin dung'
+2025-12-04 13:25:14,113 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:25:14,113 - TextProcessor - WARNING -   Test keyword: 'quản lý rủi ro' -> normalized: 'quan ly rui ro'
+2025-12-04 13:25:14,114 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:25:14,114 - TextProcessor - WARNING -   Test keyword: 'dự đoán nhu cầu' -> normalized: 'du doon nhu cau'
+2025-12-04 13:25:14,114 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:37:02,978 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:37:02,978 - AIService - INFO - API Key present: True
+2025-12-04 13:37:02,979 - AIService - INFO - API Key length: 39
+2025-12-04 13:37:02,979 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:37:02,980 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:37:08,523 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:37:08,523 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:37:10,542 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:37:10,542 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:37:10,542 - AIService - INFO - API Key present: True
+2025-12-04 13:37:10,542 - AIService - INFO - API Key length: 39
+2025-12-04 13:37:10,542 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:37:10,542 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:37:12,843 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:37:12,843 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 13:37:12,849 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 13:37:12,916 - AIService - INFO - extract_text_from_image called, image size: 422776 bytes
+2025-12-04 13:37:12,917 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:37:15,266 - AIService - INFO - Gemini returned: 80 chars, 437 tokens
+2025-12-04 13:37:15,298 - AIService - INFO - extract_text_from_image called, image size: 84411 bytes
+2025-12-04 13:37:15,298 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:37:23,342 - AIService - INFO - Gemini returned: 718 chars, 1094 tokens
+2025-12-04 13:37:23,379 - AIService - INFO - extract_text_from_image called, image size: 149119 bytes
+2025-12-04 13:37:23,379 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:37:27,920 - AIService - INFO - Gemini returned: 2027 chars, 997 tokens
+2025-12-04 13:37:27,964 - AIService - INFO - extract_text_from_image called, image size: 335569 bytes
+2025-12-04 13:37:27,964 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:37:35,219 - AIService - INFO - Gemini returned: 746 chars, 1183 tokens
+2025-12-04 13:37:35,286 - AIService - INFO - extract_text_from_image called, image size: 169018 bytes
+2025-12-04 13:37:35,286 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:37:45,819 - AIService - INFO - Gemini returned: 2232 chars, 2518 tokens
+2025-12-04 13:37:45,821 - Extractor - INFO - Force AI extracted: 5808 chars, 6229 tokens
+2025-12-04 13:37:45,821 - Extractor - INFO - Text sample: VIETABANK
+ĐỒNG HÀNH CÙNG KHÁT VỌNG
+HÀNH ĐỘNG
+ĐỂ BỨT PHÁ
+Báo cáo
+thường niên
+2020
+MỤC LỤC
+Báo cáo
+thường niên
+HÀNH ĐỘNG
+để BỨT PHÁ
+
+1 THÔNG ĐIỆP CỦA TỔNG GIÁM ĐỐC
+
+2 VỀ CHÚNG TÔI
+7 - Giới thiệu VietABa...
+2025-12-04 13:37:45,821 - Extractor - INFO - Normalized sample: vietabank dong hanh cung khat vong hanh dong de but pha bao cao thuong nien 2020 muc luc bao cao thuong nien hanh dong de but pha 1 thong diep cua tong giam doc 2 ve chung toi 7 gioi thieu vietaba...
+2025-12-04 13:37:45,824 - TextProcessor - INFO - Analyzing 5808 chars of text against 74 keywords
+2025-12-04 13:37:45,824 - TextProcessor - INFO - Normalized text length: 5587
+2025-12-04 13:37:45,825 - TextProcessor - INFO - Normalized text sample: vietabank dong hanh cung khat vong hanh dong de but pha bao cao thuong nien 2020 muc luc bao cao thu...
+2025-12-04 13:37:45,975 - TextProcessor - INFO - Analysis complete: 0 unique keywords found, 0 total matches
+2025-12-04 13:37:45,976 - TextProcessor - WARNING - NO KEYWORDS MATCHED! Checking first 5 keywords...
+2025-12-04 13:37:45,976 - TextProcessor - WARNING -   Test keyword: 'Phân tích dữ liệu' -> normalized: 'phan tich du lieu'
+2025-12-04 13:37:45,976 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:37:45,976 - TextProcessor - WARNING -   Test keyword: 'dữ liệu lớn' -> normalized: 'du lieu lon'
+2025-12-04 13:37:45,977 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:37:45,977 - TextProcessor - WARNING -   Test keyword: 'chấm điểm tín dụng' -> normalized: 'cham diem tin dung'
+2025-12-04 13:37:45,977 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:37:45,977 - TextProcessor - WARNING -   Test keyword: 'quản lý rủi ro' -> normalized: 'quan ly rui ro'
+2025-12-04 13:37:45,978 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:37:45,978 - TextProcessor - WARNING -   Test keyword: 'dự đoán nhu cầu' -> normalized: 'du doan nhu cau'
+2025-12-04 13:37:45,978 - TextProcessor - WARNING -     ✗ Not found even with simple search
+2025-12-04 13:38:01,622 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:38:01,622 - AIService - INFO - API Key present: True
+2025-12-04 13:38:01,623 - AIService - INFO - API Key length: 39
+2025-12-04 13:38:01,623 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:38:01,623 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:38:04,341 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:38:04,341 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:38:06,302 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:38:06,303 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:38:06,303 - AIService - INFO - API Key present: True
+2025-12-04 13:38:06,303 - AIService - INFO - API Key length: 39
+2025-12-04 13:38:06,304 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:38:06,304 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:38:09,670 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:38:09,727 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 422776 bytes
+2025-12-04 13:38:09,728 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:38:16,383 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 13:38:16,383 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 13:38:16,410 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 84411 bytes
+2025-12-04 13:38:16,410 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:38:27,054 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 13:38:27,054 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 13:38:27,087 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 149119 bytes
+2025-12-04 13:38:27,088 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:38:43,065 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 13:38:43,066 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 13:38:43,115 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 335569 bytes
+2025-12-04 13:38:43,115 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:38:55,939 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 13:38:55,939 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 13:38:56,007 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 169018 bytes
+2025-12-04 13:38:56,007 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:39:38,375 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 13:39:38,375 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 13:39:52,434 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:39:52,435 - AIService - INFO - API Key present: True
+2025-12-04 13:39:52,435 - AIService - INFO - API Key length: 39
+2025-12-04 13:39:52,436 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:39:52,436 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:39:54,208 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:39:54,208 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:39:56,195 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:39:56,195 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:39:56,195 - AIService - INFO - API Key present: True
+2025-12-04 13:39:56,196 - AIService - INFO - API Key length: 39
+2025-12-04 13:39:56,196 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:39:56,196 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:40:00,724 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:40:00,725 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: False]
+2025-12-04 13:40:03,750 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 13:40:03,750 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 13:40:03,750 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 13:40:04,463 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 13:40:04,504 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 13:40:04,504 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 13:40:04,504 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 13:40:05,221 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 13:48:13,192 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:48:13,193 - AIService - INFO - API Key present: True
+2025-12-04 13:48:13,193 - AIService - INFO - API Key length: 39
+2025-12-04 13:48:13,193 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:48:13,193 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:48:16,600 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:48:16,600 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:48:18,615 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:48:18,615 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:48:18,616 - AIService - INFO - API Key present: True
+2025-12-04 13:48:18,616 - AIService - INFO - API Key length: 39
+2025-12-04 13:48:18,616 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:48:18,616 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:48:20,417 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:48:20,420 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 13:48:20,420 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 13:48:20,434 - Extractor - INFO - Extracting 30 pages with AI...
+2025-12-04 13:48:20,486 - AIService - INFO - extract_text_from_image called, image size: 422776 bytes
+2025-12-04 13:48:20,486 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:48:23,163 - AIService - INFO - Gemini returned: 80 chars, 470 tokens
+2025-12-04 13:48:23,189 - AIService - INFO - extract_text_from_image called, image size: 84411 bytes
+2025-12-04 13:48:23,190 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:48:27,235 - AIService - INFO - Gemini returned: 700 chars, 636 tokens
+2025-12-04 13:48:27,270 - AIService - INFO - extract_text_from_image called, image size: 149119 bytes
+2025-12-04 13:48:27,270 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:48:33,002 - AIService - INFO - Gemini returned: 2027 chars, 1097 tokens
+2025-12-04 13:48:33,052 - AIService - INFO - extract_text_from_image called, image size: 335569 bytes
+2025-12-04 13:48:33,052 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:48:39,668 - AIService - INFO - Gemini returned: 742 chars, 729 tokens
+2025-12-04 13:48:39,739 - AIService - INFO - extract_text_from_image called, image size: 169018 bytes
+2025-12-04 13:48:39,739 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:48:49,268 - AIService - INFO - Gemini returned: 2230 chars, 2299 tokens
+2025-12-04 13:48:49,309 - AIService - INFO - extract_text_from_image called, image size: 277262 bytes
+2025-12-04 13:48:49,309 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:48:57,363 - AIService - INFO - Gemini returned: 1451 chars, 941 tokens
+2025-12-04 13:48:57,420 - AIService - INFO - extract_text_from_image called, image size: 589926 bytes
+2025-12-04 13:48:57,421 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:49:05,978 - AIService - INFO - Gemini returned: 1034 chars, 688 tokens
+2025-12-04 13:49:06,067 - AIService - INFO - extract_text_from_image called, image size: 169482 bytes
+2025-12-04 13:49:06,068 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:49:17,616 - AIService - INFO - Gemini returned: 3271 chars, 1529 tokens
+2025-12-04 13:49:17,675 - AIService - INFO - extract_text_from_image called, image size: 774640 bytes
+2025-12-04 13:49:17,675 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:49:24,357 - AIService - INFO - Gemini returned: 246 chars, 628 tokens
+2025-12-04 13:49:24,406 - AIService - INFO - extract_text_from_image called, image size: 251103 bytes
+2025-12-04 13:49:24,406 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:49:43,601 - AIService - INFO - Gemini returned: 3302 chars, 4405 tokens
+2025-12-04 13:49:43,601 - Extractor - INFO - Processed 10/30 pages, 13422 tokens used
+2025-12-04 13:49:43,643 - AIService - INFO - extract_text_from_image called, image size: 214534 bytes
+2025-12-04 13:49:43,643 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:50:00,695 - AIService - INFO - Gemini returned: 4610 chars, 3401 tokens
+2025-12-04 13:50:00,751 - AIService - INFO - extract_text_from_image called, image size: 510144 bytes
+2025-12-04 13:50:00,752 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:50:09,129 - AIService - INFO - Gemini returned: 1785 chars, 1004 tokens
+2025-12-04 13:50:09,179 - AIService - INFO - extract_text_from_image called, image size: 420470 bytes
+2025-12-04 13:50:09,180 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:50:23,265 - AIService - INFO - Gemini returned: 3771 chars, 2944 tokens
+2025-12-04 13:50:23,317 - AIService - INFO - extract_text_from_image called, image size: 675659 bytes
+2025-12-04 13:50:23,317 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:50:37,108 - AIService - INFO - Gemini returned: 3266 chars, 2746 tokens
+2025-12-04 13:50:37,160 - AIService - INFO - extract_text_from_image called, image size: 256653 bytes
+2025-12-04 13:50:37,160 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:50:42,666 - AIService - INFO - Gemini returned: 996 chars, 794 tokens
+2025-12-04 13:50:42,730 - AIService - INFO - extract_text_from_image called, image size: 1146230 bytes
+2025-12-04 13:50:42,731 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:50:46,521 - AIService - INFO - Gemini returned: 473 chars, 566 tokens
+2025-12-04 13:50:46,575 - AIService - INFO - extract_text_from_image called, image size: 159659 bytes
+2025-12-04 13:50:46,575 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:50:57,741 - AIService - INFO - Gemini returned: 1436 chars, 2025 tokens
+2025-12-04 13:50:57,813 - AIService - INFO - extract_text_from_image called, image size: 932972 bytes
+2025-12-04 13:50:57,814 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:51:06,688 - AIService - INFO - Gemini returned: 3006 chars, 1347 tokens
+2025-12-04 13:51:06,733 - AIService - INFO - extract_text_from_image called, image size: 517089 bytes
+2025-12-04 13:51:06,733 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:51:18,143 - AIService - INFO - Gemini returned: 2919 chars, 2443 tokens
+2025-12-04 13:51:18,203 - AIService - INFO - extract_text_from_image called, image size: 855678 bytes
+2025-12-04 13:51:18,203 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:51:24,089 - AIService - INFO - Gemini returned: 159 chars, 678 tokens
+2025-12-04 13:51:24,089 - Extractor - INFO - Processed 20/30 pages, 31370 tokens used
+2025-12-04 13:51:24,138 - AIService - INFO - extract_text_from_image called, image size: 310595 bytes
+2025-12-04 13:51:24,138 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:51:36,729 - AIService - INFO - Gemini returned: 4427 chars, 2050 tokens
+2025-12-04 13:51:36,785 - AIService - INFO - extract_text_from_image called, image size: 342136 bytes
+2025-12-04 13:51:36,785 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:51:46,890 - AIService - INFO - Gemini returned: 4591 chars, 2116 tokens
+2025-12-04 13:51:46,955 - AIService - INFO - extract_text_from_image called, image size: 509683 bytes
+2025-12-04 13:51:46,956 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:52:12,830 - AIService - INFO - Gemini returned: 5823 chars, 5676 tokens
+2025-12-04 13:52:12,915 - AIService - INFO - extract_text_from_image called, image size: 540559 bytes
+2025-12-04 13:52:12,915 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:52:24,087 - AIService - INFO - Gemini returned: 3030 chars, 2289 tokens
+2025-12-04 13:52:24,193 - AIService - INFO - extract_text_from_image called, image size: 1105259 bytes
+2025-12-04 13:52:24,193 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:52:42,532 - AIService - INFO - Gemini returned: 1866 chars, 3139 tokens
+2025-12-04 13:52:42,585 - AIService - INFO - extract_text_from_image called, image size: 754481 bytes
+2025-12-04 13:52:42,585 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:52:45,912 - AIService - INFO - Gemini returned: 135 chars, 392 tokens
+2025-12-04 13:52:46,008 - AIService - INFO - extract_text_from_image called, image size: 545472 bytes
+2025-12-04 13:52:46,008 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:53:10,304 - AIService - INFO - Gemini returned: 4579 chars, 5669 tokens
+2025-12-04 13:53:10,393 - AIService - INFO - extract_text_from_image called, image size: 505602 bytes
+2025-12-04 13:53:10,393 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:53:25,275 - AIService - INFO - Gemini returned: 4246 chars, 2745 tokens
+2025-12-04 13:53:25,320 - AIService - INFO - extract_text_from_image called, image size: 153587 bytes
+2025-12-04 13:53:25,321 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:53:32,698 - AIService - INFO - Gemini returned: 1103 chars, 1025 tokens
+2025-12-04 13:53:32,724 - AIService - INFO - extract_text_from_image called, image size: 96054 bytes
+2025-12-04 13:53:32,724 - AIService - INFO - Sending image to Gemini...
+2025-12-04 13:53:37,352 - AIService - INFO - Gemini returned: 186 chars, 523 tokens
+2025-12-04 13:53:37,352 - Extractor - INFO - Processed 30/30 pages, 56994 tokens used
+2025-12-04 13:53:37,354 - Extractor - INFO - AI extraction complete: 30 pages, 67520 chars, 56994 tokens
+2025-12-04 13:53:37,354 - Extractor - INFO - Force AI extracted: 67520 chars, 56994 tokens
+2025-12-04 13:53:37,354 - Extractor - INFO - Text sample: VIETABANK
+ĐỒNG HÀNH CÙNG KHÁT VỌNG
+HÀNH ĐỘNG
+ĐỂ BỨT PHÁ
+Báo cáo
+thường niên
+2020
+MỤC LỤC
+THÔNG ĐIỆP CỦA TỔNG GIÁM ĐỐC
+VỀ CHÚNG TÔI
+7 . Giới thiệu VietABank
+8 • Tầm nhìn, Sứ mệnh & Giá trị cốt lõi
+9 • ...
+2025-12-04 13:53:37,355 - Extractor - INFO - Normalized sample: vietabank dong hanh cung khat vong hanh dong de but pha bao cao thuong nien 2020 muc luc thong diep cua tong giam doc ve chung toi 7 gioi thieu vietabank 8 tam nhin su menh gia tri cot loi 9...
+2025-12-04 13:53:37,379 - TextProcessor - INFO - Analyzing 67520 chars of text against 74 keywords
+2025-12-04 13:53:37,379 - TextProcessor - INFO - Normalized text length: 64864
+2025-12-04 13:53:37,380 - TextProcessor - INFO - Normalized text sample: vietabank dong hanh cung khat vong hanh dong de but pha bao cao thuong nien 2020 muc luc thong diep ...
+2025-12-04 13:53:38,058 - TextProcessor - INFO - Analysis complete: 9 unique keywords found, 18 total matches
+2025-12-04 13:57:58,219 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:57:58,219 - AIService - INFO - API Key present: True
+2025-12-04 13:57:58,220 - AIService - INFO - API Key length: 39
+2025-12-04 13:57:58,220 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:57:58,220 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:58:03,765 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:58:03,765 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 13:58:05,698 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 13:58:05,698 - AIService - INFO - Initializing GeminiService...
+2025-12-04 13:58:05,698 - AIService - INFO - API Key present: True
+2025-12-04 13:58:05,698 - AIService - INFO - API Key length: 39
+2025-12-04 13:58:05,698 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 13:58:05,698 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 13:58:09,421 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 13:58:09,484 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 422776 bytes
+2025-12-04 13:58:09,484 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:58:20,914 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 13:58:20,914 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 13:58:20,943 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 84411 bytes
+2025-12-04 13:58:20,943 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:58:43,575 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 13:58:43,575 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 13:58:43,613 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 149119 bytes
+2025-12-04 13:58:43,613 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:59:04,419 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 13:59:04,419 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 13:59:04,467 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 335569 bytes
+2025-12-04 13:59:04,467 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 13:59:39,070 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 13:59:39,070 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 13:59:39,141 - AIService - INFO - search_keywords_in_image called, 74 keywords, image size: 169018 bytes
+2025-12-04 13:59:39,141 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:00:10,942 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 14:00:10,943 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 14:12:01,944 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:12:01,945 - AIService - INFO - API Key present: True
+2025-12-04 14:12:01,945 - AIService - INFO - API Key length: 39
+2025-12-04 14:12:01,945 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:12:01,946 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:12:03,589 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:12:03,589 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 14:12:05,798 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 14:12:05,798 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:12:05,799 - AIService - INFO - API Key present: True
+2025-12-04 14:12:05,799 - AIService - INFO - API Key length: 39
+2025-12-04 14:12:05,799 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:12:05,799 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:12:08,115 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:12:08,117 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: False]
+2025-12-04 14:12:11,233 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:12:11,234 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:12:11,234 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:12:12,094 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:12:12,140 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:12:12,141 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:12:12,141 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:12:12,873 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:17:07,626 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:17:07,627 - AIService - INFO - API Key present: True
+2025-12-04 14:17:07,627 - AIService - INFO - API Key length: 39
+2025-12-04 14:17:07,627 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:17:07,628 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:17:09,413 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:17:09,413 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 14:17:11,385 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 14:17:11,386 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:17:11,386 - AIService - INFO - API Key present: True
+2025-12-04 14:17:11,386 - AIService - INFO - API Key length: 39
+2025-12-04 14:17:11,386 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:17:11,386 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:17:16,283 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:17:16,286 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: False]
+2025-12-04 14:17:19,340 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:17:19,341 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:17:19,341 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:17:20,161 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:17:20,205 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:17:20,205 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:17:20,206 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:17:20,919 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:17:32,998 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:17:32,999 - AIService - INFO - API Key present: True
+2025-12-04 14:17:32,999 - AIService - INFO - API Key length: 39
+2025-12-04 14:17:32,999 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:17:33,000 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:17:34,593 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:17:34,593 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 14:17:36,553 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 14:17:36,554 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:17:36,554 - AIService - INFO - API Key present: True
+2025-12-04 14:17:36,554 - AIService - INFO - API Key length: 39
+2025-12-04 14:17:36,554 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:17:36,554 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:17:40,866 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:17:40,869 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: False]
+2025-12-04 14:17:43,752 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:17:43,753 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:17:43,753 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:17:44,539 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:17:44,583 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:17:44,583 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:17:44,583 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:17:45,294 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:17:59,383 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:17:59,385 - AIService - INFO - API Key present: True
+2025-12-04 14:17:59,386 - AIService - INFO - API Key length: 39
+2025-12-04 14:17:59,386 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:17:59,387 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:18:03,373 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:18:03,374 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 14:18:05,358 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 14:18:05,358 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:18:05,359 - AIService - INFO - API Key present: True
+2025-12-04 14:18:05,359 - AIService - INFO - API Key length: 39
+2025-12-04 14:18:05,359 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:18:05,359 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:18:07,949 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:18:07,952 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: False]
+2025-12-04 14:18:10,844 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:18:10,844 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:18:10,845 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:18:11,556 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:18:11,599 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:18:11,599 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:18:11,599 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:18:12,312 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:30:00,933 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:30:00,933 - AIService - INFO - API Key present: True
+2025-12-04 14:30:00,934 - AIService - INFO - API Key length: 39
+2025-12-04 14:30:00,934 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:30:00,934 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:30:02,613 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:30:02,613 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 14:30:04,607 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 14:30:04,608 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:30:04,608 - AIService - INFO - API Key present: True
+2025-12-04 14:30:04,608 - AIService - INFO - API Key length: 39
+2025-12-04 14:30:04,609 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:30:04,609 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:30:04,852 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:30:04,852 - AIService - INFO - API Key present: True
+2025-12-04 14:30:04,852 - AIService - INFO - API Key length: 39
+2025-12-04 14:30:04,852 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:30:04,853 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:30:06,079 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:30:07,495 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:30:07,495 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 14:30:09,428 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 14:30:09,429 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:30:09,429 - AIService - INFO - API Key present: True
+2025-12-04 14:30:09,429 - AIService - INFO - API Key length: 39
+2025-12-04 14:30:09,429 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:30:09,429 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:30:11,759 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:30:11,761 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: True]
+2025-12-04 14:30:11,761 - Extractor - INFO - Force AI enabled. Skipping local extraction.
+2025-12-04 14:30:11,777 - Extractor - INFO - Extracting 30 pages with AI...
+2025-12-04 14:30:11,831 - AIService - INFO - extract_text_from_image called, image size: 422776 bytes
+2025-12-04 14:30:11,831 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:30:15,420 - AIService - INFO - Gemini returned: 81 chars, 599 tokens
+2025-12-04 14:30:15,445 - AIService - INFO - extract_text_from_image called, image size: 84411 bytes
+2025-12-04 14:30:15,448 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:30:20,460 - AIService - INFO - Gemini returned: 711 chars, 1162 tokens
+2025-12-04 14:30:20,496 - AIService - INFO - extract_text_from_image called, image size: 149119 bytes
+2025-12-04 14:30:20,497 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:30:29,144 - AIService - INFO - Gemini returned: 2035 chars, 2053 tokens
+2025-12-04 14:30:29,188 - AIService - INFO - extract_text_from_image called, image size: 335569 bytes
+2025-12-04 14:30:29,189 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:30:35,040 - AIService - INFO - Gemini returned: 2286 chars, 1362 tokens
+2025-12-04 14:30:35,108 - AIService - INFO - extract_text_from_image called, image size: 169018 bytes
+2025-12-04 14:30:35,109 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:30:43,162 - AIService - INFO - Gemini returned: 2225 chars, 2074 tokens
+2025-12-04 14:30:43,212 - AIService - INFO - extract_text_from_image called, image size: 277262 bytes
+2025-12-04 14:30:43,212 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:34:51,667 - AIService - INFO - Gemini returned: 1990711 chars, 1701 tokens
+2025-12-04 14:34:51,740 - AIService - INFO - extract_text_from_image called, image size: 589926 bytes
+2025-12-04 14:34:51,740 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:34:59,033 - AIService - INFO - Gemini returned: 1035 chars, 1437 tokens
+2025-12-04 14:34:59,127 - AIService - INFO - extract_text_from_image called, image size: 169482 bytes
+2025-12-04 14:34:59,127 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:35:14,256 - AIService - INFO - Gemini returned: 9705 chars, 3057 tokens
+2025-12-04 14:35:14,313 - AIService - INFO - extract_text_from_image called, image size: 774640 bytes
+2025-12-04 14:35:14,314 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:35:18,475 - AIService - INFO - Gemini returned: 249 chars, 708 tokens
+2025-12-04 14:35:18,529 - AIService - INFO - extract_text_from_image called, image size: 251103 bytes
+2025-12-04 14:35:18,530 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:35:45,687 - AIService - INFO - Gemini returned: 3435 chars, 6664 tokens
+2025-12-04 14:35:45,688 - Extractor - INFO - Processed 10/30 pages, 20817 tokens used
+2025-12-04 14:35:45,726 - AIService - INFO - extract_text_from_image called, image size: 214534 bytes
+2025-12-04 14:35:45,726 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:36:00,997 - AIService - INFO - Gemini returned: 4640 chars, 3635 tokens
+2025-12-04 14:36:01,059 - AIService - INFO - extract_text_from_image called, image size: 510144 bytes
+2025-12-04 14:36:01,060 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:36:12,038 - AIService - INFO - Gemini returned: 3753 chars, 1998 tokens
+2025-12-04 14:36:12,111 - AIService - INFO - extract_text_from_image called, image size: 420470 bytes
+2025-12-04 14:36:12,116 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:36:33,601 - AIService - INFO - Gemini returned: 92483 chars, 2984 tokens
+2025-12-04 14:36:33,659 - AIService - INFO - extract_text_from_image called, image size: 675659 bytes
+2025-12-04 14:36:33,659 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:36:47,350 - AIService - INFO - Gemini returned: 3488 chars, 2756 tokens
+2025-12-04 14:36:47,406 - AIService - INFO - extract_text_from_image called, image size: 256653 bytes
+2025-12-04 14:36:47,406 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:36:53,228 - AIService - INFO - Gemini returned: 807 chars, 1262 tokens
+2025-12-04 14:36:53,297 - AIService - INFO - extract_text_from_image called, image size: 1146230 bytes
+2025-12-04 14:36:53,298 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:37:04,691 - AIService - INFO - Gemini returned: 475 chars, 2476 tokens
+2025-12-04 14:37:04,750 - AIService - INFO - extract_text_from_image called, image size: 159659 bytes
+2025-12-04 14:37:04,751 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:37:17,033 - AIService - INFO - Gemini returned: 2974 chars, 2007 tokens
+2025-12-04 14:37:17,120 - AIService - INFO - extract_text_from_image called, image size: 932972 bytes
+2025-12-04 14:37:17,121 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:37:31,074 - AIService - INFO - Gemini returned: 4940 chars, 2423 tokens
+2025-12-04 14:37:31,129 - AIService - INFO - extract_text_from_image called, image size: 517089 bytes
+2025-12-04 14:37:31,129 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:37:42,871 - AIService - INFO - Gemini returned: 2947 chars, 2822 tokens
+2025-12-04 14:37:42,934 - AIService - INFO - extract_text_from_image called, image size: 855678 bytes
+2025-12-04 14:37:42,935 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:37:58,353 - AIService - INFO - Gemini returned: 453 chars, 3150 tokens
+2025-12-04 14:37:58,354 - Extractor - INFO - Processed 20/30 pages, 46330 tokens used
+2025-12-04 14:37:58,401 - AIService - INFO - extract_text_from_image called, image size: 310595 bytes
+2025-12-04 14:37:58,402 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:38:09,499 - AIService - INFO - Gemini returned: 4822 chars, 2486 tokens
+2025-12-04 14:38:09,555 - AIService - INFO - extract_text_from_image called, image size: 342136 bytes
+2025-12-04 14:38:09,555 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:38:25,140 - AIService - INFO - Gemini returned: 4548 chars, 3984 tokens
+2025-12-04 14:38:25,209 - AIService - INFO - extract_text_from_image called, image size: 509683 bytes
+2025-12-04 14:38:25,209 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:38:42,759 - AIService - INFO - Gemini returned: 5892 chars, 3416 tokens
+2025-12-04 14:38:42,826 - AIService - INFO - extract_text_from_image called, image size: 540559 bytes
+2025-12-04 14:38:42,826 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:39:10,931 - AIService - INFO - Gemini returned: 6186 chars, 6729 tokens
+2025-12-04 14:39:11,024 - AIService - INFO - extract_text_from_image called, image size: 1105259 bytes
+2025-12-04 14:39:11,024 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:39:26,511 - AIService - INFO - Gemini returned: 3410 chars, 3476 tokens
+2025-12-04 14:39:26,576 - AIService - INFO - extract_text_from_image called, image size: 754481 bytes
+2025-12-04 14:39:26,576 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:39:31,254 - AIService - INFO - Gemini returned: 263 chars, 626 tokens
+2025-12-04 14:39:31,345 - AIService - INFO - extract_text_from_image called, image size: 545472 bytes
+2025-12-04 14:39:31,346 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:39:54,615 - AIService - INFO - Gemini returned: 4569 chars, 5465 tokens
+2025-12-04 14:39:54,703 - AIService - INFO - extract_text_from_image called, image size: 505602 bytes
+2025-12-04 14:39:54,703 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:40:17,566 - AIService - INFO - Gemini returned: 4525 chars, 5410 tokens
+2025-12-04 14:40:17,614 - AIService - INFO - extract_text_from_image called, image size: 153587 bytes
+2025-12-04 14:40:17,615 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:40:26,197 - AIService - INFO - Gemini returned: 1710 chars, 1792 tokens
+2025-12-04 14:40:26,223 - AIService - INFO - extract_text_from_image called, image size: 96054 bytes
+2025-12-04 14:40:26,223 - AIService - INFO - Sending image to Gemini...
+2025-12-04 14:40:29,566 - AIService - INFO - Gemini returned: 186 chars, 527 tokens
+2025-12-04 14:40:29,566 - Extractor - INFO - Processed 30/30 pages, 80241 tokens used
+2025-12-04 14:40:29,568 - Extractor - INFO - AI extraction complete: 30 pages, 2165574 chars, 80241 tokens
+2025-12-04 14:40:29,569 - Extractor - INFO - Force AI extracted: 2165574 chars, 80241 tokens
+2025-12-04 14:40:29,569 - Extractor - INFO - Text sample: VIETABANK
+ĐỒNG HÀNH CÙNG KHÁT VỌNG
+
+HÀNH ĐỘNG
+ĐỂ BỨT PHÁ
+Báo cáo
+thường niên
+2020
+Báo cáo
+thường niên
+HÀNH ĐỘNG
+để BỨT PHÁ
+
+MỤC LỤC
+
+THÔNG ĐIỆP CỦA TỔNG GIÁM ĐỐC
+
+VỀ CHÚNG TÔI
+7 • Giới thiệu VietABank...
+2025-12-04 14:40:29,570 - Extractor - INFO - Normalized sample: vietabank dong hanh cung khat vong hanh dong de but pha bao cao thuong nien 2020 bao cao thuong nien hanh dong de but pha muc luc thong diep cua tong giam doc ve chung toi 7 gioi thieu vietabank...
+2025-12-04 14:40:30,234 - TextProcessor - INFO - Analyzing 2165574 chars of text against 74 keywords
+2025-12-04 14:40:30,235 - TextProcessor - INFO - Normalized text length: 64699
+2025-12-04 14:40:30,235 - TextProcessor - INFO - Normalized text sample: vietabank dong hanh cung khat vong hanh dong de but pha bao cao thuong nien 2020 bao cao thuong nien...
+2025-12-04 14:40:30,889 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 14 total matches
+2025-12-04 14:42:09,387 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:42:09,387 - AIService - INFO - API Key present: True
+2025-12-04 14:42:09,388 - AIService - INFO - API Key length: 39
+2025-12-04 14:42:09,388 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:42:09,388 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:42:11,035 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:42:11,036 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 14:42:13,005 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 14:42:13,005 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:42:13,006 - AIService - INFO - API Key present: True
+2025-12-04 14:42:13,006 - AIService - INFO - API Key length: 39
+2025-12-04 14:42:13,006 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:42:13,006 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:42:17,950 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:42:18,017 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 422776 bytes
+2025-12-04 14:42:18,017 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:42:24,108 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 14:42:24,109 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 14:42:24,136 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 84411 bytes
+2025-12-04 14:42:24,137 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:43:02,233 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 1, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 14:43:02,233 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 1, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 14:43:02,271 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 149119 bytes
+2025-12-04 14:43:02,272 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:43:19,469 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 14:43:19,469 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 14:43:19,515 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 335569 bytes
+2025-12-04 14:43:19,515 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:43:34,182 - AIService - INFO - Gemini keyword response: ```json
+{
+  "Phân tích dữ liệu": 0,
+  "dữ liệu lớn": 0,
+  "chấm điểm tín dụng": 0,
+  "quản lý rủi ro": 0,
+  "dự đoán nhu cầu": 0,
+  "đánh giá rủi ro tín dụng": 0,
+  "giám sát tuân thủ Regtech": 0,
+  "
+2025-12-04 14:43:34,182 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 14:43:34,252 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 169018 bytes
+2025-12-04 14:43:34,253 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:44:07,802 - AIService - INFO - Gemini keyword response: ```json
+{
+  "Phân tích dữ liệu": 0,
+  "dữ liệu lớn": 0,
+  "chấm điểm tín dụng": 0,
+  "quản lý rủi ro": 1,
+  "dự đoán nhu cầu": 0,
+  "đánh giá rủi ro tín dụng": 0,
+  "giám sát tuân thủ Regtech": 1,
+  "
+2025-12-04 14:44:07,802 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 1, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 1, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 14:44:07,852 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 277262 bytes
+2025-12-04 14:44:07,852 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:44:21,841 - AIService - INFO - Gemini keyword response: {"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi khách h
+2025-12-04 14:44:21,841 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': 0, 'dữ liệu lớn': 0, 'chấm điểm tín dụng': 0, 'quản lý rủi ro': 0, 'dự đoán nhu cầu': 0, 'đánh giá rủi ro tín dụng': 0, 'giám sát tuân thủ Regtech': 0, 'phân tích hành vi khách hàng': 0, 'dữ liệu thay thế': 0, 'bigdata': 0, 'big data analytic': 0, 'trung tâm số hoá NH': 0, 'Trí tuệ nhân tạo/AI': 0, 'học máy/ML': 0, 'quy trình tự động': 0, 'phát hiện gian lận': 0, 'tư vấn tự động': 0, 'chatbot/trợ lý ảo': 0, 'cho vay trực tuyến': 0, 'phân tích cảm xúc đầu tư': 0, 'chống rửa tiền': 0, 'giao dịch thuật toán': 0, 'giám sát theo thời gian thực': 0, 'mô hình dự đoán': 0, 'cá nhân hoá dịch vụ khách hàng': 0, 'trải nghiệm khách hàng cá nhân hoá': 0, 'tiếp thị cá nhân hoá': 0, 'eKYC/KYC': 0, 'nhận diện khách hàng': 0, 'xác thực sinh trắc.': 0}
+2025-12-04 14:44:21,898 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 589926 bytes
+2025-12-04 14:44:21,899 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:44:50,686 - AIService - INFO - Gemini keyword response: ```json
+{
+  "Phân tích dữ liệu": {
+    "keyword": 0,
+    "similar_term": 0
+  },
+  "dữ liệu lớn": {
+    "keyword": 0,
+    "similar_term": 0
+  },
+  "chấm điểm tín dụng": {
+    "keyword": 0,
+    "similar
+2025-12-04 14:44:50,687 - AIService - INFO - Parsed keywords: {'Phân tích dữ liệu': {'keyword': 0, 'similar_term': 0}, 'dữ liệu lớn': {'keyword': 0, 'similar_term': 0}, 'chấm điểm tín dụng': {'keyword': 0, 'similar_term': 0}, 'quản lý rủi ro': {'keyword': 0, 'similar_term': 0}, 'dự đoán nhu cầu': {'keyword': 0, 'similar_term': 0}, 'đánh giá rủi ro tín dụng': {'keyword': 0, 'similar_term': 0}, 'giám sát tuân thủ Regtech': {'keyword': 0, 'similar_term': 0}, 'phân tích hành vi khách hàng': {'keyword': 0, 'similar_term': 0}, 'dữ liệu thay thế': {'keyword': 0, 'similar_term': 0}, 'bigdata': {'keyword': 0, 'similar_term': 0}, 'big data analytic': {'keyword': 0, 'similar_term': 0}, 'trung tâm số hoá NH': {'keyword': 0, 'similar_term': 0}, 'Trí tuệ nhân tạo/AI': {'keyword': 0, 'similar_term': 0}, 'học máy/ML': {'keyword': 0, 'similar_term': 0}, 'quy trình tự động': {'keyword': 0, 'similar_term': 0}, 'phát hiện gian lận': {'keyword': 0, 'similar_term': 0}, 'tư vấn tự động': {'keyword': 0, 'similar_term': 0}, 'chatbot/trợ lý ảo': {'keyword': 0, 'similar_term': 0}, 'cho vay trực tuyến': {'keyword': 0, 'similar_term': 0}, 'phân tích cảm xúc đầu tư': {'keyword': 0, 'similar_term': 0}, 'chống rửa tiền': {'keyword': 0, 'similar_term': 0}, 'giao dịch thuật toán': {'keyword': 0, 'similar_term': 0}, 'giám sát theo thời gian thực': {'keyword': 0, 'similar_term': 0}, 'mô hình dự đoán': {'keyword': 0, 'similar_term': 0}, 'cá nhân hoá dịch vụ khách hàng': {'keyword': 0, 'similar_term': 0}, 'trải nghiệm khách hàng cá nhân hoá': {'keyword': 0, 'similar_term': 0}, 'tiếp thị cá nhân hoá': {'keyword': 0, 'similar_term': 0}, 'eKYC/KYC': {'keyword': 0, 'similar_term': 0}, 'nhận diện khách hàng': {'keyword': 0, 'similar_term': 0}, 'xác thực sinh trắc': {'keyword': 0, 'similar_term': 0}}
+2025-12-04 14:44:50,688 - UI - ERROR - AI Keyword Search failed: unsupported operand type(s) for +: 'int' and 'dict'
+2025-12-04 14:44:50,688 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\VAB_2020.pdf (.pdf) [AI: False]
+2025-12-04 14:44:53,725 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:44:53,725 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:44:53,725 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:44:54,574 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:44:54,626 - TextProcessor - INFO - Analyzing 88988 chars of text against 74 keywords
+2025-12-04 14:44:54,626 - TextProcessor - INFO - Normalized text length: 83101
+2025-12-04 14:44:54,627 - TextProcessor - INFO - Normalized text sample: 1 2 3 muc luc 1 2 3 4 5 6 thong diep cua tong giam doc ve chung toi nam 2020 dinh huong nam 2021 bao...
+2025-12-04 14:44:55,341 - TextProcessor - INFO - Analysis complete: 8 unique keywords found, 32 total matches
+2025-12-04 14:56:01,265 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:56:01,265 - AIService - INFO - API Key present: True
+2025-12-04 14:56:01,265 - AIService - INFO - API Key length: 39
+2025-12-04 14:56:01,266 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:56:01,266 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:56:06,853 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:56:06,854 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 14:56:08,820 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 14:56:08,820 - AIService - INFO - Initializing GeminiService...
+2025-12-04 14:56:08,820 - AIService - INFO - API Key present: True
+2025-12-04 14:56:08,820 - AIService - INFO - API Key length: 39
+2025-12-04 14:56:08,820 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 14:56:08,820 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 14:56:10,133 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 14:56:10,200 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 422776 bytes
+2025-12-04 14:56:10,200 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:56:18,448 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 14:56:18,448 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 14:56:18,475 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 84411 bytes
+2025-12-04 14:56:18,477 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:56:27,879 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 14:56:27,880 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 14:56:27,990 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 149119 bytes
+2025-12-04 14:56:27,992 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:56:42,478 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 14:56:42,478 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 14:56:42,560 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 335569 bytes
+2025-12-04 14:56:42,560 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:57:03,394 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 14:57:03,395 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 14:57:03,500 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 169018 bytes
+2025-12-04 14:57:03,500 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:57:26,010 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 14:57:26,010 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 14:57:26,098 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 277262 bytes
+2025-12-04 14:57:26,099 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:57:45,945 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 14:57:45,946 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 14:57:46,034 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 589926 bytes
+2025-12-04 14:57:46,035 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:58:01,180 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 14:58:01,180 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 14:58:01,301 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 169482 bytes
+2025-12-04 14:58:01,301 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:58:30,431 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 14:58:30,432 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 14:58:30,520 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 774640 bytes
+2025-12-04 14:58:30,521 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:58:41,104 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 14:58:41,105 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 14:58:41,199 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 251103 bytes
+2025-12-04 14:58:41,199 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 14:59:31,023 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 2}
+2025-12-04 14:59:31,024 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 2
+2025-12-04 14:59:31,098 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 214534 bytes
+2025-12-04 14:59:31,099 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:00:27,017 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 15:00:27,017 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:00:27,110 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 510144 bytes
+2025-12-04 15:00:27,110 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:00:47,164 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 15:00:47,164 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:00:47,257 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 420470 bytes
+2025-12-04 15:00:47,258 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:01:27,179 - AIService - INFO - Gemini keyword response: {"phân tích dữ liệu": 1, "chấm điểm tín dụng": 1, "quản lý rủi ro": 19}
+2025-12-04 15:01:27,180 - AIService - INFO - Parsed and normalized keywords: 3 keywords, total: 21
+2025-12-04 15:01:27,263 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 675659 bytes
+2025-12-04 15:01:27,263 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:01:46,722 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:01:46,722 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:01:46,806 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 256653 bytes
+2025-12-04 15:01:46,806 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:02:01,625 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:02:01,625 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:02:01,725 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 1146230 bytes
+2025-12-04 15:02:01,726 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:02:26,615 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:02:26,616 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:02:26,706 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 159659 bytes
+2025-12-04 15:02:26,706 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:02:42,575 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:02:42,575 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:02:42,686 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 932972 bytes
+2025-12-04 15:02:42,686 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:03:03,972 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1, "cá nhân hoá dịch vụ khách hàng": 2, "eKYC/KYC": 1, "nhận diện khách hàng": 1}
+2025-12-04 15:03:03,973 - AIService - INFO - Parsed and normalized keywords: 4 keywords, total: 5
+2025-12-04 15:03:04,056 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 517089 bytes
+2025-12-04 15:03:04,057 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:03:29,689 - AIService - INFO - Gemini keyword response: ```json
+{"quản lý rủi ro": 1}
+```
+2025-12-04 15:03:29,689 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:03:29,782 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 855678 bytes
+2025-12-04 15:03:29,782 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:03:37,941 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:03:37,941 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:03:38,057 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 310595 bytes
+2025-12-04 15:03:38,058 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:04:21,448 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:04:21,448 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:04:21,603 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 342136 bytes
+2025-12-04 15:04:21,612 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:04:44,596 - AIService - INFO - Gemini keyword response: {"phát hiện gian lận": 1}
+2025-12-04 15:04:44,596 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:04:44,698 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 509683 bytes
+2025-12-04 15:04:44,699 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:05:09,933 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 3, "đánh giá rủi ro tín dụng": 1, "phát hiện gian lận": 2}
+2025-12-04 15:05:09,934 - AIService - INFO - Parsed and normalized keywords: 3 keywords, total: 6
+2025-12-04 15:05:10,044 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 540559 bytes
+2025-12-04 15:05:10,045 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:05:38,653 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:05:38,654 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:05:38,803 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 1105259 bytes
+2025-12-04 15:05:38,803 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:05:58,887 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:05:58,888 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:05:58,977 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 754481 bytes
+2025-12-04 15:05:58,977 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:06:06,186 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:06:06,186 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:06:06,318 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 545472 bytes
+2025-12-04 15:06:06,318 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:06:23,631 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:06:23,631 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:06:23,751 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 505602 bytes
+2025-12-04 15:06:23,751 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:06:34,615 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:06:34,615 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:06:34,700 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 153587 bytes
+2025-12-04 15:06:34,701 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:06:42,732 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:06:42,732 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:06:42,791 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 96054 bytes
+2025-12-04 15:06:42,791 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:06:52,045 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:06:52,045 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:16:32,684 - AIService - INFO - Initializing GeminiService...
+2025-12-04 15:16:32,685 - AIService - INFO - API Key present: True
+2025-12-04 15:16:32,686 - AIService - INFO - API Key length: 39
+2025-12-04 15:16:32,686 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 15:16:32,686 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 15:16:35,524 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 15:16:35,524 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 15:16:37,544 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 15:16:37,544 - AIService - INFO - Initializing GeminiService...
+2025-12-04 15:16:37,544 - AIService - INFO - API Key present: True
+2025-12-04 15:16:37,545 - AIService - INFO - API Key length: 39
+2025-12-04 15:16:37,545 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 15:16:37,545 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 15:16:39,327 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 15:16:39,404 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 367136 bytes
+2025-12-04 15:16:39,404 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:16:51,122 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:16:51,122 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:16:51,160 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 459756 bytes
+2025-12-04 15:16:51,160 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:16:55,626 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:16:55,626 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:16:55,640 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 21352 bytes
+2025-12-04 15:16:55,640 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:17:07,293 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:17:07,293 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:17:07,307 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 50095 bytes
+2025-12-04 15:17:07,315 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:17:25,026 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:17:25,026 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:17:25,073 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 259282 bytes
+2025-12-04 15:17:25,074 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:17:29,801 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:17:29,801 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:17:29,836 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 163623 bytes
+2025-12-04 15:17:29,836 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:17:47,936 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:17:47,936 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:17:47,971 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 144097 bytes
+2025-12-04 15:17:47,971 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:18:17,775 - AIService - INFO - Gemini keyword response: {"đánh giá rủi ro tín dụng": 1}
+2025-12-04 15:18:17,775 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:18:17,870 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 218149 bytes
+2025-12-04 15:18:17,870 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:18:38,283 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:18:38,284 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:18:38,337 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 184880 bytes
+2025-12-04 15:18:38,338 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:18:52,850 - AIService - INFO - Gemini keyword response: {"đánh giá rủi ro tín dụng": 2}
+2025-12-04 15:18:52,850 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 2
+2025-12-04 15:18:52,920 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 341059 bytes
+2025-12-04 15:18:52,920 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:19:08,866 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:19:08,866 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:19:08,938 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 225180 bytes
+2025-12-04 15:19:08,938 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:19:29,282 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:19:29,283 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:19:29,334 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 60443 bytes
+2025-12-04 15:19:29,335 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:19:45,451 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 2}
+2025-12-04 15:19:45,451 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 2
+2025-12-04 15:19:45,551 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 579146 bytes
+2025-12-04 15:19:45,551 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:20:05,143 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:20:05,149 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:20:05,201 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 194523 bytes
+2025-12-04 15:20:05,201 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:20:22,020 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 3}
+2025-12-04 15:20:22,020 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 3
+2025-12-04 15:20:22,073 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 133626 bytes
+2025-12-04 15:20:22,073 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:20:36,464 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 15:20:36,470 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:20:36,520 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 101884 bytes
+2025-12-04 15:20:36,520 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:20:54,114 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 4}
+2025-12-04 15:20:54,114 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 4
+2025-12-04 15:20:54,164 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 50816 bytes
+2025-12-04 15:20:54,170 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:21:05,002 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:21:05,002 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:21:05,049 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 100651 bytes
+2025-12-04 15:21:05,049 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:21:17,903 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:21:17,903 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:21:17,959 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 219794 bytes
+2025-12-04 15:21:17,960 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:21:36,901 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:21:36,901 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:21:36,970 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 84316 bytes
+2025-12-04 15:21:36,970 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:21:55,802 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:21:55,802 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:21:55,870 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 88037 bytes
+2025-12-04 15:21:55,870 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:22:13,001 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 6, "chống rửa tiền": 1}
+2025-12-04 15:22:13,001 - AIService - INFO - Parsed and normalized keywords: 2 keywords, total: 7
+2025-12-04 15:22:13,070 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 479092 bytes
+2025-12-04 15:22:13,070 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:22:17,721 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:22:17,721 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:22:17,786 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 417225 bytes
+2025-12-04 15:22:17,786 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:22:25,619 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:22:25,620 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:22:25,664 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 71110 bytes
+2025-12-04 15:22:25,664 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:22:49,072 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:22:49,072 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:22:49,125 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 55699 bytes
+2025-12-04 15:22:49,125 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:23:06,046 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:23:06,046 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:23:06,111 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 221208 bytes
+2025-12-04 15:23:06,112 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:23:19,807 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 15:23:19,807 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:23:19,860 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 83050 bytes
+2025-12-04 15:23:19,861 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:23:53,799 - AIService - INFO - Gemini keyword response: ```json
+{"quản lý rủi ro": 5}
+```
+2025-12-04 15:23:53,799 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 5
+2025-12-04 15:23:53,871 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 242153 bytes
+2025-12-04 15:23:53,872 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:24:00,273 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:24:00,274 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:24:00,358 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 518116 bytes
+2025-12-04 15:24:00,358 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:24:05,484 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:24:05,485 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:24:05,539 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 157994 bytes
+2025-12-04 15:24:05,539 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:24:29,671 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:24:29,672 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:24:29,730 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 210400 bytes
+2025-12-04 15:24:29,731 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:24:56,186 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:24:56,186 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:24:56,240 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 79631 bytes
+2025-12-04 15:24:56,240 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:26:07,362 - AIService - INFO - Gemini keyword response: ```json
+{}
+```
+2025-12-04 15:26:07,363 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:26:07,709 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 225926 bytes
+2025-12-04 15:26:07,710 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:26:30,080 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:26:30,080 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:26:30,176 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 647605 bytes
+2025-12-04 15:26:30,176 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:26:54,368 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:26:54,368 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:26:54,420 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 203228 bytes
+2025-12-04 15:26:54,420 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:27:06,685 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:27:06,685 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:27:06,741 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 130859 bytes
+2025-12-04 15:27:06,741 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:27:35,017 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:27:35,018 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:27:35,100 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 666445 bytes
+2025-12-04 15:27:35,101 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:27:39,292 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:27:39,293 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:27:39,343 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 78174 bytes
+2025-12-04 15:27:39,343 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:28:04,281 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 4, "chống rửa tiền": 2}
+2025-12-04 15:28:04,281 - AIService - INFO - Parsed and normalized keywords: 2 keywords, total: 6
+2025-12-04 15:28:04,346 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 320695 bytes
+2025-12-04 15:28:04,347 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:28:36,370 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:28:36,371 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:28:36,426 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 175092 bytes
+2025-12-04 15:28:36,426 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:28:51,437 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:28:51,437 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:28:51,492 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 173688 bytes
+2025-12-04 15:28:51,492 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:29:11,484 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:29:11,484 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:29:11,536 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 146183 bytes
+2025-12-04 15:29:11,536 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:29:27,651 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 15:29:27,651 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:29:27,712 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 81967 bytes
+2025-12-04 15:29:27,713 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:29:44,005 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:29:44,006 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:29:44,065 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 90180 bytes
+2025-12-04 15:29:44,065 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:30:08,097 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:30:08,098 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:30:08,158 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 200831 bytes
+2025-12-04 15:30:08,158 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:30:48,765 - AIService - INFO - Gemini keyword response: ```json
+{"quản lý rủi ro": 6}
+```
+2025-12-04 15:30:48,765 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 6
+2025-12-04 15:30:48,830 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 244559 bytes
+2025-12-04 15:30:48,830 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:31:00,585 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:31:00,585 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:31:00,643 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 348586 bytes
+2025-12-04 15:31:00,643 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:31:20,989 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:31:20,989 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:31:21,046 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 94687 bytes
+2025-12-04 15:31:21,047 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:31:43,792 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:31:43,792 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:31:43,881 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 1067925 bytes
+2025-12-04 15:31:43,882 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:31:48,815 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:31:48,815 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:31:48,893 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 509748 bytes
+2025-12-04 15:31:48,893 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:32:01,801 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:32:01,801 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:32:01,891 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 535143 bytes
+2025-12-04 15:32:01,891 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:32:12,855 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:32:12,856 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:32:12,927 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 448881 bytes
+2025-12-04 15:32:12,928 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:32:19,064 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:32:19,065 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:32:19,125 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 305773 bytes
+2025-12-04 15:32:19,125 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:32:47,526 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:32:47,526 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:32:47,598 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 92840 bytes
+2025-12-04 15:32:47,598 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:33:16,392 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:33:16,392 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:33:16,458 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 291548 bytes
+2025-12-04 15:33:16,458 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:33:48,807 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:33:48,807 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:33:48,868 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 244421 bytes
+2025-12-04 15:33:48,868 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:34:08,934 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 15:34:08,935 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:34:09,005 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 351592 bytes
+2025-12-04 15:34:09,006 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:34:26,078 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 2}
+2025-12-04 15:34:26,079 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 2
+2025-12-04 15:34:26,137 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 103655 bytes
+2025-12-04 15:34:26,138 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:34:55,320 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 15:34:55,320 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:34:55,389 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 428971 bytes
+2025-12-04 15:34:55,390 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:35:26,857 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:35:26,858 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:35:26,933 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 457918 bytes
+2025-12-04 15:35:26,933 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:35:45,427 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:35:45,427 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:35:45,478 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 61407 bytes
+2025-12-04 15:35:45,479 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:36:24,644 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:36:24,645 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:36:24,717 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 474230 bytes
+2025-12-04 15:36:24,717 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:36:30,361 - AIService - INFO - Gemini keyword response: I am sorry, but the input you provided is an image, not a text document. I cannot extract keywords or count occurrences from an image. Please provide the text content of the Vietnamese business/financ
+2025-12-04 15:36:30,362 - AIService - WARNING - Could not parse JSON: I am sorry, but the input you provided is an image, not a text document. I cannot extract keywords o
+2025-12-04 15:36:30,362 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:36:30,437 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 448917 bytes
+2025-12-04 15:36:30,437 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:36:41,650 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:36:41,651 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:36:41,710 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 111343 bytes
+2025-12-04 15:36:41,711 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:37:01,114 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 1}
+2025-12-04 15:37:01,114 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:37:01,209 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 1293330 bytes
+2025-12-04 15:37:01,210 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:37:13,558 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:37:13,558 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:37:13,622 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 111588 bytes
+2025-12-04 15:37:13,623 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:38:45,183 - AIService - INFO - Gemini keyword response: ```json
+{"quản lý rủi ro": 1}
+```
+2025-12-04 15:38:45,183 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 1
+2025-12-04 15:38:45,255 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 219655 bytes
+2025-12-04 15:38:45,256 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:39:12,185 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 3}
+2025-12-04 15:39:12,186 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 3
+2025-12-04 15:39:12,286 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 615103 bytes
+2025-12-04 15:39:12,286 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:39:20,373 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:39:20,373 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:39:20,469 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 564538 bytes
+2025-12-04 15:39:20,469 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:39:31,795 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:39:31,796 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:39:31,859 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 105217 bytes
+2025-12-04 15:39:31,860 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:40:02,943 - AIService - INFO - Gemini keyword response: {"quản lý rủi ro": 2}
+2025-12-04 15:40:02,944 - AIService - INFO - Parsed and normalized keywords: 1 keywords, total: 2
+2025-12-04 15:40:02,998 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 72046 bytes
+2025-12-04 15:40:02,999 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:40:14,751 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:40:14,751 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:40:14,806 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 47956 bytes
+2025-12-04 15:40:14,806 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:40:28,954 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:40:28,954 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:40:29,011 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 64592 bytes
+2025-12-04 15:40:29,011 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:40:49,616 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:40:49,616 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:40:49,671 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 86543 bytes
+2025-12-04 15:40:49,671 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:41:15,778 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:41:15,782 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:41:15,842 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 68161 bytes
+2025-12-04 15:41:15,842 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:41:47,180 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:41:47,180 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:41:47,241 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 85386 bytes
+2025-12-04 15:41:47,241 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:42:07,212 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:42:07,212 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:42:07,287 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 107422 bytes
+2025-12-04 15:42:07,288 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:42:33,922 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:42:33,922 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:42:33,976 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 77172 bytes
+2025-12-04 15:42:33,977 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:42:48,632 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:42:48,632 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:42:48,688 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 51255 bytes
+2025-12-04 15:42:48,689 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:43:02,668 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:43:02,669 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:43:02,720 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 65227 bytes
+2025-12-04 15:43:02,720 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:43:20,416 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:43:20,417 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:43:20,470 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 89323 bytes
+2025-12-04 15:43:20,471 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:43:40,037 - AIService - INFO - Gemini keyword response: ```json
+{"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi
+2025-12-04 15:43:40,037 - AIService - INFO - Parsed and normalized keywords: 30 keywords, total: 0
+2025-12-04 15:43:40,094 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 69620 bytes
+2025-12-04 15:43:40,094 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:44:06,097 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:44:06,098 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:44:06,153 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 80404 bytes
+2025-12-04 15:44:06,153 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:45:03,512 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:45:03,512 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:45:03,804 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 83707 bytes
+2025-12-04 15:45:03,804 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:45:11,620 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:45:11,621 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:45:11,679 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 93569 bytes
+2025-12-04 15:45:11,680 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:45:25,023 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:45:25,023 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:45:25,078 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 84095 bytes
+2025-12-04 15:45:25,078 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:45:37,510 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:45:37,511 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:45:37,576 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 96956 bytes
+2025-12-04 15:45:37,577 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:46:02,569 - AIService - INFO - Gemini keyword response: ```json
+{"Phân tích dữ liệu": 0, "dữ liệu lớn": 0, "chấm điểm tín dụng": 0, "quản lý rủi ro": 0, "dự đoán nhu cầu": 0, "đánh giá rủi ro tín dụng": 0, "giám sát tuân thủ Regtech": 0, "phân tích hành vi
+2025-12-04 15:46:02,570 - AIService - INFO - Parsed and normalized keywords: 30 keywords, total: 0
+2025-12-04 15:46:02,651 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 90834 bytes
+2025-12-04 15:46:02,651 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:46:12,721 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:46:12,721 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:46:12,774 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 90759 bytes
+2025-12-04 15:46:12,775 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:46:27,207 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:46:27,207 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:46:27,263 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 82774 bytes
+2025-12-04 15:46:27,264 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:46:43,947 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:46:43,947 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:46:44,018 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 477732 bytes
+2025-12-04 15:46:44,018 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:46:48,020 - AIService - INFO - Gemini keyword response: I cannot perform the keyword analysis as the provided input is an image, not a text document. Please provide the Vietnamese business/financial document in text format.
+2025-12-04 15:46:48,021 - AIService - WARNING - Could not parse JSON: I cannot perform the keyword analysis as the provided input is an image, not a text document. Please
+2025-12-04 15:46:48,021 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:46:48,070 - AIService - INFO - search_keywords_in_image called, 74 keywords, threshold=85%, image size: 18897 bytes
+2025-12-04 15:46:48,070 - AIService - INFO - Sending keyword search to Gemini...
+2025-12-04 15:47:04,266 - AIService - INFO - Gemini keyword response: {}
+2025-12-04 15:47:04,267 - AIService - INFO - Parsed and normalized keywords: 0 keywords, total: 0
+2025-12-04 15:48:09,742 - AIService - INFO - Initializing GeminiService...
+2025-12-04 15:48:09,742 - AIService - INFO - API Key present: True
+2025-12-04 15:48:09,742 - AIService - INFO - API Key length: 39
+2025-12-04 15:48:09,742 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 15:48:09,742 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 15:48:12,234 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 15:48:12,234 - Extractor - INFO - Initializing EasyOCR...
+2025-12-04 15:48:14,260 - Extractor - INFO - EasyOCR initialized.
+2025-12-04 15:48:14,260 - AIService - INFO - Initializing GeminiService...
+2025-12-04 15:48:14,260 - AIService - INFO - API Key present: True
+2025-12-04 15:48:14,260 - AIService - INFO - API Key length: 39
+2025-12-04 15:48:14,260 - AIService - INFO - Attempting to connect to Gemini models...
+2025-12-04 15:48:14,261 - AIService - INFO - Trying model: gemini-2.5-flash
+2025-12-04 15:48:15,919 - AIService - INFO - ✅ Successfully connected to: gemini-2.5-flash
+2025-12-04 15:48:15,924 - Extractor - INFO - Extracting text from D:\TEXT-MINING\data\input\ABB_2015.pdf (.pdf) [AI: False]
+2025-12-04 15:48:25,532 - TextProcessor - INFO - Analyzing 258016 chars of text against 74 keywords
+2025-12-04 15:48:25,532 - TextProcessor - INFO - Normalized text length: 242137
+2025-12-04 15:48:25,532 - TextProcessor - INFO - Normalized text sample: 1 bao cao thuong nien 2015 doan ket mot long 2015 bao cao thuong nien 2 3 bao cao thuong nien 2015 d...
+2025-12-04 15:48:27,714 - TextProcessor - INFO - Analysis complete: 4 unique keywords found, 54 total matches
+2025-12-04 15:48:27,801 - TextProcessor - INFO - Analyzing 258016 chars of text against 74 keywords
+2025-12-04 15:48:27,801 - TextProcessor - INFO - Normalized text length: 242137
+2025-12-04 15:48:27,801 - TextProcessor - INFO - Normalized text sample: 1 bao cao thuong nien 2015 doan ket mot long 2015 bao cao thuong nien 2 3 bao cao thuong nien 2015 d...
+2025-12-04 15:48:29,869 - TextProcessor - INFO - Analysis complete: 4 unique keywords found, 54 total matches
