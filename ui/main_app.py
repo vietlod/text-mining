@@ -30,6 +30,7 @@ from app.auth.firebase_manager import firebase_manager
 from app.auth.session_manager import SessionManager
 from app.database.settings_manager import SettingsManager
 from ui.components.api_key_input import render_api_key_input
+from ui.components.cloud_storage import render_cloud_storage_settings, render_file_source_selector
 
 logger = setup_logger("UI")
 
@@ -100,7 +101,7 @@ def render_main_app():
 
         # --- Settings Section ---
         with st.expander("⚙️ Settings", expanded=not user_api_key):
-            # Render API key input
+            # API Key Configuration
             has_api_key = render_api_key_input(
                 settings_manager,
                 user_id,
@@ -110,6 +111,15 @@ def render_main_app():
             # Warning if no API key
             if not has_api_key:
                 st.warning("⚠️ Please configure your Gemini API key to use AI features.")
+
+            st.markdown("---")
+
+            # Cloud Storage Configuration
+            render_cloud_storage_settings(
+                settings_manager,
+                user_id,
+                language=SessionManager.get_language()
+            )
 
         # --- Keyword Section ---
         with st.expander("🔑 Keyword Management", expanded=True):
