@@ -26,6 +26,10 @@ from app.core.analyzer import KeywordAnalyzer
 from app.core.ai_service import GeminiService
 from app.utils.file_handler import load_keywords, export_to_excel
 from app.utils.logger import setup_logger
+from app.auth.firebase_manager import firebase_manager
+from app.auth.session_manager import SessionManager
+from app.database.settings_manager import SettingsManager
+from ui.components.api_key_input import render_api_key_input
 
 logger = setup_logger("UI")
 
@@ -78,12 +82,35 @@ def render_main_app():
     # Main Layout
     st.title(f"📊 {APP_TITLE}")
 
+    # Get current user and setup managers
+    user = SessionManager.get_current_user()
+    user_id = user['uid'] if user else None
+
+    # Initialize settings manager
+    settings_manager = SettingsManager(firebase_manager.get_firestore_client())
+
+    # Get user's API key
+    user_api_key = settings_manager.get_api_key(user_id) if user_id else None
+
     # Create 2 columns
     left_col, right_col = st.columns([1, 2], gap="large")
 
     with left_col:
         st.markdown("### ⚙️ Configuration & Input")
-    
+
+        # --- Settings Section ---
+        with st.expander("⚙️ Settings", expanded=not user_api_key):
+            # Render API key input
+            has_api_key = render_api_key_input(
+                settings_manager,
+                user_id,
+                language=SessionManager.get_language()
+            )
+
+            # Warning if no API key
+            if not has_api_key:
+                st.warning("⚠️ Please configure your Gemini API key to use AI features.")
+
         # --- Keyword Section ---
         with st.expander("🔑 Keyword Management", expanded=True):
             st.info(f"Loaded: **{len(st.session_state.keywords_map)}** keywords")
@@ -249,7 +276,7 @@ def render_main_app():
             
                 extractor = TextExtractor()
                 analyzer = KeywordAnalyzer()
-                ai_service = GeminiService()
+                ai_service = GeminiService(api_key=user_api_key)
             
                 # Show AI Status
                 ai_status = ai_service.get_status()
@@ -526,10 +553,13 @@ def render_main_app():
             st.caption(f"📊 Data available: {len(st.session_state.all_keyword_counts)} keywords, {len(st.session_state.processed_files)} files")
         
             if st.button("🔮 Generate AI Insights", type="secondary"):
-                ai_service = GeminiService()
-            
+                ai_service = GeminiService(api_key=user_api_key)
+
                 if not ai_service.model:
-                    st.error("❌ Gemini API chưa được cấu hình. Kiểm tra GEMINI_API_KEY trong config.py")
+                    if not user_api_key:
+                        st.error("❌ Gemini API key not configured. Please configure your API key in Settings.")
+                    else:
+                        st.error("❌ Gemini API initialization failed. Please check your API key.")
                 else:
                     with st.spinner("Đang tạo nhận xét..."):
                         # Get data from session state

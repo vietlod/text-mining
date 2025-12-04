@@ -11,23 +11,33 @@ logger = setup_logger("AIService")
 class GeminiService:
     """
     Advanced AI Service using Google Gemini.
+
+    Supports both user-specific API keys and fallback to config API key.
     """
-    
-    def __init__(self):
+
+    def __init__(self, api_key=None):
+        """
+        Initialize Gemini Service.
+
+        Args:
+            api_key: Optional user-specific API key. If None, uses config API key.
+        """
         self.model = None
         self.init_error = None
-        
+        self.api_key = api_key or GEMINI_API_KEY
+
         logger.info(f"Initializing GeminiService...")
-        logger.info(f"API Key present: {bool(GEMINI_API_KEY)}")
-        logger.info(f"API Key length: {len(GEMINI_API_KEY) if GEMINI_API_KEY else 0}")
-        
-        if not GEMINI_API_KEY:
-            self.init_error = "GEMINI_API_KEY not found"
+        logger.info(f"Using user-specific API key: {bool(api_key)}")
+        logger.info(f"API Key present: {bool(self.api_key)}")
+        logger.info(f"API Key length: {len(self.api_key) if self.api_key else 0}")
+
+        if not self.api_key:
+            self.init_error = "GEMINI_API_KEY not found. Please configure your API key in Settings."
             logger.error(self.init_error)
             return
 
         try:
-            genai.configure(api_key=GEMINI_API_KEY)
+            genai.configure(api_key=self.api_key)
             
             # List of models to try in order of preference
             models_to_try = [
