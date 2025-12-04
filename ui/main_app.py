@@ -29,8 +29,10 @@ from app.utils.logger import setup_logger
 from app.auth.firebase_manager import firebase_manager
 from app.auth.session_manager import SessionManager
 from app.database.settings_manager import SettingsManager
+from app.ui.theme_manager import ThemeManager
 from ui.components.api_key_input import render_api_key_input
 from ui.components.cloud_storage import render_cloud_storage_settings, render_file_source_selector
+from ui.components.theme_selector import render_compact_theme_selector
 
 logger = setup_logger("UI")
 
@@ -90,6 +92,10 @@ def render_main_app():
     # Initialize settings manager
     settings_manager = SettingsManager(firebase_manager.get_firestore_client())
 
+    # Initialize theme manager and apply theme
+    theme_manager = ThemeManager(settings_manager, user_id)
+    theme_manager.apply_theme()
+
     # Get user's API key
     user_api_key = settings_manager.get_api_key(user_id) if user_id else None
 
@@ -111,6 +117,14 @@ def render_main_app():
             # Warning if no API key
             if not has_api_key:
                 st.warning("⚠️ Please configure your Gemini API key to use AI features.")
+
+            st.markdown("---")
+
+            # Theme Configuration
+            render_compact_theme_selector(
+                theme_manager,
+                language=SessionManager.get_language()
+            )
 
             st.markdown("---")
 
