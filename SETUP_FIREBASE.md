@@ -24,7 +24,7 @@ This guide will walk you through setting up Firebase Authentication and Cloud Fi
 
 ## Step 2: Enable Firebase Authentication
 
-1. In Firebase Console, click **"Authentication"** from left sidebar
+1. In Firebase Console (**Build**), click **"Authentication"** from left sidebar
 2. Click **"Get started"**
 3. Go to **"Sign-in method"** tab
 4. Enable **"Google"** provider:
@@ -42,7 +42,7 @@ This guide will walk you through setting up Firebase Authentication and Cloud Fi
 
 ## Step 3: Create Cloud Firestore Database
 
-1. In Firebase Console, click **"Firestore Database"** from left sidebar
+1. In Firebase Console (**Build**), click **"Firestore Database"** from left sidebar
 2. Click **"Create database"**
 3. Select **"Start in production mode"** (we'll configure rules next)
 4. Choose your Firestore location (e.g., `us-central1` or closest to your users)
@@ -90,7 +90,7 @@ service cloud.firestore {
 
 ## Step 5: Get Firebase Admin SDK Credentials
 
-1. In Firebase Console, click **⚙️ Settings** icon → **"Project settings"**
+1. In Project Overview, click **⚙️ Settings** icon → **"Project settings"**
 2. Go to **"Service accounts"** tab
 3. Click **"Generate new private key"**
 4. Confirm by clicking **"Generate key"**
@@ -108,7 +108,7 @@ service cloud.firestore {
 
 ## Step 6: Get Firebase Web API Configuration
 
-1. In Firebase Console → **Project settings** → **"General"** tab
+1. In Project Overview → **Project settings** → **"General"** tab
 2. Scroll down to **"Your apps"** section
 3. Click **Web icon** (</>) to add a web app
 4. Enter app nickname (e.g., `Text-Mining Web App`)
