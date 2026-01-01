@@ -1,28 +1,27 @@
 # .mailmap file to exclude Claude AI from Contributors
 # This file maps commit author names/emails to exclude them from GitHub Contributors page
 # Format: Proper Name <proper@email.com> <Commit Name> <commit@email.com>
+# Or: Proper Name <proper@email.com> Commit Name (without email)
 
-# Exclude Claude AI assistant contributions
-# Map all variations of Claude to vietlod
-vietlod <vietlod@gmail.com> <claude@anthropic.com>
-vietlod <vietlod@gmail.com> <claude@example.com>
-vietlod <vietlod@gmail.com> <claude@cursor.sh>
-vietlod <vietlod@gmail.com> Claude <claude@anthropic.com>
-vietlod <vietlod@gmail.com> Claude <claude@example.com>
-vietlod <vietlod@gmail.com> @claude <claude@anthropic.com>
-vietlod <vietlod@gmail.com> Claude AI <claude-ai@anthropic.com>
-vietlod <vietlod@gmail.com> Claude Sonnet <claude-sonnet@anthropic.com>
-vietlod <vietlod@gmail.com> Claude Opus <claude-opus@anthropic.com>
-vietlod <vietlod@gmail.com> claude <claude@anthropic.com>
-vietlod <vietlod@gmail.com> Claude <claude@cursor.sh>
-vietlod <vietlod@gmail.com> @claude <claude@cursor.sh>
-vietlod <vietlod@gmail.com> claude Claude <claude@anthropic.com>
-vietlod <vietlod@gmail.com> claude Claude <claude@example.com>
-vietlod <vietlod@gmail.com> claude Claude <claude@cursor.sh>
+# Exclude Claude AI assistant contributions - Map all variations to vietlod
 vietlod <vietlod@gmail.com> claude Claude
 vietlod <vietlod@gmail.com> Claude Claude
 vietlod <vietlod@gmail.com> @claude Claude
+vietlod <vietlod@gmail.com> claude Claude <claude@anthropic.com>
+vietlod <vietlod@gmail.com> claude Claude <claude@example.com>
+vietlod <vietlod@gmail.com> claude Claude <claude@cursor.sh>
+vietlod <vietlod@gmail.com> Claude <claude@anthropic.com>
+vietlod <vietlod@gmail.com> Claude <claude@example.com>
+vietlod <vietlod@gmail.com> Claude <claude@cursor.sh>
+vietlod <vietlod@gmail.com> @claude <claude@anthropic.com>
+vietlod <vietlod@gmail.com> @claude <claude@cursor.sh>
+vietlod <vietlod@gmail.com> claude <claude@anthropic.com>
+vietlod <vietlod@gmail.com> Claude AI <claude-ai@anthropic.com>
+vietlod <vietlod@gmail.com> Claude Sonnet <claude-sonnet@anthropic.com>
+vietlod <vietlod@gmail.com> Claude Opus <claude-opus@anthropic.com>
 
-# Ensure all commits are attributed to vietlod
-vietlod <vietlod@gmail.com>
+# Map any email containing claude to vietlod
+vietlod <vietlod@gmail.com> <claude@anthropic.com>
+vietlod <vietlod@gmail.com> <claude@example.com>
+vietlod <vietlod@gmail.com> <claude@cursor.sh>
 
