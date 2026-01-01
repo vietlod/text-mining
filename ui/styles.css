@@ -15,7 +15,9 @@
 }
 
 /* Header styling */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: #2c3e50;
     font-weight: 600;
 }
@@ -25,7 +27,7 @@ div[data-testid="metric-container"] {
     background-color: white;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid #e9ecef;
 }
 
@@ -52,4 +54,80 @@ div[data-testid="metric-container"] {
 /* Success/Info/Warning boxes */
 .stAlert {
     border-radius: 5px;
+}
+
+/* Task Card Styling */
+.task-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    display: block;
+}
+
+/* Specific Card Accents */
+.input-card {
+    border-left: 5px solid #3498db;
+    /* Blue */
+    background: linear-gradient(to right, #f8fbff, #ffffff);
+}
+
+.input-card h3 {
+    color: #2980b9;
+    border-bottom-color: #3498db;
+}
+
+.keyword-card {
+    border-left: 5px solid #27ae60;
+    /* Green */
+    background: linear-gradient(to right, #f0fff4, #ffffff);
+}
+
+.keyword-card h3 {
+    color: #219150;
+    border-bottom-color: #27ae60;
+}
+
+.mode-card {
+    border-left: 5px solid #8e44ad;
+    /* Purple */
+    background: linear-gradient(to right, #fbf4ff, #ffffff);
+}
+
+.mode-card h3 {
+    color: #8e44ad;
+    border-bottom-color: #9b59b6;
+}
+
+/* Sidebar improvements */
+[data-testid="stSidebar"] {
+    background-color: #f0f2f6;
+    border-right: 1px solid #e0e0e0;
+}
+
+[data-testid="stSidebar"] .block-container {
+    padding-top: 2rem;
+}
+
+/* Custom separator */
+.sidebar-separator {
+    margin: 1.5rem 0;
+    border-top: 1px solid #e0e0e0;
 }

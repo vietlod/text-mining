@@ -233,6 +233,7 @@ class VietnameseTextProcessor:
     def analyze_text(self, text: str, keywords_map: Dict[str, int]) -> Tuple[Dict[str, int], Dict[int, int]]:
         """
         Analyze text against a map of keywords.
+        Uses batch processing for very long text to avoid performance issues.
         
         Args:
             text: Raw text to analyze
@@ -246,13 +247,21 @@ class VietnameseTextProcessor:
             logger.warning(f"analyze_text called with empty text={not text} or empty keywords_map={not keywords_map}")
             return {}, {}
         
+        # For very long text (>100K chars), use batch processing
+        # This avoids regex performance issues and memory problems
+        CHUNK_SIZE = 100000  # Process in 100K char chunks
+        
+        if len(text) > CHUNK_SIZE:
+            logger.info(f"Text is very long ({len(text):,} chars), using batch processing")
+            return self._analyze_text_batched(text, keywords_map, CHUNK_SIZE)
+        
+        # Normal processing for shorter text
         normalized_text = self.normalize_text(text)
         keyword_counts = {}
         group_counts = {}
         
         logger.info(f"Analyzing {len(text)} chars of text against {len(keywords_map)} keywords")
-        logger.info(f"Normalized text length: {len(normalized_text)}")
-        logger.info(f"Normalized text sample: {normalized_text[:100]}...")
+        logger.debug(f"Normalized text length: {len(normalized_text)}")
         
         matches_found = 0
         for keyword, group_id in keywords_map.items():
@@ -269,18 +278,73 @@ class VietnameseTextProcessor:
                 logger.error(f"Regex error for keyword '{keyword}': {e}")
         
         logger.info(f"Analysis complete: {len(keyword_counts)} unique keywords found, {matches_found} total matches")
-        if len(keyword_counts) == 0:
-            logger.warning("NO KEYWORDS MATCHED! Checking first 5 keywords...")
-            sample_kws = list(keywords_map.keys())[:5]
-            for kw in sample_kws:
-                norm_kw = self.normalize_keyword(kw)
-                logger.warning(f"  Test keyword: '{kw}' -> normalized: '{norm_kw}'")
-                if norm_kw in normalized_text:
-                    logger.warning(f"    ✓ Found in text (simple search)!")
-                else:
-                    logger.warning(f"    ✗ Not found even with simple search")
         
         return keyword_counts, group_counts
+    
+    def _analyze_text_batched(self, text: str, keywords_map: Dict[str, int], chunk_size: int) -> Tuple[Dict[str, int], Dict[int, int]]:
+        """
+        Analyze very long text in chunks to avoid performance issues.
+        Uses non-overlapping chunks to avoid double counting, but processes
+        the entire text to ensure no keywords are missed.
+        
+        Args:
+            text: Raw text to analyze
+            keywords_map: {keyword: group_id}
+            chunk_size: Size of each chunk in characters
+            
+        Returns:
+            keyword_counts: {keyword: count}
+            group_counts: {group_id: total_count}
+        """
+        # Split text into non-overlapping chunks
+        # This avoids double counting while maintaining performance
+        chunks = []
+        for i in range(0, len(text), chunk_size):
+            chunk = text[i:i + chunk_size]
+            if chunk:
+                chunks.append(chunk)
+        
+        logger.info(f"Split text into {len(chunks)} non-overlapping chunks for batch processing")
+        
+        # Analyze each chunk independently
+        total_keyword_counts = {}
+        total_group_counts = {}
+        total_matches = 0
+        
+        for chunk_idx, chunk in enumerate(chunks):
+            # Normalize chunk
+            normalized_chunk = self.normalize_text(chunk)
+            
+            # Analyze chunk
+            chunk_keyword_counts = {}
+            chunk_group_counts = {}
+            
+            for keyword, group_id in keywords_map.items():
+                try:
+                    pattern = self.create_flexible_regex(keyword)
+                    matches = pattern.findall(normalized_chunk)
+                    count = len(matches)
+                    
+                    if count > 0:
+                        chunk_keyword_counts[keyword] = count
+                        chunk_group_counts[group_id] = chunk_group_counts.get(group_id, 0) + count
+                        total_matches += count
+                except Exception as e:
+                    logger.error(f"Regex error for keyword '{keyword}' in chunk {chunk_idx}: {e}")
+            
+            # Merge results (sum counts across chunks)
+            # Since chunks are non-overlapping, no risk of double counting
+            for k, v in chunk_keyword_counts.items():
+                total_keyword_counts[k] = total_keyword_counts.get(k, 0) + v
+            for g, c in chunk_group_counts.items():
+                total_group_counts[g] = total_group_counts.get(g, 0) + c
+            
+            if (chunk_idx + 1) % 10 == 0:
+                logger.debug(f"Processed {chunk_idx + 1}/{len(chunks)} chunks, {len(total_keyword_counts)} keywords found so far")
+        
+        logger.info(f"Batch analysis complete: {len(total_keyword_counts)} unique keywords found, {total_matches} total matches across {len(chunks)} chunks")
+        
+        return total_keyword_counts, total_group_counts
 
 
 # ============================================

@@ -25,9 +25,9 @@ class GoogleDriveManager:
     """
 
     # OAuth2 scopes for Drive access
+    # Using drive scope for full access (read and list files)
     SCOPES = [
-        'https://www.googleapis.com/auth/drive.readonly',
-        'https://www.googleapis.com/auth/drive.file'
+        'https://www.googleapis.com/auth/drive'
     ]
 
     def __init__(self, credentials_path: Optional[str] = None):
@@ -105,12 +105,22 @@ class GoogleDriveManager:
         try:
             from google_auth_oauthlib.flow import Flow
 
+            logger.info(f"[GoogleDriveManager] get_authorization_url called")
+            logger.info(f"  Redirect URI parameter: {redirect_uri}")
+            logger.info(f"  State: {state[:20] if state else 'None'}...")
+
+            # CRITICAL: Ensure redirect_uri is normalized (no trailing slash, exact match)
+            redirect_uri = redirect_uri.rstrip('/')
+            
             # Create flow
             self.flow = Flow.from_client_secrets_file(
                 self.credentials_path,
                 scopes=self.SCOPES,
                 redirect_uri=redirect_uri
             )
+
+            logger.info(f"  Flow created with redirect_uri: {self.flow.redirect_uri}")
+            logger.info(f"  Redirect URI match: {self.flow.redirect_uri == redirect_uri}")
 
             # Generate authorization URL
             auth_url, flow_state = self.flow.authorization_url(
@@ -120,7 +130,8 @@ class GoogleDriveManager:
                 state=state
             )
 
-            logger.info("Generated Google Drive authorization URL")
+            logger.info(f"  Generated authorization URL")
+            logger.info(f"  redirect_uri in URL: {redirect_uri}")
             return auth_url, flow_state
 
         except Exception as e:
@@ -129,7 +140,8 @@ class GoogleDriveManager:
 
     def exchange_code_for_token(self, code: str, redirect_uri: str) -> Dict[str, Any]:
         """
-        Exchange authorization code for access token.
+        Exchange authorization code for access token using manual HTTP request.
+        This bypasses the Flow library to have full control over the request.
 
         Args:
             code: Authorization code from OAuth callback.
@@ -139,35 +151,89 @@ class GoogleDriveManager:
             Dictionary containing credentials data.
         """
         try:
-            from google_auth_oauthlib.flow import Flow
+            import requests
+            import json
 
-            # Recreate flow (in case it's a new session)
-            self.flow = Flow.from_client_secrets_file(
-                self.credentials_path,
-                scopes=self.SCOPES,
-                redirect_uri=redirect_uri
-            )
+            logger.info(f"[GoogleDriveManager] exchange_code_for_token called (MANUAL MODE)")
+            
+            # CRITICAL: Normalize redirect_uri to match authorization URL
+            redirect_uri = redirect_uri.rstrip('/')
+            
+            logger.info(f"  Redirect URI: {redirect_uri}")
+            logger.info(f"  Code length: {len(code)}")
+            logger.info(f"  Code (first 30 chars): {code[:30]}...")
+            logger.info(f"  Code (last 10 chars): ...{code[-10:]}")
 
-            # Exchange code for token
-            self.flow.fetch_token(code=code)
-            credentials = self.flow.credentials
+            # Load client credentials
+            with open(self.credentials_path, 'r') as f:
+                creds = json.load(f)
 
-            # Convert to dictionary for storage
-            creds_dict = {
-                'token': credentials.token,
-                'refresh_token': credentials.refresh_token,
-                'token_uri': credentials.token_uri,
-                'client_id': credentials.client_id,
-                'client_secret': credentials.client_secret,
-                'scopes': credentials.scopes,
-                'expiry': credentials.expiry.isoformat() if credentials.expiry else None
+            client_id = creds['web']['client_id']
+            client_secret = creds['web']['client_secret']
+
+            logger.info(f"  Client ID: {client_id[:30]}...")
+
+            # Prepare token exchange request
+            token_url = 'https://oauth2.googleapis.com/token'
+            token_data = {
+                'code': code,
+                'client_id': client_id,
+                'client_secret': client_secret,
+                'redirect_uri': redirect_uri,
+                'grant_type': 'authorization_code'
             }
 
-            logger.info("Successfully exchanged code for Google Drive token")
+            logger.info(f"  Token URL: {token_url}")
+            logger.info(f"  Request data keys: {list(token_data.keys())}")
+            logger.info(f"  Sending POST request...")
+
+            # Make the request
+            response = requests.post(token_url, data=token_data)
+
+            logger.info(f"  Response status: {response.status_code}")
+
+            if response.status_code != 200:
+                logger.error(f"  Response body: {response.text}")
+                raise Exception(f"Token exchange failed: {response.status_code} - {response.text}")
+
+            # Parse response
+            token_response = response.json()
+            logger.info(f"  Response keys: {list(token_response.keys())}")
+
+            # Extract credentials
+            access_token = token_response.get('access_token')
+            refresh_token = token_response.get('refresh_token')
+            expires_in = token_response.get('expires_in')
+            token_type = token_response.get('token_type')
+
+            if not access_token:
+                raise Exception("No access_token in response")
+
+            logger.info(f"  ✅ Got access token!")
+            logger.info(f"  ✅ Got refresh token: {bool(refresh_token)}")
+
+            # Calculate expiry
+            from datetime import datetime, timedelta
+            expiry = None
+            if expires_in:
+                expiry = (datetime.utcnow() + timedelta(seconds=expires_in)).isoformat()
+
+            # Create credentials dictionary
+            creds_dict = {
+                'token': access_token,
+                'refresh_token': refresh_token,
+                'token_uri': 'https://oauth2.googleapis.com/token',
+                'client_id': client_id,
+                'client_secret': client_secret,
+                'scopes': self.SCOPES,
+                'expiry': expiry
+            }
+
+            logger.info("✅ Successfully exchanged code for Google Drive token (MANUAL MODE)")
             return creds_dict
 
         except Exception as e:
-            logger.error(f"Failed to exchange code for token: {e}")
+            logger.error(f"❌ Failed to exchange code for token: {e}", exc_info=True)
             raise
 
     def get_drive_service(self, credentials_dict: Dict[str, Any]):
@@ -280,6 +346,14 @@ class GoogleDriveManager:
             ).execute()
 
             files = results.get('files', [])
+            
+            # Ensure size is int (Google Drive API sometimes returns string)
+            for file_info in files:
+                if 'size' in file_info and file_info['size']:
+                    try:
+                        file_info['size'] = int(file_info['size'])
+                    except (ValueError, TypeError):
+                        file_info['size'] = 0
 
             logger.info(f"Found {len(files)} files in folder {folder_id}")
             return files

@@ -370,7 +370,13 @@ class SettingsManager:
                 f'{provider}_credentials_updated_at': firestore.SERVER_TIMESTAMP
             }, merge=True)
 
-            logger.info(f"{provider} credentials saved for user: {user_id}")
+            # Log folder info if it's Google Drive
+            if provider == 'google_drive':
+                folder_id = credentials.get('folder_id', 'Not set')
+                folder_name = credentials.get('folder_name', 'Not set')
+                logger.info(f"{provider} credentials saved for user: {user_id}, folder_id={folder_id}, folder_name={folder_name}")
+            else:
+                logger.info(f"{provider} credentials saved for user: {user_id}")
             return True
 
         except Exception as e:
@@ -494,4 +500,114 @@ class SettingsManager:
 
         except Exception as e:
             logger.error(f"Error deleting all settings: {e}")
+            return False
+
+    # ==================== OAuth State Management ====================
+
+    def save_oauth_state(self, user_id: str, state: str, oauth_type: str = 'drive') -> bool:
+        """
+        Save OAuth state to Firestore for persistence across redirects.
+
+        Args:
+            user_id: User ID.
+            state: OAuth state parameter.
+            oauth_type: Type of OAuth flow ('drive' or 'firebase').
+
+        Returns:
+            bool: True if successful, False otherwise.
+        """
+        try:
+            from firebase_admin import firestore
+            import time
+
+            self.db.collection('oauth_states').document(f"{user_id}_{state}").set({
+                'user_id': user_id,
+                'state': state,
+                'oauth_type': oauth_type,
+                'created_at': firestore.SERVER_TIMESTAMP,
+                'expires_at': time.time() + 600  # Expires in 10 minutes
+            })
+
+            logger.info(f"OAuth state saved for user: {user_id}, type: {oauth_type}")
+            return True
+
+        except Exception as e:
+            logger.error(f"Error saving OAuth state: {e}")
+            return False
+
+    def get_oauth_state(self, user_id: str, state: str) -> Optional[Dict[str, Any]]:
+        """
+        Get OAuth state from Firestore.
+
+        Args:
+            user_id: User ID (can be empty string to search by state only).
+            state: OAuth state parameter.
+
+        Returns:
+            Dictionary with state info if found, None otherwise.
+        """
+        try:
+            import time
+
+            # Try with user_id first (if provided)
+            if user_id:
+                doc = self.db.collection('oauth_states').document(f"{user_id}_{state}").get()
+                if doc.exists:
+                    data = doc.to_dict()
+                    expires_at = data.get('expires_at', 0)
+
+                    # Check if expired
+                    if time.time() > expires_at:
+                        logger.warning(f"OAuth state expired for user: {user_id}")
+                        # Delete expired state
+                        self.db.collection('oauth_states').document(f"{user_id}_{state}").delete()
+                        return None
+
+                    return data
+
+            # If not found with user_id, search by state in all documents
+            # This is useful when user_id is not known (e.g., before authentication)
+            from firebase_admin import firestore
+            states_ref = self.db.collection('oauth_states')
+            # Use filter keyword argument to avoid warning
+            query = states_ref.where(filter=firestore.FieldFilter('state', '==', state)).limit(1)
+            docs = query.stream()
+
+            for doc in docs:
+                data = doc.to_dict()
+                expires_at = data.get('expires_at', 0)
+
+                # Check if expired
+                if time.time() > expires_at:
+                    logger.warning(f"OAuth state expired")
+                    # Delete expired state
+                    doc.reference.delete()
+                    return None
+
+                return data
+
+            return None
+
+        except Exception as e:
+            logger.error(f"Error getting OAuth state: {e}")
+            return None
+
+    def delete_oauth_state(self, user_id: str, state: str) -> bool:
+        """
+        Delete OAuth state from Firestore.
+
+        Args:
+            user_id: User ID.
+            state: OAuth state parameter.
+
+        Returns:
+            bool: True if successful, False otherwise.
+        """
+        try:
+            self.db.collection('oauth_states').document(f"{user_id}_{state}").delete()
+            logger.debug(f"OAuth state deleted for user: {user_id}")
+            return True
+
+        except Exception as e:
+            logger.error(f"Error deleting OAuth state: {e}")
             return False

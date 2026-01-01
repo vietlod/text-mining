@@ -1,0 +1,349 @@
+---
+alwaysApply: true
+---
+
+# Testing Standards for TEXT-MINING
+
+## Test Structure
+
+### Test File Organization
+```
+tests/
+├── unit/
+│   ├── test_validators.py          # Input validation tests
+│   ├── test_extractors.py          # Text extraction logic
+│   ├── test_analyzers.py           # Keyword analysis
+│   ├── test_encryption.py          # Encryption functions
+│   └── test_utils.py               # Utility functions
+├── integration/
+│   ├── test_firebase_auth.py       # Firebase authentication
+│   ├── test_firestore_operations.py # Database operations
+│   ├── test_google_drive.py        # Google Drive API
+│   ├── test_onedrive.py            # OneDrive API
+│   └── test_gemini_ai.py           # Gemini API integration
+├── ui/
+│   ├── test_streamlit_components.py # UI component tests
+│   └── test_session_state.py       # Session state management
+├── conftest.py                      # Pytest fixtures
+└── README.md                        # Test documentation
+```
+
+### Pytest Setup for Backend
+```python
+# conftest.py - Shared fixtures
+import pytest
+import asyncio
+from unittest.mock import Mock, patch, MagicMock
+import firebase_admin
+from firebase_admin import firestore
+from cryptography.fernet import Fernet
+
+# Async support
+@pytest.fixture(scope="session")
+def event_loop():
+    """Create event loop for async tests."""
+    return asyncio.get_event_loop()
+
+# Mock Firebase
+@pytest.fixture
+def mock_firebase():
+    """Mock Firebase Admin SDK."""
+    with patch('firebase_admin.initialize_app'):
+        with patch('firebase_admin.auth') as mock_auth:
+            mock_auth.verify_id_token.return_value = {
+                'uid': 'test_user_123',
+                'email': 'test@example.com'
+            }
+            yield mock_auth
+
+# Mock Firestore
+@pytest.fixture
+def mock_firestore():
+    """Mock Firestore client."""
+    with patch('firebase_admin.firestore.client') as mock_fs:
+        mock_doc = MagicMock()
+        mock_doc.to_dict.return_value = {
+            'email': 'test@example.com',
+            'language': 'en'
+        }
+        mock_doc.exists = True
+        
+        mock_fs.collection().document().get.return_value = mock_doc
+        yield mock_fs
+
+# Encryption key
+@pytest.fixture
+def encryption_key():
+    """Get test encryption key."""
+    return Fernet.generate_key().decode()
+
+# Test async function
+@pytest.mark.asyncio
+async def test_fetch_user_profile(mock_firebase):
+    """Test async user profile fetch."""
+    from app.auth import fetch_user_profile
+    
+    result = await fetch_user_profile('test_user_123')
+    assert result['uid'] == 'test_user_123'
+```
+
+## Unit Tests
+
+### Validator Tests
+```python
+# tests/unit/test_validators.py
+import pytest
+from app.utils.validators import Validators
+
+class TestValidators:
+    """Test input validation functions."""
+    
+    def test_validate_email_valid(self):
+        """Valid email addresses pass."""
+        assert Validators.validate_email('user@example.com')
+        assert Validators.validate_email('test.email+tag@domain.co.uk')
+    
+    def test_validate_email_invalid(self):
+        """Invalid email addresses fail."""
+        assert not Validators.validate_email('invalid')
+        assert not Validators.validate_email('user@')
+        assert not Validators.validate_email('@example.com')
+    
+    def test_validate_api_key_format(self):
+        """API key must be at least 10 chars."""
+        assert not Validators.validate_api_key('short')
+        assert Validators.validate_api_key('a' * 20)
+    
+    def test_validate_file_size(self):
+        """File size validation."""
+        # 50 MB limit
+        assert Validators.validate_file_size(50_000_000)
+        assert not Validators.validate_file_size(51_000_000)
+    
+    def test_validate_file_type(self):
+        """File type validation."""
+        allowed = ['pdf', 'docx', 'txt']
+        assert Validators.validate_file_type('document.pdf', allowed)
+        assert not Validators.validate_file_type('script.exe', allowed)
+```
+
+### Encryption Tests
+```python
+# tests/unit/test_encryption.py
+import pytest
+from cryptography.fernet import Fernet
+from app.utils.encryption import encrypt_api_key, decrypt_api_key
+
+class TestEncryption:
+    """Test encryption functions."""
+    
+    @pytest.fixture
+    def encryption_key(self):
+        """Generate test encryption key."""
+        return Fernet.generate_key().decode()
+    
+    def test_encrypt_decrypt_roundtrip(self, encryption_key):
+        """Encryption roundtrip should preserve value."""
+        original = "my_secret_api_key_12345"
+        
+        encrypted = encrypt_api_key(original, encryption_key)
+        decrypted = decrypt_api_key(encrypted, encryption_key)
+        
+        assert decrypted == original
+    
+    def test_decrypt_invalid_key(self, encryption_key):
+        """Decryption with wrong key fails."""
+        original = "my_secret_api_key"
+        encrypted = encrypt_api_key(original, encryption_key)
+        
+        wrong_key = Fernet.generate_key().decode()
+        
+        with pytest.raises(ValueError):
+            decrypt_api_key(encrypted, wrong_key)
+    
+    def test_encrypt_empty_string(self, encryption_key):
+        """Empty string encryption handled."""
+        encrypted = encrypt_api_key("", encryption_key)
+        decrypted = decrypt_api_key(encrypted, encryption_key)
+        
+        assert decrypted == ""
+```
+
+## Integration Tests
+
+### Firebase Authentication Tests
+```python
+# tests/integration/test_firebase_auth.py
+import pytest
+from unittest.mock import patch, MagicMock
+import firebase_admin
+from app.auth.session_manager import SessionManager
+
+@pytest.mark.asyncio
+async def test_user_login_flow(mock_firebase):
+    """Test complete user login flow."""
+    # Mock Firebase auth response
+    mock_user = {
+        'uid': 'user_12345',
+        'email': 'user@example.com',
+        'display_name': 'Test User'
+    }
+    
+    with patch('app.auth.firebase_auth.verify_id_token') as mock_verify:
+        mock_verify.return_value = mock_user
+        
+        from app.auth import authenticate_user
+        result = await authenticate_user('user@example.com')
+        
+        assert result['uid'] == 'user_12345'
+        mock_verify.assert_called_once()
+
+def test_session_token_creation(encryption_key):
+    """Test session token creation and validation."""
+    mgr = SessionManager(encryption_key)
+    
+    user_data = {
+        'uid': 'test_user',
+        'email': 'test@example.com'
+    }
+    
+    token = mgr.create_session(user_data)
+    assert isinstance(token, str)
+    
+    verified = mgr.verify_session(token)
+    assert verified is not None
+    assert verified['uid'] == 'test_user'
+
+def test_session_token_expiration(encryption_key):
+    """Test expired session tokens are rejected."""
+    from datetime import timedelta, datetime
+    from unittest.mock import patch
+    
+    mgr = SessionManager(encryption_key)
+    user_data = {'uid': 'test', 'email': 'test@example.com'}
+    
+    token = mgr.create_session(user_data)
+    
+    # Mock current time as 25 hours in future
+    future_time = datetime.utcnow() + timedelta(hours=25)
+    with patch('app.auth.session_manager.datetime') as mock_datetime:
+        mock_datetime.utcnow.return_value = future_time
+        
+        verified = mgr.verify_session(token)
+        assert verified is None
+```
+
+### Firestore Tests
+```python
+# tests/integration/test_firestore_operations.py
+import pytest
+from unittest.mock import MagicMock, patch
+from app.database.firestore_manager import FirestoreManager
+
+@pytest.fixture
+def firestore_manager(mock_firestore):
+    """Create Firestore manager with mocked client."""
+    return FirestoreManager()
+
+@pytest.mark.asyncio
+async def test_save_user_settings(firestore_manager):
+    """Test saving user settings to Firestore."""
+    user_id = 'test_user_123'
+    settings = {
+        'language': 'en',
+        'theme': 'dark',
+        'notifications': True
+    }
+    
+    result = await firestore_manager.save_user_settings(user_id, settings)
+    assert result is True
+
+@pytest.mark.asyncio
+async def test_get_user_settings(firestore_manager, mock_firestore):
+    """Test retrieving user settings."""
+    user_id = 'test_user_123'
+    
+    # Mock Firestore response
+    mock_doc = MagicMock()
+    mock_doc.to_dict.return_value = {
+        'language': 'vi',
+        'theme': 'light'
+    }
+    mock_firestore.collection().document().get.return_value = mock_doc
+    
+    result = await firestore_manager.get_user_settings(user_id)
+    assert result['language'] == 'vi'
+```
+
+## UI Component Tests
+
+### Streamlit Component Testing
+```python
+# tests/ui/test_streamlit_components.py
+import pytest
+from unittest.mock import patch, MagicMock
+import streamlit as st
+from streamlit.testing.v1 import AppTest
+
+def test_api_key_input_component():
+    """Test API key input component."""
+    at = AppTest.from_file("ui/components/api_key_input.py")
+    at.run()
+    
+    # Check component renders
+    assert len(at.text_input) > 0
+    
+    # Check validation button
+    assert len(at.button) > 0
+
+def test_file_upload_component():
+    """Test file upload component."""
+    at = AppTest.from_file("ui/components/file_uploader.py")
+    at.run()
+    
+    # Check file uploader is present
+    assert len(at.file_uploader) > 0
+
+def test_theme_selector_component():
+    """Test theme switcher component."""
+    at = AppTest.from_file("ui/components/theme_selector.py")
+    at.run()
+    
+    # Check radio button for theme selection
+    assert len(at.radio) > 0
+```
+
+## Test Coverage Requirements
+
+### Coverage Targets
+- **Unit tests:** ≥95% coverage of utility functions
+- **Integration tests:** ≥80% coverage of API interactions
+- **UI tests:** ≥70% coverage of components
+- **Overall:** ≥90% coverage before merge
+
+### Running Tests
+```bash
+# All tests with coverage report
+pytest --cov=app --cov=ui --cov-report=html --cov-fail-under=90
+
+# Only unit tests
+pytest tests/unit/
+
+# Only integration tests
+pytest tests/integration/
+
+# With verbose output
+pytest -v --tb=short
+
+# Watch mode (on file changes)
+ptw  # requires pytest-watch
+
+# Specific test file
+pytest tests/unit/test_validators.py::TestValidators::test_validate_email_valid
+```
+
+---
+
+*Last Updated: December 31, 2025*
+*Project: TEXT-MINING v1.0*
+*Status: Production Ready*

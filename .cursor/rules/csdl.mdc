@@ -1,0 +1,393 @@
+---
+alwaysApply: true
+---
+
+# Database & Cloud Storage Standards for TEXT-MINING
+
+## Firebase Firestore Standards
+
+### Document Structure & Collections
+```python
+# CORRECT: Well-designed Firestore collections
+from typing import TypedDict, Optional
+from datetime import datetime
+
+class UserProfile(TypedDict):
+    """Firestore users collection document."""
+    uid: str
+    email: str
+    display_name: str
+    photo_url: Optional[str]
+    created_at: datetime
+    last_login: datetime
+    subscription_tier: str  # 'free', 'pro', 'enterprise'
+
+class UserSettings(TypedDict):
+    """Firestore user_settings subcollection."""
+    language: str  # 'en' or 'vi'
+    theme: str  # 'light', 'dark', 'system'
+    gemini_api_key_encrypted: Optional[str]
+    notifications_enabled: bool
+    updated_at: datetime
+
+# Collection structure
+users/
+├── {uid}/
+│   ├── profile: UserProfile
+│   ├── settings: UserSettings
+│   └── analysis_history/
+│       └── {analysis_id}: AnalysisResult
+
+# Document write example
+def save_user_settings(uid: str, settings: Dict) -> None:
+    """Save user settings to Firestore."""
+    db = firestore.client()
+    
+    doc_ref = db.collection('users').document(uid).collection('settings').document('current')
+    doc_ref.set({
+        'language': settings['language'],
+        'theme': settings['theme'],
+        'updated_at': datetime.utcnow()
+    })
+```
+
+### Async Firestore Operations
+```python
+# CORRECT: Async Firestore queries
+from concurrent.futures import ThreadPoolExecutor
+import asyncio
+
+async def fetch_user_profile(uid: str) -> Optional[Dict]:
+    """Fetch user profile asynchronously."""
+    try:
+        db = firestore.client()
+        
+        # Run in thread pool to avoid blocking Streamlit
+        loop = asyncio.get_event_loop()
+        doc = await loop.run_in_executor(
+            None,
+            lambda: db.collection('users').document(uid).get()
+        )
+        
+        if doc.exists:
+            return doc.to_dict()
+        return None
+    
+    except Exception as e:
+        logger.error(f"Failed to fetch user profile: {str(e)}")
+        raise
+
+# Usage in Streamlit
+if st.button("Load Profile"):
+    profile = asyncio.run(fetch_user_profile(user_id))
+    if profile:
+        st.write(profile)
+```
+
+### Security Rules
+```javascript
+// CORRECT: Firestore security rules for TEXT-MINING
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Users can only read/write their own documents
+    match /users/{uid} {
+      allow read, write: if request.auth.uid == uid;
+      
+      // Settings are private per user
+      match /settings/{doc=**} {
+        allow read, write: if request.auth.uid == uid;
+      }
+      
+      // Analysis history is private
+      match /analysis_history/{doc=**} {
+        allow read, write: if request.auth.uid == uid;
+      }
+    }
+    
+    // Allow reading public config data
+    match /config/{document=**} {
+      allow read: if true;
+      allow write: if false;  // Admin only
+    }
+  }
+}
+```
+
+---
+
+## Firebase Authentication Standards
+
+### User Session Management
+```python
+# CORRECT: Secure session management with Firebase
+import firebase_admin
+from firebase_admin import auth as firebase_auth
+from cryptography.fernet import Fernet
+import json
+
+class SessionManager:
+    """Manage user sessions securely."""
+    
+    def __init__(self, encryption_key: str):
+        """Initialize with Fernet encryption key."""
+        self.cipher = Fernet(encryption_key.encode())
+    
+    def create_session(self, user: Dict) -> str:
+        """
+        Create encrypted session token.
+        
+        Args:
+            user: User data from Firebase auth
+            
+        Returns:
+            Encrypted token for storage
+        """
+        session_data = {
+            'uid': user['uid'],
+            'email': user['email'],
+            'created_at': datetime.utcnow().isoformat(),
+            'expires_at': (datetime.utcnow() + timedelta(hours=24)).isoformat()
+        }
+        
+        json_data = json.dumps(session_data)
+        encrypted = self.cipher.encrypt(json_data.encode())
+        return encrypted.decode()
+    
+    def verify_session(self, token: str) -> Optional[Dict]:
+        """Verify and decrypt session token."""
+        try:
+            decrypted = self.cipher.decrypt(token.encode())
+            session_data = json.loads(decrypted.decode())
+            
+            # Check expiration
+            expires_at = datetime.fromisoformat(session_data['expires_at'])
+            if datetime.utcnow() > expires_at:
+                return None
+            
+            return session_data
+        except Exception:
+            return None
+
+# Usage in Streamlit
+session_mgr = SessionManager(encryption_key)
+token = session_mgr.create_session(user_data)
+st.session_state.session_token = token
+```
+
+### API Key Encryption
+```python
+# CORRECT: Encrypt sensitive API keys
+from cryptography.fernet import Fernet
+
+def encrypt_api_key(api_key: str, encryption_key: str) -> str:
+    """Encrypt API key for storage in Firestore."""
+    cipher = Fernet(encryption_key.encode())
+    encrypted = cipher.encrypt(api_key.encode())
+    return encrypted.decode()
+
+def decrypt_api_key(encrypted_key: str, encryption_key: str) -> str:
+    """Decrypt API key from Firestore."""
+    try:
+        cipher = Fernet(encryption_key.encode())
+        decrypted = cipher.decrypt(encrypted_key.encode())
+        return decrypted.decode()
+    except Exception as e:
+        logger.error(f"Failed to decrypt API key: {str(e)}")
+        raise ValueError("Invalid encryption key or corrupted data")
+
+# Store in Firestore
+def save_api_key(uid: str, api_key: str, encryption_key: str):
+    """Save encrypted API key to user settings."""
+    encrypted = encrypt_api_key(api_key, encryption_key)
+    
+    db = firestore.client()
+    db.collection('users').document(uid).collection('settings').document('current').update({
+        'gemini_api_key_encrypted': encrypted,
+        'updated_at': datetime.utcnow()
+    })
+```
+
+---
+
+## Google Cloud Integration
+
+### Google Drive API Standards
+```python
+# CORRECT: Type-safe Google Drive operations
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
+from google_auth_oauthlib.flow import Flow
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+
+class GoogleDriveManager:
+    """Manage Google Drive operations securely."""
+    
+    SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
+    
+    def __init__(self, credentials: Dict):
+        """Initialize with user credentials."""
+        self.credentials = Credentials.from_authorized_user_info(
+            credentials,
+            scopes=self.SCOPES
+        )
+        self.service = build('drive', 'v3', credentials=self.credentials)
+    
+    def list_files(self, query: str = "trashed=false") -> List[Dict]:
+        """
+        List files from Google Drive.
+        
+        Args:
+            query: Google Drive query string
+            
+        Returns:
+            List of file metadata
+        """
+        try:
+            results = self.service.files().list(
+                q=query,
+                spaces='drive',
+                fields='files(id, name, mimeType, createdTime, fileExtension)',
+                pageSize=50,
+                orderBy='createdTime desc'
+            ).execute()
+            
+            return results.get('files', [])
+        except HttpError as e:
+            logger.error(f"Google Drive API error: {str(e)}")
+            raise
+    
+    def download_file(self, file_id: str) -> bytes:
+        """Download file from Google Drive."""
+        try:
+            request = self.service.files().get_media(fileId=file_id)
+            file_content = request.execute()
+            return file_content
+        except HttpError as e:
+            logger.error(f"Download failed: {str(e)}")
+            raise
+```
+
+### Azure/OneDrive Integration
+```python
+# CORRECT: Microsoft Graph API for OneDrive
+import requests
+from typing import Optional
+
+class OneDriveManager:
+    """Manage OneDrive operations."""
+    
+    GRAPH_API_ENDPOINT = "https://graph.microsoft.com/v1.0"
+    
+    def __init__(self, access_token: str):
+        """Initialize with access token."""
+        self.access_token = access_token
+        self.headers = {
+            'Authorization': f'Bearer {access_token}',
+            'Content-Type': 'application/json'
+        }
+    
+    def list_files(self, drive_id: Optional[str] = None) -> List[Dict]:
+        """
+        List files from OneDrive.
+        
+        Args:
+            drive_id: Specific drive ID (optional)
+            
+        Returns:
+            List of file metadata
+        """
+        try:
+            if drive_id:
+                url = f"{self.GRAPH_API_ENDPOINT}/drives/{drive_id}/root/children"
+            else:
+                url = f"{self.GRAPH_API_ENDPOINT}/me/drive/root/children"
+            
+            response = requests.get(url, headers=self.headers, timeout=30)
+            response.raise_for_status()
+            
+            return response.json().get('value', [])
+        except requests.exceptions.RequestException as e:
+            logger.error(f"OneDrive API error: {str(e)}")
+            raise
+    
+    def download_file(self, file_id: str) -> bytes:
+        """Download file from OneDrive."""
+        try:
+            url = f"{self.GRAPH_API_ENDPOINT}/me/drive/items/{file_id}/content"
+            response = requests.get(url, headers=self.headers, timeout=30)
+            response.raise_for_status()
+            return response.content
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Download failed: {str(e)}")
+            raise
+```
+
+---
+
+## Data Validation Standards
+
+### Input Validation
+```python
+# CORRECT: Comprehensive input validation
+from typing import Union
+import re
+
+class Validators:
+    """Input validation utilities."""
+    
+    @staticmethod
+    def validate_email(email: str) -> bool:
+        """Validate email format."""
+        pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        return re.match(pattern, email) is not None
+    
+    @staticmethod
+    def validate_api_key(api_key: str, api_type: str = 'gemini') -> bool:
+        """
+        Validate API key format and connectivity.
+        
+        Args:
+            api_key: API key to validate
+            api_type: Type of API ('gemini', 'drive', etc)
+            
+        Returns:
+            True if valid, False otherwise
+        """
+        if not api_key or len(api_key) < 10:
+            return False
+        
+        if api_type == 'gemini':
+            try:
+                import google.generativeai as genai
+                genai.configure(api_key=api_key)
+                # Test with simple prompt
+                model = genai.GenerativeModel('gemini-pro')
+                model.generate_content('test')
+                return True
+            except Exception:
+                return False
+        
+        return False
+    
+    @staticmethod
+    def validate_file_size(file_size: int, max_size_mb: int = 50) -> bool:
+        """Validate file size."""
+        max_bytes = max_size_mb * 1024 * 1024
+        return file_size <= max_bytes
+    
+    @staticmethod
+    def validate_file_type(filename: str, allowed_types: List[str]) -> bool:
+        """Validate file extension."""
+        ext = filename.split('.')[-1].lower()
+        return ext in allowed_types
+```
+
+---
+
+*Last Updated: December 31, 2025*
+*Project: TEXT-MINING v1.0*
+*Frameworks: Firebase + Google Cloud + Streamlit*
+*Status: Production Ready*

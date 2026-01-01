@@ -1,0 +1,183 @@
+---
+alwaysApply: true
+---
+
+**These 10 rules are NON-NEGOTIABLE and must be followed in all TEXT-MINING development.**
+
+---
+
+## Rule 1: No Hardcoded Secrets
+- **Category:** Security
+- **Impact:** Critical - Data breach risk
+- **Forbidden in code:**
+  - Firebase credentials
+  - Google API keys
+  - Microsoft Azure credentials
+  - Gemini API keys
+  - OAuth client secrets
+  - Encryption keys
+  - Database credentials
+- **Required:** Use environment variables via `config/.env` or Streamlit secrets
+- **Encryption:** Sensitive data stored encrypted with Fernet
+
+## Rule 2: Type Safety Required
+- **Category:** Code Quality
+- **Impact:** High - Prevents runtime errors
+- **Requirements:**
+  - **Python:** Full type hints on ALL functions
+  - **Function signatures:** `def func(x: str, y: int) -> Dict[str, Any]:`
+  - **No typing.Any:** Use specific types or generics
+  - **Streamlit components:** Type hints on all UI functions
+  - **Data classes:** Use TypedDict or dataclasses
+
+## Rule 3: Security for Credentials
+- **Category:** Security (Specific to Cloud)
+- **Impact:** Critical - Prevent credential exposure
+- **Requirements:**
+  - All OAuth tokens must be validated server-side
+  - Credentials stored encrypted in Firestore
+  - Never pass credentials to client-side code
+  - Revoke expired tokens immediately
+  - Rotate encryption keys quarterly
+
+## Rule 4: Comprehensive Error Handling
+- **Category:** Reliability
+- **Impact:** Critical - Production stability
+- **Requirements:**
+  - All Streamlit UI has try-except blocks
+  - All Firebase calls handle auth errors
+  - All cloud API calls handle network errors
+  - All file operations handle IOError
+  - Specific error types caught (don't use bare `except`)
+  - User-friendly error messages (no stack traces to users)
+  - Log all errors with `logger.error()`
+
+## Rule 5: Single Feature Per Session
+- **Category:** Maintainability
+- **Impact:** High - Simplifies rollback and review
+- **Definition:** Implement ONE feature OR fix ONE bug per development session
+- **Exception:** Related changes to same file (test + implementation)
+- **Commit format:** `feat(scope): description` or `fix(scope): description`
+
+## Rule 6: Test Coverage >90%
+- **Category:** Quality Assurance
+- **Impact:** Critical - Prevents production failures
+- **Required Tests:**
+  1. **Unit Tests:** All utility functions, validators, formatters
+  2. **Integration Tests:** Firebase auth, cloud APIs, Firestore operations
+  3. **UI Tests:** Streamlit component behavior, state changes
+- **Minimum Pass Rate:** 90% tests must pass before deployment
+- **Tools:** pytest, pytest-asyncio, streamlit.testing
+
+## Rule 7: Always Update Documentation
+- **Category:** Knowledge Management
+- **Impact:** High - Team collaboration
+- **Mandatory Updates:**
+  1. **README.md** - Feature description + usage
+  2. **Feature guides** (e.g., AUTHENTICATION_GUIDE.md)
+  3. **Code comments** - JSDoc style docstrings
+  4. **Type docstrings** - Explain complex schemas
+  5. **CHANGELOG** - What changed and why
+- **Violation:** Cannot merge code without documentation
+
+## Rule 8: Data Validation at Boundaries
+- **Category:** Data Integrity & Security
+- **Impact:** High - Prevents invalid data
+- **Requirements:**
+  - **Streamlit input:** Validate file types, sizes, content
+  - **Cloud APIs:** Validate response structure before using
+  - **Firebase:** Firestore security rules enforce access
+  - **API Keys:** Always validate before first use
+  - **User input:** Never trust user data - sanitize first
+  - **External files:** Check magic bytes, not just extensions
+
+## Rule 9: Conventional Commits Format
+- **Category:** Version Control
+- **Impact:** Medium - History clarity
+- **Format:** `type(scope): description`
+- **Types:**
+  - `feat` - New feature
+  - `fix` - Bug fix
+  - `docs` - Documentation
+  - `test` - Tests only
+  - `refactor` - Code restructure (no behavior change)
+  - `chore` - Dependencies, config
+  - `security` - Security fixes
+- **Example:** `feat(auth): add Google Sign-in with Firebase`
+
+## Rule 10: Logging for Production Monitoring
+- **Category:** Observability
+- **Impact:** High - Identify production issues
+- **Requirements:**
+  - Use `logger.info()` for important events
+  - Use `logger.warning()` for potential issues
+  - Use `logger.error()` for actual errors
+  - Include context: `user_id`, `file_name`, `action`
+  - Log performance metrics (API latency, file size)
+  - Never log passwords, API keys, or sensitive data
+  - Use JSON logging format for parsing
+
+---
+
+## Enforcement Policy
+
+### Severity Levels
+- **Critical:** Rules 1, 3, 4, 6 - Cannot merge without compliance
+- **High:** Rules 2, 7, 8, 10 - Code review required
+- **Medium:** Rules 5, 9 - Warnings in PR comments
+
+### Violation Consequences
+1. **First Violation:** Warning with explanation + resource link
+2. **Repeated Violation:** Code review required before merge
+3. **Security Violation (Rule 1, 3):** Automatic rejection + team notification
+4. **Critical Violation:** Cannot merge until ALL fixed
+
+### Reporting & Documentation
+- Use GitHub PR comments with rule reference
+- Tag violations in commit messages
+- Document exceptions in CHANGELOG.md
+- Critical violations require team consensus
+
+---
+
+## Quick Checklist
+
+Before submitting pull request:
+- [ ] No secrets in code (Rule 1)
+- [ ] All functions have type hints (Rule 2)
+- [ ] Cloud credentials handled securely (Rule 3)
+- [ ] Error handling on all functions (Rule 4)
+- [ ] Single feature/fix in this PR (Rule 5)
+- [ ] Tests passing >90% (Rule 6)
+- [ ] Documentation updated (Rule 7)
+- [ ] Input validation present (Rule 8)
+- [ ] Conventional commit message (Rule 9)
+- [ ] Logging added for monitoring (Rule 10)
+
+---
+
+## TEXT-MINING Specific Rules
+
+### Streamlit-Specific
+- Never use `st.write()` for user input - always validate first
+- Cache with `@st.cache_resource` for Firebase/cloud clients
+- Use `st.session_state` for auth state (not Streamlit's `query_params`)
+- Clean up resources in sidebar or use context managers
+
+### Firebase-Specific
+- Always use async operations where possible
+- Never expose user UIDs in client logs
+- Implement Firestore security rules (not client-side access control)
+- Validate auth tokens on every request
+
+### Cloud Storage-Specific
+- Validate OAuth tokens before using them
+- Never store tokens unencrypted
+- Implement token refresh logic
+- Log all cloud API calls for debugging
+
+---
+
+*Last Updated: December 31, 2025*
+*Project: TEXT-MINING v1.0*
+*Status: Production Ready*

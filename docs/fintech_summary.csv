@@ -1,2 +1,0 @@
-File Name,Ticker,Year,Status,Processing_Time,Total_Keywords_Found,Text_Length,Processing_DateTime,Extraction_Method,Extraction_Quality,Group_1,Group_2,Group_3,Group_4,Group_5,Group_6,Group_7,Group_8,Group_9,Group_10,Group_11,Group_12,Group_13,Group_14,Group_15,Group_16
-VAB_2020.pdf,VAB,2020,success,1988.51,56,140199,2025-11-28T09:43:38.573382,pymupdf+pypdf2+ocr,medium,3,19,0,0,15,6,3,5,0,0,0,0,0,0,3,2

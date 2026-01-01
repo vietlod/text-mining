@@ -1,0 +1,359 @@
+---
+alwaysApply: true
+---
+
+# Code Quality Standards for TEXT-MINING
+
+## Python Standards (Streamlit)
+
+### Type Hints & Type Safety
+```python
+# CORRECT: Full type hints with Streamlit types
+from typing import Dict, List, Optional, Tuple, Any
+from streamlit.delta_generator import DeltaGenerator
+import pandas as pd
+
+def extract_keywords(
+    text: str,
+    keyword_file: Optional[pd.DataFrame] = None,
+    use_ai: bool = False
+) -> Dict[str, List[str]]:
+    """
+    Extract keywords from text.
+    
+    Args:
+        text: Input text to analyze
+        keyword_file: DataFrame with keyword definitions
+        use_ai: Whether to use Gemini AI
+        
+    Returns:
+        Dictionary mapping keyword groups to found matches
+        
+    Raises:
+        ValueError: If text is empty
+        FileNotFoundError: If keyword file missing
+        
+    Example:
+        >>> results = extract_keywords("Hello world", keywords_df)
+        >>> print(results['greeting'])  # ['Hello']
+    """
+    if not text:
+        raise ValueError("Text cannot be empty")
+    
+    # Implementation
+    return {}
+
+# WRONG: No type hints
+def extract_keywords(text, keyword_file=None, use_ai=False):
+    return {}
+```
+
+### Streamlit Component Patterns
+```python
+# CORRECT: Streamlit component with proper state management
+import streamlit as st
+from st_pages import Page, show_pages, add_page_title
+
+def render_api_key_input() -> str:
+    """Render API key input with validation."""
+    with st.form("api_key_form"):
+        api_key = st.text_input(
+            "Google Gemini API Key",
+            type="password",
+            help="https://aistudio.google.com/app/apikey"
+        )
+        
+        if st.form_submit_button("Validate API Key"):
+            if validate_api_key(api_key):
+                st.success("✅ API key is valid")
+                return api_key
+            else:
+                st.error("❌ Invalid API key")
+    
+    return ""
+
+@st.cache_resource
+def get_firebaseadmin_app():
+    """Initialize Firebase Admin SDK (cached)."""
+    return firebase_admin.initialize_app(cred)
+```
+
+### Error Handling in Streamlit
+```python
+# CORRECT: Proper error handling with user feedback
+async def process_documents(files: List, keywords: pd.DataFrame) -> Dict:
+    """
+    Process multiple documents with error recovery.
+    """
+    progress_bar = st.progress(0)
+    status_text = st.empty()
+    results = {}
+    errors = []
+    
+    try:
+        for idx, file in enumerate(files):
+            try:
+                status_text.text(f"Processing: {file.name}")
+                result = extract_from_file(file)
+                results[file.name] = result
+                progress_bar.progress((idx + 1) / len(files))
+            except FileTypeError as e:
+                logger.warning(f"Unsupported file type: {file.name}")
+                errors.append(f"❌ {file.name}: Unsupported format")
+            except OCRError as e:
+                logger.error(f"OCR failed for {file.name}: {str(e)}")
+                errors.append(f"❌ {file.name}: OCR failed")
+            except Exception as e:
+                logger.error(f"Unexpected error: {str(e)}", exc_info=True)
+                errors.append(f"❌ {file.name}: {str(e)}")
+        
+        if errors:
+            st.warning("\n".join(errors))
+        
+        return results
+    
+    except Exception as e:
+        logger.error(f"Critical error in batch processing: {str(e)}")
+        st.error(f"❌ Processing failed: {str(e)}")
+        raise
+```
+
+### Docstrings (Python)
+```python
+# CORRECT: Comprehensive docstrings for functions
+def authenticate_user(
+    email: str,
+    password: Optional[str] = None,
+    use_google_signin: bool = True
+) -> Optional[Dict[str, Any]]:
+    """
+    Authenticate user with Firebase.
+    
+    Supports multiple authentication methods:
+    - Google Sign-in (OAuth2)
+    - Email/Password (Firebase auth)
+    
+    Args:
+        email: User email address or Google account email
+        password: Password for email/password auth (optional)
+        use_google_signin: Whether to use Google Sign-in (default: True)
+        
+    Returns:
+        User data dictionary if successful:
+        {
+            'uid': str,
+            'email': str,
+            'name': str,
+            'photo_url': Optional[str],
+            'auth_token': str
+        }
+        None if authentication fails
+        
+    Raises:
+        ValueError: If email is invalid
+        firebase_admin.auth.AuthError: If Firebase auth fails
+        ConnectionError: If cannot connect to Firebase
+        
+    Security:
+        - Passwords never logged
+        - Tokens stored securely in Streamlit secrets
+        - OAuth tokens validated server-side
+        
+    Example:
+        >>> user = authenticate_user("user@gmail.com", use_google_signin=True)
+        >>> if user:
+        ...     st.success(f"Welcome, {user['name']}!")
+    """
+    # Implementation
+    pass
+```
+
+### Async/Await for I/O
+```python
+# CORRECT: Async operations for cloud APIs
+import asyncio
+from typing import Coroutine
+
+async def fetch_from_google_drive(
+    file_id: str,
+    credentials: Dict
+) -> bytes:
+    """
+    Fetch file from Google Drive asynchronously.
+    """
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(
+                f"https://www.googleapis.com/drive/v3/files/{file_id}",
+                headers={"Authorization": f"Bearer {credentials['access_token']}"}
+            ) as response:
+                if response.status == 200:
+                    return await response.read()
+                else:
+                    raise HTTPError(f"HTTP {response.status}")
+    except asyncio.TimeoutError:
+        logger.error("Drive API timeout")
+        raise
+    except Exception as e:
+        logger.error(f"Failed to fetch from Drive: {str(e)}")
+        raise
+
+# Usage in Streamlit
+if st.button("Fetch from Drive"):
+    file_bytes = asyncio.run(fetch_from_google_drive(file_id, creds))
+```
+
+### Logging Setup
+```python
+# CORRECT: Proper logging configuration
+import logging
+from pythonjsonlogger import jsonlogger
+
+# Configure JSON logging
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+handler = logging.StreamHandler()
+formatter = jsonlogger.JsonFormatter(
+    '%(timestamp)s %(level)s %(name)s %(message)s',
+    timestamp=True
+)
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+# Use in code
+logger.info("Application started", extra={"user_id": user_id})
+logger.warning("API quota low", extra={"remaining": 100})
+logger.error("Processing failed", extra={"file": filename, "error": str(e)})
+```
+
+---
+
+## Code Organization
+
+### File Structure
+```
+app/
+├── auth/                      # Authentication modules
+│   ├── firebase_manager.py    # Firebase Admin SDK
+│   ├── session_manager.py     # Session state
+│   └── oauth_handlers.py      # OAuth2 flows
+├── core/                      # Core business logic
+│   ├── extractor.py           # Text extraction
+│   ├── analyzer.py            # Keyword analysis
+│   ├── ocr_service.py         # OCR integration
+│   └── ai_service.py          # Gemini AI calls
+├── cloud/                     # Cloud integrations
+│   ├── google_drive_manager.py
+│   ├── onedrive_manager.py
+│   └── abstract_cloud.py      # Base cloud interface
+├── database/                  # Data persistence
+│   ├── settings_manager.py    # User settings
+│   └── firestore_manager.py   # Firestore operations
+├── utils/                     # Utilities
+│   ├── encryption.py          # Fernet encryption
+│   ├── validators.py          # Input validation
+│   └── formatters.py          # Data formatting
+└── config.py                  # Configuration
+
+ui/
+├── components/                # Reusable UI components
+│   ├── auth_ui.py            # Login/signup
+│   ├── api_key_input.py      # API key configuration
+│   ├── file_uploader.py      # File upload UI
+│   └── theme_selector.py     # Theme switcher
+├── main.py                    # Entry point (auth wrapper)
+└── main_app.py               # Main application
+```
+
+### Naming Conventions
+```python
+# Functions: snake_case
+def extract_keywords_from_text(text: str) -> Dict: pass
+
+# Classes: PascalCase
+class KeywordAnalyzer: pass
+
+# Constants: UPPER_SNAKE_CASE
+MAX_FILE_SIZE = 50_000_000
+DEFAULT_LANGUAGE = "en"
+
+# Private functions: _leading_underscore
+def _validate_api_key(key: str) -> bool: pass
+
+# Streamlit state keys: snake_case with prefix
+st.session_state.auth_user = None
+st.session_state.selected_files = []
+```
+
+### Imports Organization
+```python
+# Order: stdlib → third-party → local
+import asyncio  # standard library
+import json
+from typing import Dict, List, Optional
+
+import streamlit as st  # third-party
+import pandas as pd
+import firebase_admin
+from firebase_admin import firestore
+
+from app.auth import authenticate_user  # local
+from app.core import extract_keywords
+from config import Settings
+```
+
+---
+
+## Streamlit Best Practices
+
+### Session State Management
+```python
+# CORRECT: Initialize all session state in one place
+def initialize_session_state():
+    """Initialize Streamlit session state."""
+    defaults = {
+        'auth_user': None,
+        'session_token': None,
+        'user_settings': {},
+        'uploaded_files': [],
+        'extraction_results': None,
+        'show_advanced_options': False
+    }
+    
+    for key, value in defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = value
+
+# Call at app start
+if 'initialized' not in st.session_state:
+    initialize_session_state()
+    st.session_state.initialized = True
+```
+
+### Caching Strategies
+```python
+# CORRECT: Use appropriate caching for Firebase
+@st.cache_resource
+def get_firebaseadmin():
+    """Get Firebase Admin instance (cache forever)."""
+    cred = firebase_admin.credentials.Certificate(config_path)
+    return firebase_admin.initialize_app(cred)
+
+@st.cache_data(ttl=3600)
+def get_user_settings(user_id: str) -> Dict:
+    """Get user settings (cache 1 hour)."""
+    db = firestore.client()
+    doc = db.collection('users').document(user_id).get()
+    return doc.to_dict() if doc.exists else {}
+
+# Don't cache auth state or user input!
+# st.cache doesn't work with auth - use session_state instead
+```
+
+---
+
+*Last Updated: December 31, 2025*
+*Project: TEXT-MINING v1.0*
+*Framework: Streamlit + Python*
+*Status: Production Ready*

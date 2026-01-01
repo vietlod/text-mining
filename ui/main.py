@@ -11,6 +11,7 @@ This is the new main file that includes:
 import streamlit as st
 import os
 import sys
+import logging
 
 # Add project root to sys.path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -21,6 +22,8 @@ if project_root not in sys.path:
 from app.auth.firebase_manager import firebase_manager
 from app.auth.session_manager import SessionManager
 from app.auth.streamlit_auth import StreamlitAuth, render_user_menu
+
+logger = logging.getLogger(__name__)
 
 # Page Config (must be first Streamlit command)
 st.set_page_config(
@@ -94,24 +97,30 @@ def main():
     # Initialize session
     SessionManager.initialize_session()
 
-    # Initialize Firebase
+    # Initialize Firebase (for Drive credentials storage, not for authentication)
     firebase_ready = initialize_firebase()
 
     if not firebase_ready:
-        render_setup_warning()
+        # If Firebase not available, still allow access but warn about Drive features
+        st.warning("⚠️ Firebase not configured. Google Drive connection will not be available.")
+        # Still render app without authentication
+        render_app_without_auth()
         return
 
-    # Create auth handler
-    auth = StreamlitAuth(firebase_manager)
-
-    # Check authentication
-    if not auth.is_authenticated():
-        # Show login page
-        auth.render_login_page()
+    # TEMPORARY: Bypass authentication - allow direct access
+    # Google Drive OAuth will work with guest user
+    logger.info("Authentication bypassed - allowing direct access to app")
+    
+    # Check for Drive OAuth callback
+    query_params = st.query_params
+    if 'code' in query_params:
+        # This is likely a Drive OAuth callback
+        logger.info("OAuth callback detected - processing Drive connection")
+        render_app_without_auth()
         return
 
-    # User is authenticated - render main app
-    render_authenticated_app()
+    # Render app without authentication requirement
+    render_app_without_auth()
 
 
 def render_authenticated_app():
@@ -122,6 +131,37 @@ def render_authenticated_app():
 
     # Render user menu in sidebar
     render_user_menu()
+
+    # Render main application
+    render_main_app()
+
+
+def render_app_without_auth():
+    """Render the main application without authentication requirement."""
+    
+    # Import main app logic (to avoid circular imports)
+    from ui.main_app import render_main_app
+
+    # Create a guest user session for Drive credentials storage
+    # Use unique session ID for each browser session to isolate credentials
+    if 'guest_session_id' not in st.session_state:
+        import uuid
+        st.session_state.guest_session_id = str(uuid.uuid4())[:8]
+        logger.info(f"Generated unique guest session ID: {st.session_state.guest_session_id}")
+    
+    guest_user_id = f'guest_{st.session_state.guest_session_id}'
+    
+    # Set guest user in session if not already set or if user_id changed
+    current_user = SessionManager.get_current_user()
+    if not SessionManager.is_authenticated() or (current_user and current_user.get('uid') != guest_user_id):
+        guest_user = {
+            'uid': guest_user_id,
+            'email': f'guest_{st.session_state.guest_session_id}@local.app',
+            'name': f'Guest User ({st.session_state.guest_session_id})',
+            'email_verified': False
+        }
+        SessionManager.set_user(guest_user, None)
+        logger.info(f"Guest user session created: {guest_user_id}")
 
     # Render main application
     render_main_app()

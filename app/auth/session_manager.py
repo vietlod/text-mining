@@ -26,7 +26,7 @@ class SessionManager:
     KEY_USER = 'user'
     KEY_ID_TOKEN = 'id_token'
     KEY_FIREBASE_INITIALIZED = 'firebase_initialized'
-    KEY_LANGUAGE = 'language'
+    # KEY_LANGUAGE removed - language feature removed
     KEY_THEME = 'theme'
 
     @staticmethod
@@ -50,9 +50,7 @@ class SessionManager:
         if SessionManager.KEY_FIREBASE_INITIALIZED not in st.session_state:
             st.session_state[SessionManager.KEY_FIREBASE_INITIALIZED] = False
 
-        # User preferences
-        if SessionManager.KEY_LANGUAGE not in st.session_state:
-            st.session_state[SessionManager.KEY_LANGUAGE] = 'en'  # Default language
+        # Language feature removed - using Vietnamese text directly
 
         if SessionManager.KEY_THEME not in st.session_state:
             st.session_state[SessionManager.KEY_THEME] = 'system'  # Default theme
@@ -148,30 +146,7 @@ class SessionManager:
 
         logger.info(f"User logged out: {user_email}")
 
-    @staticmethod
-    def set_language(language: str) -> None:
-        """
-        Set user language preference.
-
-        Args:
-            language: Language code ('en' or 'vi').
-        """
-        if language not in ['en', 'vi']:
-            logger.warning(f"Invalid language code: {language}. Using 'en'.")
-            language = 'en'
-
-        st.session_state[SessionManager.KEY_LANGUAGE] = language
-        logger.debug(f"Language set to: {language}")
-
-    @staticmethod
-    def get_language() -> str:
-        """
-        Get current language preference.
-
-        Returns:
-            str: Language code ('en' or 'vi').
-        """
-        return st.session_state.get(SessionManager.KEY_LANGUAGE, 'en')
+    # Language methods removed - language feature removed
 
     @staticmethod
     def set_theme(theme: str) -> None:
@@ -229,7 +204,6 @@ class SessionManager:
         return {
             'authenticated': SessionManager.is_authenticated(),
             'user': SessionManager.get_current_user(),
-            'language': SessionManager.get_language(),
             'theme': SessionManager.get_theme(),
             'firebase_initialized': SessionManager.is_firebase_initialized()
         }

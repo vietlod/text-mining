@@ -51,19 +51,17 @@ def validate_gemini_api_key(api_key: str) -> tuple[bool, str]:
             return False, f"❌ Validation failed: {error_msg[:100]}"
 
 
-def render_api_key_input(settings_manager, user_id: str, language: str = 'en'):
+def render_api_key_input(settings_manager, user_id: str):
     """
     Render API key configuration UI.
 
     Args:
         settings_manager: SettingsManager instance.
         user_id: Current user ID.
-        language: UI language ('en' or 'vi').
     """
 
-    # Translations
-    translations = {
-        'en': {
+    # Vietnamese translations (hardcoded)
+    t = {
             'title': '🔑 Google Gemini API Configuration',
             'subtitle': 'Configure your personal Gemini API key',
             'configured': 'API key configured',
@@ -96,46 +94,8 @@ def render_api_key_input(settings_manager, user_id: str, language: str = 'en'):
 - 1 million tokens per day
 - Sufficient for personal use
             ''',
-            'security_note': '🔒 Your API key is encrypted and stored securely in your user profile.'
-        },
-        'vi': {
-            'title': '🔑 Cấu hình Google Gemini API',
-            'subtitle': 'Cấu hình khóa API Gemini cá nhân của bạn',
-            'configured': 'Đã cấu hình khóa API',
-            'not_configured': 'Chưa cấu hình khóa API',
-            'show_key': 'Hiển thị khóa API',
-            'hide_key': 'Ẩn khóa API',
-            'input_label': 'Khóa API Gemini',
-            'input_help': 'Nhập khóa API Google Gemini của bạn',
-            'caption': '💡 Chưa có khóa API?',
-            'get_key_link': 'Tạo khóa API miễn phí tại đây',
-            'save_button': '💾 Lưu khóa API',
-            'delete_button': '🗑️ Xóa khóa API',
-            'validating': 'Đang xác thực khóa API...',
-            'save_success': 'Đã lưu khóa API thành công!',
-            'save_error': 'Lưu khóa API thất bại. Vui lòng thử lại.',
-            'delete_confirm': 'Bạn có chắc muốn xóa khóa API?',
-            'delete_success': 'Đã xóa khóa API thành công!',
-            'delete_error': 'Xóa khóa API thất bại.',
-            'enter_key_warning': 'Vui lòng nhập khóa API',
-            'instructions_title': '📖 Cách lấy khóa API',
-            'instructions': '''
-1. Truy cập [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Đăng nhập bằng tài khoản Google
-3. Nhấn "Create API Key"
-4. Sao chép khóa được tạo
-5. Dán vào ô bên trên
-
-**Gói miễn phí bao gồm:**
-- 15 yêu cầu mỗi phút
-- 1 triệu token mỗi ngày
-- Đủ cho sử dụng cá nhân
-            ''',
             'security_note': '🔒 Khóa API của bạn được mã hóa và lưu trữ an toàn trong hồ sơ người dùng.'
         }
-    }
-
-    t = translations.get(language, translations['en'])
 
     # Section header
     st.markdown(f"### {t['title']}")

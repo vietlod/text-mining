@@ -5,7 +5,16 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git checkout:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(rm:*)",
+      "Bash(git tag:*)",
+      "Bash(pip:*)",
+      "Bash(if [ -f \"config/firebase_config.json\" ])",
+      "Bash(then python -m json.tool config/firebase_config.json)",
+      "Bash(else echo \"⚠️  firebase_config.json not found (optional for testing)\")",
+      "Bash(fi)",
+      "Bash(pip-audit:*)",
+      "Bash(iconv:*)"
     ],
     "deny": [],
     "ask": []

@@ -137,6 +137,197 @@ class GeminiService:
         """Extract text from a PDF page image."""
         return self.extract_text_from_image(image_data, mime_type='image/png')
 
+    def extract_text_from_pdf_direct(self, pdf_path):
+        """
+        Extract text from PDF by uploading directly to Gemini (if supported).
+        This is more efficient than converting to images.
+        
+        Args:
+            pdf_path: Path to PDF file
+            
+        Returns:
+            (text, tokens, quality_score)
+            quality_score: 0-100, higher = better quality
+        """
+        if not self.model:
+            logger.error(f"Model not available: {self.init_error}")
+            return "", 0, 0
+        
+        try:
+            import fitz
+            import os
+            
+            # Check if file exists
+            if not os.path.exists(pdf_path):
+                logger.error(f"PDF file not found: {pdf_path}")
+                return "", 0, 0
+            
+            file_size = os.path.getsize(pdf_path)
+            logger.info(f"Attempting direct PDF upload: {pdf_path} ({file_size:,} bytes)")
+            
+            # Try to upload PDF directly to Gemini
+            # Note: Gemini 1.5+ supports PDF uploads
+            try:
+                # Check if upload_file is available
+                if not hasattr(genai, 'upload_file'):
+                    raise AttributeError("genai.upload_file not available in this version")
+                
+                # Upload file to Gemini
+                uploaded_file = genai.upload_file(path=pdf_path)
+                logger.info(f"PDF uploaded successfully: {uploaded_file.uri}")
+                
+                # Extract text with quality assessment prompt
+                # CRITICAL: Request COMPLETE, EXHAUSTIVE extraction - no summarization, no omissions
+                # AI models have semantic understanding and context awareness, so they should extract MORE keywords than simple text extraction
+                prompt = """You are extracting text from a PDF document for keyword analysis using advanced AI capabilities. 
+
+IMPORTANT: You have semantic understanding and context awareness that simple text extraction methods (like PyMuPDF, PyPDF2, OCR) lack. 
+These simple methods only extract raw text without understanding meaning. You should:
+1. Extract EVERY SINGLE WORD, EVERY NUMBER, EVERY SYMBOL from EVERY PAGE (same as simple extraction)
+2. PLUS leverage your AI capabilities to capture MORE comprehensive content:
+   - Synonyms and variations that simple extraction might miss
+   - Contextual meanings and related terms
+   - Acronyms and abbreviations in context (e.g., "NH" = "ngân hàng")
+   - Technical terms and domain-specific vocabulary
+   - Implicit references and related concepts
+
+This is CRITICAL - you must extract EVERYTHING:
+
+MANDATORY EXTRACTION RULES (NO EXCEPTIONS):
+1. Extract text from ALL pages sequentially (page 1, 2, 3... to the last page)
+2. Do NOT skip any pages, sections, paragraphs, sentences, or words
+3. Do NOT summarize, paraphrase, or condense any content
+4. Do NOT omit headers, footers, tables, captions, or any text elements
+5. Extract EVERY occurrence of text, even if it appears multiple times
+6. Preserve Vietnamese diacritics EXACTLY (ă, â, đ, ê, ô, ơ, ư, etc.) - do not modify
+7. Maintain original line breaks and formatting structure
+8. Include ALL numbers, dates, percentages, and numerical data
+9. Extract text from tables cell-by-cell, row-by-row
+10. Include ALL text from appendices, references, and supplementary materials
+
+WHAT TO EXTRACT:
+- Main body text (every paragraph, every sentence)
+- Headers and subheaders (all levels)
+- Table content (every cell, every row)
+- Figure captions and image descriptions
+- Footnotes and endnotes
+- Page numbers and headers/footers
+- Lists and bullet points (every item)
+- Any text in sidebars, boxes, or callouts
+- References and bibliography entries
+
+WHAT NOT TO DO:
+- DO NOT summarize paragraphs into shorter versions
+- DO NOT skip "less important" sections
+- DO NOT combine similar content
+- DO NOT omit repetitive text
+- DO NOT truncate long sections
+- DO NOT interpret or rephrase content
+
+LEVERAGE YOUR AI CAPABILITIES:
+- Use semantic understanding to identify related terms and concepts
+- Recognize synonyms, variations, and contextual meanings
+- Understand domain-specific terminology and technical jargon
+- Identify acronyms and abbreviations in context
+- Capture implicit references and related concepts
+
+Remember: Simple text extraction methods (like PyMuPDF, PyPDF2) only extract raw text. 
+You have the advantage of understanding context, so you should extract MORE comprehensive content than simple extraction methods.
+
+After extraction, assess the quality on a scale of 0-100 where:
+- 90-100: Excellent quality, ALL text clearly readable, COMPLETE extraction from ALL pages
+- 70-89: Good quality, most text readable with minor issues
+- 50-69: Medium quality, some text unclear or missing
+- 30-49: Poor quality, significant text missing or unreadable
+- 0-29: Very poor quality, most text unreadable
+
+Format your response EXACTLY as:
+QUALITY_SCORE: [number]
+TEXT:
+[complete extracted text from all pages here - NO SUMMARIES, NO OMISSIONS]
+"""
+                
+                logger.info("Sending PDF to Gemini for direct extraction...")
+                response = self.model.generate_content([
+                    prompt,
+                    uploaded_file
+                ])
+                
+                text = response.text if response and response.text else ""
+                tokens = 0
+                
+                if hasattr(response, 'usage_metadata') and response.usage_metadata:
+                    tokens = getattr(response.usage_metadata, 'total_token_count', 0)
+                
+                # Parse quality score from response
+                quality_score = 50  # Default medium quality
+                if "QUALITY_SCORE:" in text:
+                    try:
+                        quality_line = [line for line in text.split('\n') if 'QUALITY_SCORE:' in line][0]
+                        quality_score = int(re.search(r'\d+', quality_line).group())
+                        # Remove quality score line from text
+                        text = '\n'.join([line for line in text.split('\n') if 'QUALITY_SCORE:' not in line])
+                        text = text.replace('TEXT:', '').strip()
+                    except:
+                        pass
+                
+                logger.info(f"Direct PDF extraction: {len(text)} chars, quality={quality_score}, {tokens} tokens")
+                
+                # Clean up uploaded file
+                try:
+                    genai.delete_file(uploaded_file.name)
+                except:
+                    pass
+                
+                return text, tokens, quality_score
+                
+            except Exception as upload_error:
+                logger.warning(f"Direct PDF upload not supported or failed: {upload_error}")
+                logger.info("Falling back to text extraction from PDF structure...")
+                
+                # Fallback: Extract text using PyMuPDF and send to Gemini for analysis
+                doc = fitz.open(pdf_path)
+                extracted_text = ""
+                for page in doc:
+                    extracted_text += page.get_text() + "\n"
+                doc.close()
+                
+                if len(extracted_text.strip()) < 100:
+                    # Very little text extracted, quality is poor
+                    return extracted_text, 0, 20
+                
+                # Assess quality by sending extracted text to Gemini
+                quality_prompt = f"""Assess the quality of this extracted PDF text on a scale of 0-100.
+
+Text sample (first 2000 chars):
+{extracted_text[:2000]}
+
+Consider:
+- Completeness: Are there missing sections?
+- Readability: Is the text clear and well-formatted?
+- Vietnamese content: Are diacritics preserved?
+
+Respond with ONLY a number 0-100 representing quality score."""
+
+                try:
+                    quality_response = self.model.generate_content(quality_prompt)
+                    quality_text = quality_response.text.strip()
+                    quality_score = int(re.search(r'\d+', quality_text).group()) if re.search(r'\d+', quality_text) else 50
+                except:
+                    quality_score = 50
+                
+                tokens = 0
+                if hasattr(quality_response, 'usage_metadata') and quality_response.usage_metadata:
+                    tokens = getattr(quality_response.usage_metadata, 'total_token_count', 0)
+                
+                logger.info(f"Text extraction quality assessment: {quality_score}/100, {tokens} tokens")
+                return extracted_text, tokens, quality_score
+                
+        except Exception as e:
+            logger.error(f"extract_text_from_pdf_direct FAILED: {e}")
+            logger.error(traceback.format_exc())
+            return "", 0, 0
+
     def search_keywords_in_image(self, image_data, keywords: list, mime_type='image/png', semantic_threshold=85):
         """Search for keywords in a document image with semantic matching."""
         logger.info(f"search_keywords_in_image called, {len(keywords)} keywords, threshold={semantic_threshold}%, image size: {len(image_data)} bytes")

@@ -10,18 +10,16 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def render_theme_selector(theme_manager, language: str = 'en'):
+def render_theme_selector(theme_manager):
     """
     Render theme selector UI.
 
     Args:
         theme_manager: ThemeManager instance.
-        language: UI language ('en' or 'vi').
     """
 
-    # Translations
-    translations = {
-        'en': {
+    # Vietnamese translations (hardcoded)
+    t = {
             'title': '🎨 Theme',
             'subtitle': 'Choose your preferred theme',
             'light': 'Light',
@@ -29,21 +27,6 @@ def render_theme_selector(theme_manager, language: str = 'en'):
             'system': 'System (Auto)',
             'current_theme': 'Current theme',
             'system_detected': 'System detected',
-            'apply_success': 'Theme applied successfully!',
-            'description': {
-                'light': 'Bright theme with light colors',
-                'dark': 'Dark theme for low-light environments',
-                'system': 'Automatically match your system theme'
-            }
-        },
-        'vi': {
-            'title': '🎨 Giao diện',
-            'subtitle': 'Chọn giao diện ưa thích',
-            'light': 'Sáng',
-            'dark': 'Tối',
-            'system': 'Hệ thống (Tự động)',
-            'current_theme': 'Giao diện hiện tại',
-            'system_detected': 'Hệ thống phát hiện',
             'apply_success': 'Đã áp dụng giao diện thành công!',
             'description': {
                 'light': 'Giao diện sáng với màu sáng',
@@ -51,9 +34,6 @@ def render_theme_selector(theme_manager, language: str = 'en'):
                 'system': 'Tự động theo giao diện hệ thống'
             }
         }
-    }
-
-    t = translations.get(language, translations['en'])
 
     # Section header
     st.markdown(f"### {t['title']}")
@@ -167,32 +147,21 @@ def _render_theme_preview(theme_name: str, translations: dict):
     st.caption("Sample caption text")
 
 
-def render_compact_theme_selector(theme_manager, language: str = 'en'):
+def render_compact_theme_selector(theme_manager):
     """
     Render compact theme selector for sidebar.
 
     Args:
         theme_manager: ThemeManager instance.
-        language: UI language ('en' or 'vi').
     """
 
-    # Translations
-    translations = {
-        'en': {
-            'theme': 'Theme',
-            'light': 'Light',
-            'dark': 'Dark',
-            'system': 'System'
-        },
-        'vi': {
-            'theme': 'Giao diện',
-            'light': 'Sáng',
-            'dark': 'Tối',
-            'system': 'Hệ thống'
-        }
+    # Vietnamese translations (hardcoded)
+    t = {
+        'theme': 'Giao diện',
+        'light': 'Sáng',
+        'dark': 'Tối',
+        'system': 'Hệ thống'
     }
-
-    t = translations.get(language, translations['en'])
 
     # Get current preference
     current_preference = theme_manager.settings_manager.get_theme_preference(theme_manager.user_id) or 'system'
