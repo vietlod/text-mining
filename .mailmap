@@ -1,0 +1,18 @@
+# .mailmap file to exclude Claude AI from Contributors
+# This file maps commit author names/emails to exclude them from GitHub Contributors page
+# Format: Proper Name <proper@email.com> <Commit Name> <commit@email.com>
+
+# Exclude Claude AI assistant contributions
+vietlod <vietlod@gmail.com> Claude <claude@anthropic.com>
+vietlod <vietlod@gmail.com> Claude <claude@example.com>
+vietlod <vietlod@gmail.com> @claude <claude@anthropic.com>
+vietlod <vietlod@gmail.com> Claude AI <claude-ai@anthropic.com>
+vietlod <vietlod@gmail.com> Claude Sonnet <claude-sonnet@anthropic.com>
+vietlod <vietlod@gmail.com> Claude Opus <claude-opus@anthropic.com>
+vietlod <vietlod@gmail.com> claude <claude@anthropic.com>
+vietlod <vietlod@gmail.com> Claude <claude@cursor.sh>
+vietlod <vietlod@gmail.com> @claude <claude@cursor.sh>
+
+# Ensure all commits are attributed to vietlod
+vietlod <vietlod@gmail.com>
+
