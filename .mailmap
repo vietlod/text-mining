@@ -3,6 +3,10 @@
 # Format: Proper Name <proper@email.com> <Commit Name> <commit@email.com>
 
 # Exclude Claude AI assistant contributions
+# Map all variations of Claude to vietlod
+vietlod <vietlod@gmail.com> <claude@anthropic.com>
+vietlod <vietlod@gmail.com> <claude@example.com>
+vietlod <vietlod@gmail.com> <claude@cursor.sh>
 vietlod <vietlod@gmail.com> Claude <claude@anthropic.com>
 vietlod <vietlod@gmail.com> Claude <claude@example.com>
 vietlod <vietlod@gmail.com> @claude <claude@anthropic.com>
@@ -12,6 +16,12 @@ vietlod <vietlod@gmail.com> Claude Opus <claude-opus@anthropic.com>
 vietlod <vietlod@gmail.com> claude <claude@anthropic.com>
 vietlod <vietlod@gmail.com> Claude <claude@cursor.sh>
 vietlod <vietlod@gmail.com> @claude <claude@cursor.sh>
+vietlod <vietlod@gmail.com> claude Claude <claude@anthropic.com>
+vietlod <vietlod@gmail.com> claude Claude <claude@example.com>
+vietlod <vietlod@gmail.com> claude Claude <claude@cursor.sh>
+vietlod <vietlod@gmail.com> claude Claude
+vietlod <vietlod@gmail.com> Claude Claude
+vietlod <vietlod@gmail.com> @claude Claude
 
 # Ensure all commits are attributed to vietlod
 vietlod <vietlod@gmail.com>
